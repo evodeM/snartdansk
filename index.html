@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Indfødsretslisten (L 98) - SnartDansk</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        /* Highlight styling */
+        .highlight {
+            background-color: #dbeafe;
+            color: #1e40af;
+            border-radius: 4px;
+            padding: 0 2px;
+            font-weight: 700;
+        }
+
+        /* Card Animation */
+        .result-card {
+            opacity: 0;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Pulse Dot Animation */
+        .pulse-dot {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+            }
+
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-slate-50 min-h-screen text-slate-900 leading-normal antialiased selection:bg-blue-100 selection:text-blue-900">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <div class="max-w-3xl mx-auto px-4 py-12 sm:px-6">
+
+        <!-- Header -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                Indfødsretslisten <span class="text-blue-600">L 98</span>
+            </h1>
+            <p class="text-slate-500 font-medium text-lg">Tjek om du er på lovforslaget fra januar 2026</p>
+        </header>
+
+        <!-- Disclaimer -->
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-5 mb-10 rounded-r-xl shadow-sm">
+            <div class="flex">
+                <div class="flex-shrink-0 text-amber-500">
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-amber-800 font-medium">
+                        Uofficiel søgeside.
+                    </p>
+                    <p class="text-sm text-amber-700 mt-1">
+                        Data er udtrukket fra lovforslaget fremsat d. 22. jan 2026.
+                        Tjek altid <a href="https://ft.dk" target="_blank"
+                            class="underline hover:text-amber-900 font-bold">ft.dk</a> for juridisk gyldighed.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Search -->
+        <div class="sticky top-20 z-20 mb-8">
+            <div class="relative group">
+                <div
+                    class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                <input type="text" id="searchInput" placeholder="Søg efter navn eller kommune..."
+                    class="block w-full pl-14 pr-6 py-5 bg-white border-0 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] focus:shadow-[0_8px_30px_rgb(37,99,235,0.15)] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-lg placeholder:text-slate-300 font-medium"
+                    autocomplete="off" autofocus>
+            </div>
+
+            <!-- Live Status -->
+            <div id="statusText"
+                class="absolute -bottom-6 left-6 text-[11px] font-bold uppercase tracking-widest text-slate-400 opacity-0 transition-opacity duration-300">
+                Klar til søgning
+            </div>
+        </div>
+
+        <!-- Results Container -->
+        <div id="resultsArea" class="space-y-4 pb-20 min-h-[200px]">
+            <!-- Placeholder State -->
+            <div id="placeholder" class="text-center py-20 opacity-40 text-slate-500">
+                <p class="text-xl font-medium mb-2">Indtast mindst 2 bogstaver</p>
+                <p class="text-sm">Søgningen sker automatisk mens du skriver</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="fixed bottom-6 left-0 right-0 text-center pointer-events-none z-10 px-4">
+            <div class="inline-flex flex-col items-center gap-3">
+
+                <div
+                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 backdrop-blur-md border border-slate-200/60 shadow-xl rounded-full text-[10px] text-slate-500 uppercase tracking-widest font-bold pointer-events-auto transition-transform hover:scale-105">
+                    <span class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></span>
+                    Opdateret: 22. Jan 2026 • L 98
+                </div>
+
+                <div
+                    class="pointer-events-auto bg-slate-900/5 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/20">
+                    <p class="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-[0.2em] font-semibold">
+                        🔒 100% lokal søgning i din browser • Ingen cookies • Ingen tracking
+                    </p>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+
+    <!-- Shared Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Load Shared Components -->
+    <script src="/js/calculators.js"></script>
+    <script>
+        // Load header and footer
+        CalculatorUtils.loadSharedComponents();
+    </script>
+
+    <!-- Main Application Logic -->
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>

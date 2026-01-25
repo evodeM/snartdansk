@@ -1,0 +1,10 @@
+# Artifacts & System Files
+.gemini/
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Local development
+*.log

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beskæftigelsesberegner - Tjek Dine Arbejdskrav | SnartDansk</title>
+    <meta name="description"
+        content="Beregn om du opfylder beskæftigelseskravet for dansk statsborgerskab. Tjek 42-måneders historik og aktuelle arbejdstimer.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <div class="min-h-screen py-8 px-4 md:p-8">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Page Header -->
+            <header class="mb-8 border-b border-slate-200 pb-6 text-center md:text-left">
+                <div
+                    class="flex items-center justify-center md:justify-start gap-2 text-blue-600 font-bold text-xs uppercase tracking-widest mb-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                    </svg>
+                    <span>Indfødsret-Guide</span>
+                </div>
+                <h1 class="text-3xl font-black text-slate-900 tracking-tight text-balance">
+                    Tjek Beskæftigelse
+                </h1>
+                <p class="text-slate-500 mt-1">Tjek dine arbejdskrav for dansk statsborgerskab.</p>
+            </header>
+
+            <div class="grid lg:grid-cols-12 gap-8">
+
+                <!-- INPUT KOLONNE -->
+                <div class="lg:col-span-7 space-y-6">
+
+                    <section class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
+                        <h2 class="font-bold mb-6 flex items-center gap-2 text-slate-800">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Arbejdshistorik (Sidste 4 år)
+                        </h2>
+
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex justify-between items-end mb-4">
+                                    <label class="text-sm font-bold text-slate-700 leading-tight">
+                                        Måneder med fuldtidsarbejde <br />
+                                        <span
+                                            class="text-[10px] text-slate-400 font-normal uppercase tracking-wide">(Mindst
+                                            120 timer pr. måned)</span>
+                                    </label>
+                                    <span class="text-2xl font-black text-blue-600 leading-none"><span
+                                            id="monthsDisplay">42</span> <span
+                                            class="text-xs text-slate-400">mdr.</span></span>
+                                </div>
+                                <input type="range" min="0" max="48" value="42" id="totalMonths"
+                                    class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600" />
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <button type="button" data-type="employee"
+                                    class="employment-type-btn flex items-center gap-2 p-4 rounded-2xl text-xs font-bold border-2 transition-all border-blue-600 bg-blue-50 text-blue-700 shadow-sm">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
+                                    </svg>
+                                    Lønmodtager
+                                </button>
+                                <button type="button" data-type="self-employed"
+                                    class="employment-type-btn flex items-center gap-2 p-4 rounded-2xl text-xs font-bold border-2 transition-all border-slate-100 bg-white text-slate-500 hover:border-slate-200">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Selvstændig
+                                </button>
+                                <button type="button" data-type="student"
+                                    class="employment-type-btn flex items-center gap-2 p-4 rounded-2xl text-xs font-bold border-2 transition-all border-slate-100 bg-white text-slate-500 hover:border-slate-200">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z">
+                                        </path>
+                                    </svg>
+                                    Elev / Lærling
+                                </button>
+                                <button type="button" data-type="pensioner"
+                                    class="employment-type-btn flex items-center gap-2 p-4 rounded-2xl text-xs font-bold border-2 transition-all border-slate-100 bg-white text-slate-500 hover:border-slate-200">
+                                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Pensionist
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
+                        <h2 class="font-bold mb-6 flex items-center gap-2 text-slate-800">
+                            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            Nuværende Status
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl">
+                                <span class="text-sm font-bold text-slate-700">Er du i arbejde lige nu?</span>
+                                <button id="toggleEmployment"
+                                    class="w-14 h-7 rounded-full transition-colors relative bg-blue-600">
+                                    <div class="absolute top-1 w-5 h-5 bg-white rounded-full shadow-sm transition-all left-8"
+                                        id="toggleSwitch"></div>
+                                </button>
+                            </div>
+
+                            <div id="hoursSection" class="">
+                                <div class="flex justify-between text-sm font-bold mb-3">
+                                    <span class="text-slate-700">Ugentlige timer i nuværende job</span>
+                                    <span class="text-blue-600"><span id="hoursDisplay">37</span> timer</span>
+                                </div>
+                                <input type="range" min="0" max="50" value="37" id="weeklyHours"
+                                    class="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-blue-600" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ANSVARSFRASKRIVELSE SEKTION -->
+                    <footer class="mt-8 p-6 bg-slate-100 rounded-3xl border border-slate-200 space-y-3">
+                        <div class="flex items-center gap-2 text-slate-600">
+                            <svg class="w-5 h-5 shrink-0 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <h4 class="text-xs font-black uppercase tracking-wider">Ansvarsfraskrivelse</h4>
+                        </div>
+                        <p class="text-[11px] leading-relaxed text-slate-500 font-medium">
+                            Dette værktøj er udelukkende beregnet som en vejledende simulator baseret på de nuværende
+                            regler om indfødsret.
+                            Beregningerne udgør ikke juridisk rådgivning eller en garanti for statsborgerskab.
+                            Ministeriet foretager altid en individuel vurdering af din sag, herunder dokumentation for
+                            løntimer, feriepenge og ansættelsesforhold.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="https://uim.dk/statsborgerskab" target="_blank" rel="noopener noreferrer"
+                                class="text-[10px] flex items-center gap-1 font-bold text-blue-600 hover:underline">
+                                Besøg UIM.dk
+                                <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                    </path>
+                                </svg>
+                            </a>
+                        </div>
+                    </footer>
+                </div>
+
+                <!-- RESULTAT KOLONNE -->
+                <div class="lg:col-span-5">
+                    <div id="resultCard"
+                        class="rounded-[2.5rem] p-8 border-2 transition-all sticky top-8 text-emerald-700 bg-emerald-50 border-emerald-200">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <p class="text-[10px] font-black uppercase tracking-widest opacity-60 mb-1">Vurdering
+                                </p>
+                                <h3 class="text-2xl font-black leading-tight" id="statusTitle">Du opfylder kravene</h3>
+                            </div>
+                            <div class="p-3 bg-white/50 rounded-2xl shadow-sm" id="statusIcon">
+                                <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6" id="resultContent">
+                            <!-- Progress bar will be injected here -->
+                            <div id="progressSection"></div>
+
+                            <!-- Messages will be injected here -->
+                            <div id="messagesSection" class="space-y-4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shared Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Load Shared Components -->
+    <script src="/js/calculators.js"></script>
+    <script>
+        // Load header and footer
+        CalculatorUtils.loadSharedComponents();
+    </script>
+
+    <!-- Calculator Logic -->
+    <script src="/js/beskaftigelse-calculator.js"></script>
+
+</body>
+
+</html>
