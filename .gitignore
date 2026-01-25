@@ -8,3 +8,12 @@
 
 # Local development
 *.log
+
+# Internal files (not for public)
+Billeder:mockups/
+Filer fra UIM/
+*.bak
+*.backup
+forbedringer.txt
+business_guide.md
+VejledningjuraCHATGPT_onlinenotepad.io.txt
