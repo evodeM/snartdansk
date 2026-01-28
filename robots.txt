@@ -1,0 +1,28 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+
+# Allow all public pages
+Allow: /
+Allow: /index.html
+Allow: /faq.html
+Allow: /beskaftigelse.html
+Allow: /karens.html
+Allow: /udlandsophold.html
+Allow: /tjekliste.html
+Allow: /dispensation.html
+Allow: /pdf-vaerktoj.html
+
+# Block sensitive data files (legal compliance - name list should not be indexed)
+Disallow: /data.json
+Disallow: /data/
+Disallow: /*.json$
+
+# Block development and internal files
+Disallow: /components/
+Disallow: /.git/
+Disallow: /.gitignore
+Disallow: /node_modules/
+Disallow: /*.md$
+
+# Sitemap location
+Sitemap: https://snartdansk.dk/sitemap.xml

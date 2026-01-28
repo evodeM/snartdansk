@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>FAQ – Ofte stillede spørgsmål | SnartDansk</title>
+    <meta name="description"
+        content="Få svar på ofte stillede spørgsmål om SnartDansk, søgefunktionen, PDF-værktøj, beregnere og privatliv. Alt kører 100% lokalt i din browser.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snartdansk.dk/faq.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FAQ – Ofte stillede spørgsmål | SnartDansk">
+    <meta property="og:description"
+        content="Få svar på spørgsmål om SnartDansk, PDF-værktøj, beregnere, privatliv og mere.">
+    <meta property="og:url" content="https://snartdansk.dk/faq.html">
+    <meta property="og:site_name" content="SnartDansk">
+    <meta property="og:locale" content="da_DK">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="FAQ – Ofte stillede spørgsmål | SnartDansk">
+    <meta name="twitter:description" content="Få svar på spørgsmål om SnartDansk, PDF-værktøj, beregnere og privatliv.">
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Hvad er SnartDansk, og hvem står bag?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SnartDansk er et uofficielt værktøj til at søge i indfødsretslisten fra det seneste lovforslag. Det er udviklet uafhængigt og er ikke tilknyttet offentlige myndigheder. Alle beregninger sker lokalt i din browser for at beskytte dit privatliv."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Er resultaterne fra værktøjet juridisk gyldige?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nej, alle resultater er kun vejledende og udgør ikke juridisk rådgivning. Lovforslaget kan ændres, så tjek altid den seneste version på ft.dk eller kontakt relevante myndigheder."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Hvad er PDF-værktøjet, og hvad kan det?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PDF-værktøjet er et simpelt, lokalt værktøj, der kører i din browser. Det lader dig vælge flere PDF-filer, merge dem til én fil og komprimere den, så den er under 2 MB – perfekt til ansøgninger til Udlændinge- og Integrationsministeriet. Alt sker uden servere, så dine filer forbliver private."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Hvordan beskytter siden mit privatliv?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Alt kører 100% lokalt i din browser – ingen cookies, ingen tracking, og ingen data sendes til servere. Dine oplysninger forbliver på din enhed."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Hvorfor er kompression nødvendig for ministeriets ansøgninger?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Ministeriet accepterer kun vedhæftninger under 2 MB pr. fil. Vores værktøj hjælper med at reducere størrelsen uden at miste vigtigt indhold, så din ansøgning ikke bliver afvist på grund af filstørrelse."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <div class="min-h-screen py-8 px-4 md:p-12">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- Page Header -->
+            <header class="text-center mb-10">
+                <div
+                    class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span>FAQ</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Ofte stillede spørgsmål</h1>
+                <p class="text-slate-500 mt-3 max-w-xl mx-auto">Find svar på de mest almindelige spørgsmål om
+                    SnartDansk og vores værktøjer</p>
+            </header>
+
+            <!-- Important Notice -->
+            <div class="bg-amber-50 rounded-2xl p-5 border border-amber-200 mb-8">
+                <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-amber-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <p class="text-sm text-amber-800">
+                        <strong>Vigtigt:</strong> Alle resultater fra SnartDansk er kun vejledende og udgør ikke
+                        juridisk rådgivning. Tjek altid den officielle version på
+                        <a href="https://www.ft.dk" target="_blank" rel="noopener"
+                            class="underline hover:no-underline">ft.dk</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FAQ Section: Om SnartDansk -->
+            <section class="bg-white rounded-3xl shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                <div class="bg-slate-100 px-6 py-4 border-b border-slate-200">
+                    <h2 class="font-bold text-slate-800">Om SnartDansk</h2>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad er SnartDansk, og hvem står
+                                bag?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                SnartDansk er et uofficielt værktøj til at søge i indfødsretslisten fra det seneste
+                                lovforslag. Det er udviklet uafhængigt og er ikke tilknyttet offentlige
+                                myndigheder. Alle beregninger sker lokalt i din browser for at beskytte dit privatliv.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Er resultaterne fra værktøjet juridisk
+                                gyldige?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Nej, alle resultater er kun vejledende og udgør ikke juridisk rådgivning. Lovforslaget
+                                kan ændres, så tjek altid den seneste version på ft.dk eller kontakt relevante
+                                myndigheder.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvordan beskytter siden mit
+                                privatliv?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Alt kører 100% lokalt i din browser – ingen cookies, ingen tracking, og ingen data
+                                sendes til servere. Dine oplysninger forbliver på din enhed.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Kan jeg støtte udviklingen af siden?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Ja, hvis du vil støtte videreudvikling, kan du gøre det frivilligt via vores
+                                Stripe-link. Det er helt valgfrit og hjælper med at holde værktøjet gratis.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section: PDF Værktøj -->
+            <section class="bg-white rounded-3xl shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                <div class="bg-orange-100 px-6 py-4 border-b border-orange-200">
+                    <h2 class="font-bold text-orange-800">PDF Værktøj</h2>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad er PDF-værktøjet, og hvad kan
+                                det?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                PDF-værktøjet er et simpelt, lokalt værktøj, der kører i din browser. Det lader dig
+                                vælge flere PDF-filer, merge dem til én fil og komprimere den, så den er under 2 MB –
+                                perfekt til ansøgninger til Udlændinge- og Integrationsministeriet. Alt sker uden
+                                servere, så dine filer forbliver private.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvordan bruger jeg værktøjet til at merge og
+                                komprimere PDF'er?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Vælg dine PDF-filer via "Upload"-knappen, klik "Merge" for at kombinere dem, og vælg
+                                derefter kompressionsniveau (f.eks. reducer billedkvalitet eller fjern metadata).
+                                Download den færdige fil direkte. Værktøjet viser status og advarer, hvis filen stadig
+                                er for stor.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvorfor er kompression nødvendig for
+                                ministeriets ansøgninger?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Ministeriet accepterer kun vedhæftninger under 2 MB pr. fil. Vores værktøj hjælper med
+                                at reducere størrelsen uden at miste vigtigt indhold, så din ansøgning ikke bliver
+                                afvist på grund af filstørrelse.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Fungerer værktøjet på alle browsere og
+                                enheder?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Ja, det er bygget med standard HTML og JavaScript og virker i moderne browsere som
+                                Chrome, Firefox og Edge. Det kører lokalt, så ingen internetforbindelse er nødvendig
+                                efter siden er loadet. Test det på din enhed for bedste resultater.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Er mine filer sikre, når jeg bruger
+                                værktøjet?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Absolut – alt sker 100% lokalt i din browser. Ingen filer uploades til servere, ingen
+                                tracking, og dine data forbliver på din enhed. Vi bruger biblioteker som pdf-lib.js til
+                                manipulationen.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad hvis den komprimerede fil stadig er
+                                over 2 MB?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Prøv et højere kompressionsniveau (f.eks. lavere billedopløsning). Hvis det ikke
+                                hjælper, brug opdel-funktionen til at dele PDFen i mindre filer, eller tjek for
+                                unødvendigt indhold. Husk, at værktøjet ikke kan garantere 100% succes for meget store
+                                filer med mange billeder.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Kan værktøjet håndtere password-beskyttede
+                                PDF'er?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Nej, i øjeblikket understøtter det kun ubeskyttede PDF'er. Fjern eventuel beskyttelse
+                                først med andre værktøjer, før du bruger dette.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Er resultaterne fra værktøjet kompatible med
+                                ministeriets system?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Ja, de genererede PDF'er bør være standardkompatible, men tjek altid ministeriets
+                                retningslinjer. Værktøjet er uofficielt og giver ingen garanti – test filen før
+                                indsendelse.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvordan integreres dette med
+                                indfødsretsberegnerne?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Brug værktøjet til at forberede dine dokumenter (f.eks. merge beviser for beskæftigelse
+                                eller udlandsophold) før du ansøger. Det er designet som et supplement til
+                                søgefunktionen
+                                og beregnerne på siden.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section: Værktøjer -->
+            <section class="bg-white rounded-3xl shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                <div class="bg-slate-100 px-6 py-4 border-b border-slate-200">
+                    <h2 class="font-bold text-slate-800">Beregnere & Søgefunktion</h2>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvordan bruger jeg søgefunktionen?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Indtast mindst 2 bogstaver i søgefeltet – søgningen starter automatisk, mens du
+                                skriver. Resultaterne viser, om du muligvis er på listen baseret på det seneste
+                                lovforslag. Tjek altid ft.dk for den officielle version.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad gør beskæftigelsesberegneren?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Denne beregner hjælper med at estimere din beskæftigelsesperiode i relation til
+                                indfødsretskrav. Indtast dine data, og værktøjet giver et vejledende resultat. Husk, at
+                                det ikke er juridisk bindende – kontakt Udlændinge- og Integrationsministeriet for
+                                rådgivning.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvordan fungerer karensberegneren?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Værktøjet beregner ventetider (karensperioder) baseret på indtastede oplysninger om din
+                                situation. Det er baseret på generelle regler fra lovforslaget, men resultaterne er kun
+                                indicative. Verificer med officielle kilder.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad er udlandsopholdsberegneren til?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Denne hjælper med at vurdere, hvordan udlandsophold påvirker din indfødsretsansøgning.
+                                Indtast dine rejseperioder, og få et overslag. Alle beregninger er vejledende og bør
+                                tjekkes mod lovteksten på ft.dk.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section: Teknisk -->
+            <section class="bg-white rounded-3xl shadow-sm border border-slate-200 mb-8 overflow-hidden">
+                <div class="bg-slate-100 px-6 py-4 border-b border-slate-200">
+                    <h2 class="font-bold text-slate-800">Teknisk & Support</h2>
+                </div>
+                <div class="divide-y divide-slate-100">
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad hvis jeg ikke finder mit navn på
+                                listen?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Listen er baseret på det seneste lovforslag. Hvis du ikke er med, kan det skyldes
+                                specifikke kriterier – tjek lovteksten eller ansøg officielt via myndighederne.
+                                Værktøjet dækker ikke alle tilfælde.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad hvis værktøjet ikke virker i min
+                                browser?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                SnartDansk er bygget med standard HTML og JavaScript og bør virke i moderne browsere som
+                                Chrome, Firefox, Safari eller Edge. Prøv at opdatere din browser eller tjek for
+                                JavaScript-blokering. Kontakt os, hvis problemet fortsætter.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button onclick="toggleFaq(this)"
+                            class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                            <span class="font-semibold text-slate-800 pr-4">Hvad hvis værktøjet ikke virker, eller jeg
+                                har fejl?</span>
+                            <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7">
+                                </path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer px-6 pb-0">
+                            <p class="text-slate-600 text-sm pb-5">
+                                Tjek for JavaScript-fejl i din browser-konsol, eller prøv at genindlæse siden. Hvis
+                                problemet fortsætter, kontakt os via feedback-formen eller støt os via Stripe for at
+                                hjælpe med udvikling.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact CTA -->
+            <section class="bg-blue-50 rounded-3xl p-8 border border-blue-200 text-center">
+                <h2 class="text-lg font-bold text-blue-900 mb-2">Har du andre spørgsmål?</h2>
+                <p class="text-sm text-blue-700 mb-4">Tjek de officielle kilder eller kontakt os.</p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="https://www.ft.dk" target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-blue-700 font-bold rounded-xl border border-blue-200 hover:bg-blue-100 transition-colors text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                        ft.dk (officiel)
+                    </a>
+                    <a href="/pdf-vaerktoj.html"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                        PDF Værktøj
+                    </a>
+                    <a href="/index.html"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors text-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        Søg på listen
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Shared Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Load Shared Components -->
+    <script src="/js/calculators.js"></script>
+    <script>
+        CalculatorUtils.loadSharedComponents();
+
+        function toggleFaq(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+
+            // Close other open FAQs in the same section
+            const section = button.closest('section');
+            section.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                if (openAnswer !== answer) {
+                    openAnswer.classList.remove('open');
+                    openAnswer.previousElementSibling.querySelector('.faq-icon').classList.remove('open');
+                }
+            });
+
+            // Toggle current
+            answer.classList.toggle('open');
+            icon.classList.toggle('open');
+        }
+    </script>
+
+</body>
+
+</html>

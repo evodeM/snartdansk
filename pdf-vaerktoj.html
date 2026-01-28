@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>PDF Værktøj – Sammenflet og Komprimer PDFs | SnartDansk</title>
+    <meta name="description"
+        content="Gratis PDF-værktøj til at sammenflet og komprimere PDF-filer. Reducer filstørrelse til under 2 MB for ansøgninger. Alt kører lokalt i din browser.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snartdansk.dk/pdf-vaerktoj.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="PDF Værktøj – Sammenflet og Komprimer PDFs">
+    <meta property="og:description"
+        content="Gratis værktøj til at sammenflet og komprimere PDF-filer til under 2 MB. 100% privat – alt kører i din browser.">
+    <meta property="og:url" content="https://snartdansk.dk/pdf-vaerktoj.html">
+    <meta property="og:site_name" content="SnartDansk">
+    <meta property="og:locale" content="da_DK">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="PDF Værktøj – Sammenflet og Komprimer">
+    <meta name="twitter:description" content="Gratis værktøj til at sammenflet og komprimere PDFs til ansøgninger.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- PDF-lib for PDF manipulation -->
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .drop-zone {
+            transition: all 0.2s ease;
+        }
+
+        .drop-zone.dragover {
+            border-color: #6366f1;
+            background-color: #eef2ff;
+        }
+
+        .file-item {
+            animation: slideIn 0.2s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <div class="min-h-screen py-8 px-4 md:p-12">
+        <div class="max-w-3xl mx-auto">
+
+            <!-- Page Header -->
+            <header class="text-center mb-10">
+                <div
+                    class="inline-flex items-center gap-2 bg-orange-50 text-orange-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span>100% Privat</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">PDF Værktøj</h1>
+                <p class="text-slate-500 mt-3 max-w-xl mx-auto">Sammenflet og komprimer dine PDF-filer til under 2 MB –
+                    gratis og lokalt i din browser</p>
+            </header>
+
+            <!-- Privacy Notice -->
+            <div class="bg-emerald-50 rounded-2xl p-4 border border-emerald-200 mb-8">
+                <div class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <p class="text-sm text-emerald-800">
+                        <strong>Dine filer forbliver private.</strong> Alt behandles lokalt i din browser – intet
+                        uploades til servere.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Main Tool Area -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 mb-8">
+
+                <!-- Drop Zone -->
+                <div id="dropZone"
+                    class="drop-zone border-2 border-dashed border-slate-300 rounded-2xl p-10 text-center cursor-pointer hover:border-indigo-400 hover:bg-indigo-50/30">
+                    <input type="file" id="fileInput" accept="application/pdf" multiple class="hidden">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="p-4 bg-indigo-100 text-indigo-600 rounded-2xl">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800">Træk PDF-filer hertil</p>
+                            <p class="text-sm text-slate-500 mt-1">eller klik for at vælge filer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File List -->
+                <div id="fileList" class="mt-6 space-y-2 hidden">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-bold text-slate-800">Valgte filer</h3>
+                        <button id="clearAll" class="text-xs text-red-600 hover:text-red-700 font-bold">Ryd
+                            alle</button>
+                    </div>
+                    <div id="fileItems" class="space-y-2"></div>
+                </div>
+
+                <!-- Compression Options -->
+                <div id="options" class="mt-6 pt-6 border-t border-slate-200 hidden">
+                    <h3 class="font-bold text-slate-800 mb-4">Indstillinger</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Billedkvalitet</label>
+                            <select id="imageQuality"
+                                class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:border-indigo-500 outline-none">
+                                <option value="1.0">Høj (original)</option>
+                                <option value="0.7" selected>Medium (anbefalet)</option>
+                                <option value="0.5">Lav (mindste fil)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Mål-filstørrelse</label>
+                            <select id="targetSize"
+                                class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:border-indigo-500 outline-none">
+                                <option value="2">Under 2 MB (UIM standard)</option>
+                                <option value="5">Under 5 MB</option>
+                                <option value="10">Under 10 MB</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Split Options (shown when 1 file selected) -->
+                <div id="splitOptions" class="mt-6 pt-6 border-t border-slate-200 hidden">
+                    <h3 class="font-bold text-slate-800 mb-4">Opdel PDF i mindre filer</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Sider per fil</label>
+                            <select id="pagesPerFile"
+                                class="w-full bg-slate-50 border-2 border-slate-200 rounded-xl px-4 py-3 text-sm font-medium focus:border-indigo-500 outline-none">
+                                <option value="1">1 side per fil</option>
+                                <option value="2">2 sider per fil</option>
+                                <option value="3">3 sider per fil</option>
+                                <option value="5" selected>5 sider per fil</option>
+                                <option value="10">10 sider per fil</option>
+                            </select>
+                        </div>
+                        <div class="flex items-end">
+                            <button id="splitBtn"
+                                class="w-full flex items-center justify-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white font-bold rounded-xl transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                                </svg>
+                                Opdel PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div id="actions" class="mt-6 pt-6 border-t border-slate-200 hidden">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <button id="mergeBtn"
+                            class="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                            Sammenflet PDFs
+                        </button>
+                        <button id="compressBtn"
+                            class="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                            </svg>
+                            Komprimer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress -->
+                <div id="progress" class="mt-6 hidden">
+                    <div class="flex items-center justify-between mb-2">
+                        <span id="progressText" class="text-sm font-medium text-slate-700">Behandler...</span>
+                        <span id="progressPercent" class="text-sm font-bold text-indigo-600">0%</span>
+                    </div>
+                    <div class="h-3 bg-slate-200 rounded-full overflow-hidden">
+                        <div id="progressBar"
+                            class="progress-bar h-full bg-gradient-to-r from-indigo-500 to-violet-500 rounded-full"
+                            style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div id="result" class="mt-6 hidden">
+                    <div class="bg-emerald-50 rounded-2xl p-5 border border-emerald-200">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-emerald-100 rounded-xl shrink-0">
+                                <svg class="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-bold text-emerald-900 mb-1">PDF klar til download!</h3>
+                                <p id="resultInfo" class="text-sm text-emerald-700 mb-3"></p>
+                                <button id="downloadBtn"
+                                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-sm">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                    </svg>
+                                    Download PDF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error -->
+                <div id="error" class="mt-6 hidden">
+                    <div class="bg-red-50 rounded-2xl p-5 border border-red-200">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-red-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <div>
+                                <h3 class="font-bold text-red-900 mb-1">Der opstod en fejl</h3>
+                                <p id="errorText" class="text-sm text-red-700"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <section class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200 mb-8">
+                <h2 class="text-xl font-bold text-slate-900 mb-4">Hvorfor dette værktøj?</h2>
+                <p class="text-slate-600 mb-4">
+                    Udlændinge- og Integrationsministeriet tillader kun filer på <strong>max 2 MB</strong> per
+                    vedhæftning.
+                    Dette gratis værktøj hjælper dig med at:
+                </p>
+                <div class="grid md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-slate-50 rounded-2xl p-5 text-center">
+                        <div class="text-3xl mb-2">📑</div>
+                        <h3 class="font-bold text-slate-800 text-sm">Sammenflet</h3>
+                        <p class="text-xs text-slate-500 mt-1">Kombiner flere dokumenter</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 text-center">
+                        <div class="text-3xl mb-2">📉</div>
+                        <h3 class="font-bold text-slate-800 text-sm">Komprimer</h3>
+                        <p class="text-xs text-slate-500 mt-1">Reducer filstørrelse</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 text-center">
+                        <div class="text-3xl mb-2">✂️</div>
+                        <h3 class="font-bold text-slate-800 text-sm">Opdel</h3>
+                        <p class="text-xs text-slate-500 mt-1">Del store filer op</p>
+                    </div>
+                    <div class="bg-slate-50 rounded-2xl p-5 text-center">
+                        <div class="text-3xl mb-2">🔒</div>
+                        <h3 class="font-bold text-slate-800 text-sm">100% Privat</h3>
+                        <p class="text-xs text-slate-500 mt-1">Alt kører lokalt</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips Section -->
+            <section class="bg-amber-50 rounded-3xl p-8 border border-amber-200">
+                <h2 class="text-lg font-bold text-amber-900 mb-4">💡 Tips til store filer</h2>
+                <div class="space-y-4 text-sm text-amber-800">
+                    <p>
+                        <strong>Komprimering virker bedst på tekst-PDFs.</strong> Hvis din fil indeholder scannede
+                        billeder,
+                        kan komprimeringen være begrænset, da værktøjet kun optimerer PDF-strukturen – ikke billederne.
+                    </p>
+                    <p>
+                        <strong>Prøv denne fremgangsmåde:</strong>
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 ml-2">
+                        <li><strong>Opdel først</strong> den store PDF i mindre dele (f.eks. 5 sider per fil)</li>
+                        <li><strong>Komprimer</strong> derefter hver del separat</li>
+                        <li><strong>Vedhæft</strong> de komprimerede dele som separate bilag i din ansøgning</li>
+                    </ol>
+                    <p class="mt-4 pt-4 border-t border-amber-200">
+                        <strong>Har du stadig problemer?</strong> Søg på nettet efter "komprimér PDF online" –
+                        der findes flere gratis tjenester, der kan komprimere billeder i PDFs mere aggressivt.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Shared Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Load Shared Components -->
+    <script src="/js/calculators.js"></script>
+    <script src="/js/pdf-tool.js"></script>
+    <script>
+        CalculatorUtils.loadSharedComponents();
+    </script>
+
+</body>
+
+</html>
