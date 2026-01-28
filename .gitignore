@@ -12,9 +12,10 @@
 # Internal files (not for public)
 Billeder:mockups/
 Filer fra UIM/
+Citizenship_check_logic/
 *.bak
 *.backup
-forbedringer.txt
+forbedninger.txt
 business_guide.md
 VejledningjuraCHATGPT_onlinenotepad.io.txt
 GDPR_AUDIT.md
