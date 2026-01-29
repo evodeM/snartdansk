@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="description"
+        content="Tjek om du er på indfødsretslisten L 98. Søg efter navn eller kommune og find ud af om dit danske statsborgerskab er på vej.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>Indfødsretslisten (L 98) - SnartDansk</title>
+
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -167,14 +171,16 @@
     <div id="footer-container"></div>
 
     <!-- Load Shared Components -->
-    <script src="/js/calculators.js"></script>
+    <script src="/js/calculators.js" defer></script>
     <script>
-        // Load header and footer
-        CalculatorUtils.loadSharedComponents();
+        // Load header and footer when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            CalculatorUtils.loadSharedComponents();
+        });
     </script>
 
     <!-- Main Application Logic -->
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
 
 </body>
 

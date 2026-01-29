@@ -9,6 +9,9 @@
     <meta name="description"
         content="Beregn om du opfylder beskæftigelseskravet for dansk statsborgerskab. Tjek 42-måneders historik og aktuelle arbejdstimer.">
 
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -202,14 +205,15 @@
     <div id="footer-container"></div>
 
     <!-- Load Shared Components -->
-    <script src="/js/calculators.js"></script>
+    <script src="/js/calculators.js" defer></script>
     <script>
-        // Load header and footer
-        CalculatorUtils.loadSharedComponents();
+        document.addEventListener('DOMContentLoaded', function () {
+            CalculatorUtils.loadSharedComponents();
+        });
     </script>
 
     <!-- Calculator Logic -->
-    <script src="/js/beskaftigelse-calculator.js"></script>
+    <script src="/js/beskaftigelse-calculator.js" defer></script>
 
 </body>
 

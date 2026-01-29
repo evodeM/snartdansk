@@ -1,0 +1,17 @@
+# Cloudflare Pages Headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# Block data.json from being indexed (GDPR compliance - personal names)
+/data.json
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: private, no-store
+
+# Block all JSON files from indexing
+/*.json
+  X-Robots-Tag: noindex, nofollow
+
+# Security headers for all pages
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin

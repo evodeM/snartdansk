@@ -9,6 +9,9 @@
     <meta name="description"
         content="Interaktiv tjekliste til dansk statsborgerskab. Tjek om du opfylder alle kravene før du sender din ansøgning.">
 
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -114,16 +117,19 @@
                         <div class="space-y-6">
                             <!-- Aldersgruppe -->
                             <div class="space-y-3">
-                                <label class="text-xs font-black text-slate-400 uppercase ml-1">Aldersgruppe</label>
+                                <label id="age-label"
+                                    class="text-xs font-black text-slate-400 uppercase ml-1">Aldersgruppe</label>
                                 <div class="grid grid-cols-2 gap-3">
                                     <button type="button" data-age="adult"
-                                        class="age-btn option-btn active flex flex-col items-center gap-1 p-4 rounded-2xl text-sm font-bold border-2 border-violet-600 bg-violet-50 text-violet-700">
+                                        class="age-btn option-btn active flex flex-col items-center gap-1 p-4 rounded-2xl text-sm font-bold border-2 border-violet-600 bg-violet-50 text-violet-700"
+                                        aria-label="Vælg voksen aldersgruppe (22+ år)" aria-pressed="true">
                                         <span class="text-2xl">👤</span>
                                         <span>Voksen</span>
                                         <span class="text-[10px] font-normal text-slate-500">22+ år</span>
                                     </button>
                                     <button type="button" data-age="young"
-                                        class="age-btn option-btn flex flex-col items-center gap-1 p-4 rounded-2xl text-sm font-bold border-2 border-slate-100 bg-white text-slate-500 hover:border-slate-200">
+                                        class="age-btn option-btn flex flex-col items-center gap-1 p-4 rounded-2xl text-sm font-bold border-2 border-slate-100 bg-white text-slate-500 hover:border-slate-200"
+                                        aria-label="Vælg ung aldersgruppe (18-21 år)" aria-pressed="false">
                                         <span class="text-xl">👤</span>
                                         <span>Ung</span>
                                         <span class="text-[10px] font-normal text-slate-500">18-21 år</span>
@@ -133,9 +139,10 @@
 
                             <!-- Ung detaljer (skjult som standard) -->
                             <div id="youngDetails" class="hidden fade-slide-in space-y-3">
-                                <label class="text-xs font-black text-slate-400 uppercase ml-1">Hvornår kom du til
+                                <label id="arrival-label"
+                                    class="text-xs font-black text-slate-400 uppercase ml-1">Hvornår kom du til
                                     Danmark?</label>
-                                <select id="arrivalCheck"
+                                <select id="arrivalCheck" aria-labelledby="arrival-label"
                                     class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-4 focus:border-violet-500 transition-all outline-none font-semibold text-slate-700">
                                     <option value="late">Efter jeg fyldte 8 år</option>
                                     <option value="early">Før jeg fyldte 8 år (dispensationsmulighed)</option>
@@ -144,8 +151,9 @@
 
                             <!-- Opholdsgrundlag -->
                             <div class="space-y-3">
-                                <label class="text-xs font-black text-slate-400 uppercase ml-1">Opholdsgrundlag</label>
-                                <select id="origin"
+                                <label id="origin-label"
+                                    class="text-xs font-black text-slate-400 uppercase ml-1">Opholdsgrundlag</label>
+                                <select id="origin" aria-labelledby="origin-label"
                                     class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-4 focus:border-violet-500 transition-all outline-none font-semibold text-slate-700">
                                     <option value="standard">Standard (9-års reglen)</option>
                                     <option value="refugee">Flygtning / Statsløs</option>
@@ -155,9 +163,10 @@
 
                             <!-- Arbejdskrav -->
                             <div class="space-y-3">
-                                <label class="text-xs font-black text-slate-400 uppercase ml-1">Opfylder du
+                                <label id="work-label" class="text-xs font-black text-slate-400 uppercase ml-1">Opfylder
+                                    du
                                     arbejdskravet?</label>
-                                <select id="hasWork"
+                                <select id="hasWork" aria-labelledby="work-label"
                                     class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-4 focus:border-violet-500 transition-all outline-none font-semibold text-slate-700">
                                     <option value="yes">Ja, jeg har arbejdet 3,5 år</option>
                                     <option value="no">Nej, det har jeg ikke</option>
@@ -166,9 +175,10 @@
 
                             <!-- Vandelskrav -->
                             <div class="space-y-3">
-                                <label class="text-xs font-black text-slate-400 uppercase ml-1">Vandelskrav
+                                <label id="criminal-label"
+                                    class="text-xs font-black text-slate-400 uppercase ml-1">Vandelskrav
                                     (Kriminalitet)</label>
-                                <select id="hasCriminal"
+                                <select id="hasCriminal" aria-labelledby="criminal-label"
                                     class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-4 focus:border-violet-500 transition-all outline-none font-semibold text-slate-700">
                                     <option value="clean">Ren straffeattest</option>
                                     <option value="minor">Bøde under 3.000 kr.</option>
@@ -266,14 +276,16 @@
     <div id="footer-container"></div>
 
     <!-- Load Shared Components -->
-    <script src="/js/calculators.js"></script>
+    <script src="/js/calculators.js" defer></script>
     <script>
-        // Load header and footer
-        CalculatorUtils.loadSharedComponents();
+        // Load header and footer when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            CalculatorUtils.loadSharedComponents();
+        });
     </script>
 
     <!-- Calculator Logic -->
-    <script src="/js/tjekliste-calculator.js"></script>
+    <script src="/js/tjekliste-calculator.js" defer></script>
 
 </body>
 
