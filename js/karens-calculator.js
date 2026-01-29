@@ -5,7 +5,7 @@
 
 // State
 let state = {
-    penaltyType: 'bode_over_3000',
+    penaltyType: 'bode_under_3000',
     penaltyDate: new Date().toISOString().split('T')[0],
     isRecidivism: false,
     hasCalculated: false
