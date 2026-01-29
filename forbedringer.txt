@@ -1112,4 +1112,4 @@ Udlandsophold beregner
         window.onload = initYearSelector;
     </script>
 </body>
-</html>
+</html>- [ ] Minificering og obfuskering af JavaScript filer (beskyttelse mod kopiering + bedre performance)
