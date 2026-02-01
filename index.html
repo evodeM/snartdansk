@@ -7,10 +7,67 @@
     <meta name="description"
         content="Tjek om du er på indfødsretslisten L 98. Søg efter navn eller kommune og find ud af om dit danske statsborgerskab er på vej.">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <title>Indfødsretslisten (L 98) - SnartDansk</title>
+    <title>Er jeg på indfødsretslisten? (L 98) | SnartDansk</title>
 
-    <!-- Preconnect for faster Tailwind loading -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snartdansk.dk/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snartdansk.dk/">
+    <meta property="og:title" content="Er jeg på indfødsretslisten? (Lovforslag L 98)">
+    <meta property="og:description"
+        content="Tjek nemt om du er med i lovforslaget om dansk statsborgerskab fra januar 2026.">
+    <meta property="og:image" content="https://snartdansk.dk/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://snartdansk.dk/">
+    <meta property="twitter:title" content="Er jeg på indfødsretslisten? (Lovforslag L 98)">
+    <meta property="twitter:description"
+        content="Tjek nemt om du er med i lovforslaget om dansk statsborgerskab fra januar 2026.">
+    <meta property="twitter:image" content="https://snartdansk.dk/og-image.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://snartdansk.dk/#website",
+          "url": "https://snartdansk.dk/",
+          "name": "SnartDansk",
+          "description": "Værktøjer til dansk statsborgerskab",
+          "publisher": { "@id": "https://snartdansk.dk/#organization" },
+          "potentialAction": [
+            {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://snartdansk.dk/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          ],
+          "inLanguage": "da"
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://snartdansk.dk/#organization",
+          "name": "SnartDansk",
+          "url": "https://snartdansk.dk/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://snartdansk.dk/favicon.svg",
+            "width": "100",
+            "height": "100"
+          },
+          "sameAs": []
+        }
+      ]
+    }
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
