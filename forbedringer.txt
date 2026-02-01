@@ -1113,3 +1113,87 @@ Udlandsophold beregner
     </script>
 </body>
 </html>- [ ] Minificering og obfuskering af JavaScript filer (beskyttelse mod kopiering + bedre performance)
+
+================================================================================
+PLAN: Unified Premium PDF Tool & "Min Statsborgerskabs-Mappe"
+================================================================================
+
+## 1. Koncept: "Min Mappe"
+Vi skaber en "usynlig" personlig mappe til brugeren, som følger dem på tværs af siden. Når de indtaster rejser i udlandsberegneren, gemmes det. Når de tjekker beskæftigelse, gemmes det.
+Til sidst kan de generere en **Samlet Statusrapport (PDF)**, som dokumenterer HELE deres sag.
+
+**Premium Værdi:** "Spar tid og få overblik. Tag din rapport med til advokaten eller UIM."
+
+## 2. Teknisk Arkitektur (100% Privatlivssikret)
+Vi undgår stadig backend/database. Alt gemmes i brugerens browser.
+
+### Data Struktur (LocalStorage)
+Vi opretter et centralt data-objekt `snartdansk_user_data`:
+```json
+{
+  "lastUpdated": "2026-02-01T12:00:00Z",
+  "isPremium": false, // Låses op via kode eller køb
+  "profile": {
+    "arrivalDate": "2015-01-01",
+    "ageGroup": "adult"
+  },
+  "modules": {
+    "travels": {
+      "trips": [ ... ],
+      "status": "GREEN" // Overholder regler
+    },
+    "employment": {
+      "months": 42,
+      "currentJob": true,
+      "status": "GREEN"
+    },
+    "legal": {
+      "cleanRecord": true,
+      "status": "GREEN"
+    }
+  }
+}
+```
+
+### SharedStateManager.js
+Et nyt script, der indlæses på ALLE sider.
+- **Auto-Save:** Lytter på input-ændringer i alle beregnere og opdaterer `localStorage`.
+- **Auto-Fill:** Når en beregner åbnes, tjekker scriptet om der allerede er data og udfylder felterne.
+
+## 3. Brugerrejse (User Flow)
+
+### Trin 1: Data Opsamling (Gratis)
+Brugeren navigerer rundt på siden som normalt.
+- *Beskæftigelse:* Indtaster 3,5 års arbejde. -> **Gemmes automatisk.**
+- *Udlandsophold:* Indtaster 5 rejser. -> **Gemmes automatisk.**
+
+### Trin 2: "Min Mappe" Dashboard (Ny Side / Overlay)
+En flydende knap eller menupunkt: "📂 Min Sag".
+Ved klik åbnes et overlay:
+- Visuelt overblik: "Beskæftigelse: OK", "Ophold: OK", "Vandel: Har du tjekket?"
+- **Call-to-Action:** "Download din samlede ansøgnings-rapport (PDF) for 29 kr."
+
+### Trin 3: Premium Gate & PDF Generering
+Når brugeren klikker "Download Rapport":
+1.  **Betaling:** Simpel Stripe-integration eller MobilePay-gateway (hvis backend tilføjes senere) eller blot en simpel "Indtast adgangskode" (hvis manuelt salg).
+2.  **Generering:** `jsPDF` samler alt dataen.
+    - **Side 1:** Forside med "Dansk Statsborgerskab Vurdering", Dato, ID.
+    - **Side 2:** Konklusion (Traffic Light system for hvert område).
+    - **Side 3-X:** Detaljerede lister (alle rejser, arbejdsperioder osv.).
+    - **Footer:** "Genereret af SnartDansk.dk - Ikke juridisk bindende".
+
+## 4. Implementeringsplan
+
+### Fase 1: Infrastruktur (Gratis update)
+1.  Opret `js/state-manager.js`.
+2.  Opdater eksisterende `udlandsophold.js` og `beskaftigelse.js` til at læse/skrive til denne manager.
+    *   *Gevinst:* Brugeren mister ikke sine indtastninger, hvis de genindlæser siden.
+
+### Fase 2: PDF Engine (Kerne)
+1.  Implementer `js/pdf-builder.js` med `jspdf`.
+2.  Design layouts for "Single Report" (kun rejser) og "Full Report" (alt).
+
+### Fase 3: Premium UI & Gate
+1.  Byg "Min Sag" dashboardet (HTML/Tailwind).
+2.  Implementer "Lås op" logikken (f.eks. validering af en hash/kode lokalt for MVP).
+
