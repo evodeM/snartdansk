@@ -75,6 +75,12 @@
     
     <!-- Nyheder / Lovændringer -->
     <url>
+        <loc>https://snartdansk.dk/ventetid.html</loc>
+        <lastmod>2026-02-05</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://snartdansk.dk/udvisningsregler-2026.html</loc>
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>

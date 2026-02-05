@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>Hvor lang tid tager det at blive dansk statsborger? [2026 Guide]</title>
+    <meta name="description"
+        content="Sagsbehandlingstid for dansk statsborgerskab er ca. 24 måneder + Folketingsbehandling. Se de 4 trin, gebyrer og hvad der kan forsinke din sag.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snartdansk.dk/ventetid.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Hvor lang tid tager det at blive dansk statsborger? [2026 Guide]">
+    <meta property="og:description"
+        content="Sagsbehandlingstid er ca. 24 måneder + Folketingsbehandling. Se de 4 trin og hvad der kan forsinke din sag.">
+    <meta property="og:url" content="https://snartdansk.dk/ventetid.html">
+    <meta property="og:site_name" content="SnartDansk">
+    <meta property="og:locale" content="da_DK">
+    <meta property="og:image" content="https://snartdansk.dk/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ventetid for dansk statsborgerskab [2026]">
+    <meta name="twitter:description" content="Ca. 24 måneders sagsbehandling + Folketinget. Se de 4 trin i processen.">
+
+    <!-- Schema.org HowTo + FAQPage Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "Sådan bliver du dansk statsborger – de 4 trin",
+      "description": "Processen fra ansøgning til statsborgerskab tager typisk 2-3 år og består af 4 trin.",
+      "totalTime": "P24M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Indsend ansøgning",
+          "text": "Du søger digitalt om dansk statsborgerskab via Udlændinge- og Integrationsministeriet. Gebyr: 6.270 kr (2026)."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "UIM behandler din sag",
+          "text": "Gennemsnitlig sagsbehandlingstid er ca. 24 måneder. UIM vurderer opholdstid, beskæftigelse, sprog og vandel."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Lovforslag i Folketinget",
+          "text": "Dit navn optages på et lovforslag. Folketinget behandler lovforslaget i 3 behandlinger over 2-3 måneder."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Grundlovsceremoni",
+          "text": "Efter loven er vedtaget, deltager du i en grundlovsceremoni og modtager dit statsborgerretsbevis."
+        }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hvor lang tid tager det i gennemsnit at blive dansk statsborger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Den gennemsnitlige sagsbehandlingstid hos UIM er ca. 24 måneder. Derefter skal sagen igennem Folketinget (2-3 måneder). Samlet set tager det typisk 2-3 år."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvad koster det at søge dansk statsborgerskab i 2026?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gebyret for en førstegangsansøgning er 6.270 kr fra 1. januar 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan jeg følge min sag undervejs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nej. UIM giver som udgangspunkt ikke løbende status. Du får besked via Digital Post, når der sker noget vigtigt i din sag."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvornår bliver jeg officielt dansk statsborger?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Du bliver først dansk statsborger, når lovforslaget er vedtaget af Folketinget og trådt i kraft – ikke når UIM er færdig med behandlingen."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .timeline-step {
+            position: relative;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 52px;
+            bottom: -24px;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+        }
+
+        .timeline-step:last-child::before {
+            display: none;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon.open {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 min-h-screen text-slate-900">
+
+    <!-- Header -->
+    <div id="header-container"></div>
+
+    <main class="py-8 px-4 md:py-16 md:px-8">
+        <article class="max-w-4xl mx-auto">
+
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm text-slate-500" aria-label="Breadcrumb">
+                <a href="/" class="hover:text-blue-600">Forside</a>
+                <span class="mx-2">›</span>
+                <span class="text-slate-700">Ventetid</span>
+            </nav>
+
+            <!-- Page Header -->
+            <header class="mb-12">
+                <div
+                    class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span>Processguide</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                    Hvor lang tid tager det at blive dansk statsborger?
+                </h1>
+                <p class="text-xl text-slate-500 mt-4 max-w-3xl">
+                    Ventetiden på dansk indfødsret afhænger af flere faktorer, men de fleste kan forvente en samlet
+                    sagsbehandlingstid på ca. 2-3 år.
+                </p>
+            </header>
+
+            <!-- TL;DR Box -->
+            <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 text-white mb-12 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-2 bg-white/20 rounded-xl">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-lg font-bold uppercase tracking-wide">Den korte version</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white/10 rounded-2xl p-5">
+                        <div class="text-3xl font-black mb-1">⏱️ 2-3 år</div>
+                        <div class="text-blue-100 text-sm">Typisk samlet ventetid</div>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-5">
+                        <div class="text-3xl font-black mb-1">📋 4 trin</div>
+                        <div class="text-blue-100 text-sm">Ansøgning → UIM → FT → Ceremoni</div>
+                    </div>
+                    <div class="bg-white/10 rounded-2xl p-5">
+                        <div class="text-3xl font-black mb-1">💰 6.270 kr</div>
+                        <div class="text-blue-100 text-sm">Gebyr i 2026</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Section -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                    <span class="p-2 bg-violet-100 rounded-xl text-violet-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                            </path>
+                        </svg>
+                    </span>
+                    De 4 trin i processen
+                </h2>
+
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="timeline-step flex gap-6">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">
+                            1</div>
+                        <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Du indsender din ansøgning</h3>
+                            <p class="text-slate-600 mb-4">Du søger digitalt om dansk statsborgerskab via Udlændinge- og
+                                Integrationsministeriet. Når ansøgningen er korrekt indsendt, modtager du en kvittering
+                                i Digital Post.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">💰
+                                    Gebyr: 6.270 kr (2026)</span>
+                                <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">Digital
+                                    ansøgning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-step flex gap-6">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">
+                            2</div>
+                        <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">UIM behandler din sag</h3>
+                            <p class="text-slate-600 mb-4">Udlændinge- og Integrationsministeriet gennemgår din
+                                ansøgning og vurderer, om du opfylder alle krav: opholdstid, beskæftigelse,
+                                danskkundskaber, indfødsretsprøven, gældsforhold og straffeattest.</p>
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-4">
+                                <div class="flex items-center gap-2 text-amber-800">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span class="font-bold">Gennemsnitlig behandlingstid: ca. 24 måneder</span>
+                                </div>
+                            </div>
+                            <p class="text-sm text-slate-500">Ansøgninger behandles som udgangspunkt i den rækkefølge,
+                                de er modtaget.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-step flex gap-6">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-violet-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">
+                            3</div>
+                        <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Lovforslag i Folketinget</h3>
+                            <p class="text-slate-600 mb-4">Hvis UIM vurderer, at du opfylder betingelserne, bliver dit
+                                navn optaget på et lovforslag om indfødsret. Folketinget behandler lovforslaget i 3
+                                behandlinger.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-violet-50 text-violet-700 px-3 py-1 rounded-full text-sm font-medium">📅
+                                    Normalt 2× årligt (forår/efterår)</span>
+                                <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-sm">⏱️ Typisk 2-3
+                                    måneder</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-3">Bemærk: Frekvensen kan variere – fx var der
+                                afvigelser i 2025-26.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-step flex gap-6">
+                        <div
+                            class="flex-shrink-0 w-12 h-12 bg-emerald-600 rounded-2xl flex items-center justify-center text-white font-black text-lg shadow-lg">
+                            4</div>
+                        <div class="flex-1 bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2">Grundlovsceremoni & Statsborger! 🎉</h3>
+                            <p class="text-slate-600 mb-4">Når loven er vedtaget og trådt i kraft, bliver du officielt
+                                dansk statsborger. Du inviteres til en grundlovsceremoni og modtager dit
+                                statsborgerretsbevis.</p>
+                            <a href="/grundlovsceremoni.html"
+                                class="inline-flex items-center gap-2 text-emerald-700 font-bold hover:underline">
+                                Læs mere om grundlovsceremonien
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- What can delay section -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-red-100 rounded-xl text-red-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                            </path>
+                        </svg>
+                    </span>
+                    Hvad kan gøre ventetiden længere?
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="text-3xl mb-3">⚖️</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Dispensation</h3>
+                        <p class="text-slate-600 text-sm">Hvis du ikke opfylder ét eller flere krav (fx beskæftigelse
+                            eller sprog), skal din sag behandles politisk i Folketingets Indfødsretsudvalg.</p>
+                        <a href="/dispensation.html"
+                            class="inline-flex items-center gap-1 text-blue-600 text-sm font-medium mt-3 hover:underline">
+                            Læs om dispensation
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="text-3xl mb-3">📄</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Manglende dokumentation</h3>
+                        <p class="text-slate-600 text-sm">Hvis dokumentation mangler, eller hvis UIM skal bede om
+                            yderligere oplysninger, kan sagen blive forsinket.</p>
+                        <a href="/tjekliste.html"
+                            class="inline-flex items-center gap-1 text-blue-600 text-sm font-medium mt-3 hover:underline">
+                            Se tjeklisten
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="bg-white rounded-2xl p-6 shadow-lg border border-slate-100">
+                        <div class="text-3xl mb-3">🔄</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Ændringer i situation</h3>
+                        <p class="text-slate-600 text-sm">Hvis dine forhold ændrer sig under sagsbehandlingen (arbejde,
+                            ydelser, ophold i udlandet m.m.), skal UIM vurdere sagen på ny.</p>
+                        <a href="/karens.html"
+                            class="inline-flex items-center gap-1 text-blue-600 text-sm font-medium mt-3 hover:underline">
+                            Beregn karensperiode
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Expected wait time summary -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Forventet samlet ventetid</h2>
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-slate-100">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-slate-200">
+                                <th class="text-left py-3 text-slate-500 font-medium text-sm uppercase">Sagstype</th>
+                                <th class="text-right py-3 text-slate-500 font-medium text-sm uppercase">Ventetid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-slate-100">
+                                <td class="py-4">
+                                    <span class="font-semibold text-slate-900">Ukompliceret sag</span>
+                                    <span class="text-slate-500 text-sm block">Opfylder alle krav, ingen dispensation
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full font-bold">1,5-2
+                                        år</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="py-4">
+                                    <span class="font-semibold text-slate-900">Kompleks sag</span>
+                                    <span class="text-slate-500 text-sm block">Kræver dispensation eller har særlige
+                                        forhold</span>
+                                </td>
+                                <td class="text-right">
+                                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-bold">2-3+ år
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                    <span class="p-2 bg-blue-100 rounded-xl text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </span>
+                    Ofte stillede spørgsmål
+                </h2>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
+                    <div class="divide-y divide-slate-100">
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Hvor lang tid tager det i
+                                    gennemsnit?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">UIM oplyser, at den gennemsnitlige
+                                    sagsbehandlingstid er omkring <strong>24 måneder</strong>. Derefter skal sagen
+                                    igennem Folketinget, hvilket typisk tager 2-3 måneder yderligere. Samlet set:
+                                    <strong>2-3 år</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Hvad koster det at søge dansk
+                                    statsborgerskab i 2026?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">Gebyret for en førstegangsansøgning er
+                                    <strong>6.270 kr</strong> fra 1. januar 2026. Gebyret steg fra 6.000 kr (18. juni
+                                    2025) og 4.000 kr (før juni 2025).
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Kan jeg følge min sag undervejs?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">Nej. UIM giver som udgangspunkt ikke løbende
+                                    status. Du får besked via <strong>Digital Post</strong>, når der sker noget vigtigt
+                                    i din sag.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Hvornår får jeg svar på min ansøgning om
+                                    indfødsret?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">Den gennemsnitlige ventetid på svar fra
+                                    Udlændinge- og Integrationsministeriet (UIM) er <strong>ca. 24 måneder</strong>.
+                                    Herefter skal dit navn optages på et lovforslag i Folketinget, hvilket tager
+                                    yderligere 2-3 måneder. Du modtager alle beskeder via <strong>Digital Post</strong>.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Hvornår bliver jeg officielt dansk
+                                    statsborger?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">Du bliver først dansk statsborger, når
+                                    lovforslaget er <strong>vedtaget af Folketinget</strong> og trådt i kraft – ikke
+                                    når UIM er færdig med behandlingen. Du kan se, om du er på listen via <a href="/"
+                                        class="text-blue-600 hover:underline font-medium">SnartDansk forsiden</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <button onclick="toggleFaq(this)"
+                                class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors">
+                                <span class="font-semibold text-slate-800 pr-4">Bliver alle ansøgninger behandlet i
+                                    samme tempo?</span>
+                                <svg class="faq-icon w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                            <div class="faq-answer px-6 pb-0">
+                                <p class="text-slate-600 text-sm pb-5">Nej. Nogle sager er mere enkle end andre. Sager
+                                    uden børn, uden dispensation og uden særlige forhold kan blive behandlet
+                                    hurtigere. "Fast-track" sager behandles også hurtigere.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="bg-slate-900 rounded-3xl p-8 md:p-12 text-white">
+                <h2 class="text-2xl md:text-3xl font-black mb-4">Er du klar til at søge?</h2>
+                <p class="text-slate-300 mb-8 max-w-2xl">Brug vores værktøjer til at vurdere, om du opfylder kravene –
+                    og dermed reducere risikoen for forsinkelser.</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="/tjekliste.html"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-xl transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Tjek kravene
+                    </a>
+                    <a href="/beskaftigelse.html"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        Beregn beskæftigelse
+                    </a>
+                    <a href="/karens.html"
+                        class="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        Beregn karensperiode
+                    </a>
+                </div>
+            </section>
+
+            <!-- Sources -->
+            <footer class="mt-12 pt-8 border-t border-slate-200">
+                <p class="text-sm text-slate-500">
+                    <strong>Kilder:</strong> Denne artikel er baseret på officielle oplysninger fra
+                    <a href="https://uim.dk" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline">Udlændinge- og Integrationsministeriet (UIM)</a>
+                    og <a href="https://ft.dk" target="_blank" rel="noopener noreferrer"
+                        class="text-blue-600 hover:underline">Folketinget</a>.
+                    Sidst opdateret: Februar 2026.
+                </p>
+            </footer>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/js/calculators.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load shared components
+            CalculatorUtils.loadSharedComponents();
+        });
+
+        // FAQ toggle function (same as faq.html)
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            const answer = faqItem.querySelector('.faq-answer');
+            const icon = faqItem.querySelector('.faq-icon');
+
+            // Check if currently open
+            const isOpen = answer.classList.contains('open');
+
+            // Close all FAQ items first
+            document.querySelectorAll('.faq-answer').forEach(a => {
+                a.classList.remove('open');
+                a.style.maxHeight = '0';
+            });
+            document.querySelectorAll('.faq-icon').forEach(i => {
+                i.classList.remove('open');
+            });
+
+            // If it wasn't open, open it
+            if (!isOpen) {
+                answer.classList.add('open');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.classList.add('open');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
