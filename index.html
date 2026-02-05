@@ -69,6 +69,9 @@
     }
     </script>
 
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -195,11 +198,249 @@
         </div>
 
         <!-- Results Container -->
-        <div id="resultsArea" class="space-y-4 pb-20 min-h-[200px]">
-            <!-- Placeholder State -->
-            <div id="placeholder" class="text-center py-20 opacity-40 text-slate-500">
-                <p class="text-xl font-medium mb-2">Indtast mindst 2 bogstaver</p>
-                <p class="text-sm">Søgningen sker automatisk mens du skriver</p>
+        <div id="resultsArea" class="space-y-4 pb-8 min-h-[100px] hidden">
+            <!-- Search results will be injected here -->
+        </div>
+
+        <!-- Portal Grid Section -->
+        <div id="portal-content" class="animate-fadeIn pb-20">
+
+            <!-- Section 1: Værktøjer -->
+            <div class="mb-12">
+                <h2 class="text-xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="bg-blue-100 p-2 rounded-lg text-blue-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </span>
+                    Værktøjer
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Beskæftigelse -->
+                    <a href="/beskaftigelse.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Historik</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-blue-600 mb-1">Beskæftigelse</h3>
+                        <p class="text-sm text-slate-500">Tjek om du opfylder 42-måneders kravet til arbejde.</p>
+                    </a>
+
+                    <!-- Karens -->
+                    <a href="/karens.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="p-3 bg-amber-50 text-amber-600 rounded-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Straf</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-amber-600 mb-1">Karensberegner</h3>
+                        <p class="text-sm text-slate-500">Beregn hvor længe du skal vente efter en straf.</p>
+                    </a>
+
+                    <!-- Udlandsophold -->
+                    <a href="/udlandsophold.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Rejser</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-emerald-600 mb-1">Udlandsophold</h3>
+                        <p class="text-sm text-slate-500">Hold styr på dine rejsedage og ferier.</p>
+                    </a>
+
+                    <!-- PDF Værktøj -->
+                    <a href="/pdf-vaerktoj.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-orange-300 hover:shadow-md transition-all">
+                        <div class="flex items-start justify-between mb-4">
+                            <div
+                                class="p-3 bg-orange-50 text-orange-600 rounded-xl group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Dokumenter</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-orange-600 mb-1">PDF Værktøj</h3>
+                        <p class="text-sm text-slate-500">Sammenflet og komprimer dokumenter sikkert.</p>
+                    </a>
+
+                    <!-- Tjekliste - Bred -->
+                    <a href="/tjekliste.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all sm:col-span-2 bg-gradient-to-r from-violet-50 to-white">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="p-3 bg-white text-violet-600 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 group-hover:text-violet-600">Er du klar til at søge?
+                                </h3>
+                                <p class="text-sm text-slate-500 mt-1">Gå igennem den komplette tjekliste og se om du
+                                    opfylder alle krav.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 2: Guides -->
+            <div class="mb-12">
+                <h2 class="text-xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="bg-indigo-100 p-2 rounded-lg text-indigo-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </span>
+                    Guides & Viden
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="/sindelagskontrol.html" class="group block">
+                        <div
+                            class="aspect-video bg-indigo-100 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
+                            <span class="text-4xl">⚖️</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-indigo-600">Sindelagskontrol</h3>
+                        <p class="text-sm text-slate-500 mt-1">Forstå hvad grundlovens §44 betyder for dig og dine
+                            holdninger.</p>
+                    </a>
+
+                    <a href="/grundlovsceremoni.html" class="group block">
+                        <div
+                            class="aspect-video bg-red-50 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
+                            <span class="text-4xl">🇩🇰</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-red-600">Grundlovsceremoni</h3>
+                        <p class="text-sm text-slate-500 mt-1">Alt om deltagelse, håndtrykket og hvad du skal huske på
+                            dagen.</p>
+                    </a>
+
+                    <a href="/dispensation.html" class="group block">
+                        <div
+                            class="aspect-video bg-blue-50 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
+                            <span class="text-4xl">🎓</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-blue-600">Unge under 22 år</h3>
+                        <p class="text-sm text-slate-500 mt-1">Særlige regler om dispensation for ansøgere født eller
+                            opvokset i DK.</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Section 3 & 4: Nyt & FAQ -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Nyt -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="text-red-500">●</span> Aktuelt
+                    </h2>
+                    <div class="space-y-4">
+                        <a href="/udvisningsregler-2026.html"
+                            class="flex gap-4 items-start group hover:bg-white hover:shadow-sm p-3 -mx-3 rounded-xl transition-all">
+                            <div
+                                class="shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600 font-bold text-xs">
+                                2026
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 group-hover:text-red-600 text-sm">Nye
+                                    udvisningsregler</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Stramninger for kriminelle ansøgere træder i
+                                    kraft.</p>
+                            </div>
+                        </a>
+                        <div class="flex gap-4 items-start p-3 -mx-3">
+                            <div
+                                class="shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 font-bold text-xs">
+                                L 98
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-sm">Status på Lovforslag</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Søg efter dit navn i søgefeltet ovenfor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+                    <h2 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                        Hurtig Hjælp
+                    </h2>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/faq.html"
+                                class="flex items-center justify-between text-sm text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all">
+                                <span>Hvad koster det at søge?</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/faq.html"
+                                class="flex items-center justify-between text-sm text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all">
+                                <span>Hvor lang er sagsbehandlingstiden?</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/faq.html"
+                                class="flex items-center justify-between text-sm text-slate-600 hover:text-blue-600 hover:translate-x-1 transition-all">
+                                <span>Kan jeg søge med gæld?</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="/faq.html" class="text-xs font-bold text-blue-600 hover:underline">
+                                Se alle spørgsmål →
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 

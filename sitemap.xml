@@ -80,4 +80,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    
+    <!-- Juridisk information -->
+    <url>
+        <loc>https://snartdansk.dk/privatliv.html</loc>
+        <lastmod>2026-01-26</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
 </urlset>

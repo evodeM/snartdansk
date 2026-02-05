@@ -9,6 +9,27 @@
     <meta name="description"
         content="Læs vores privatlivspolitik. Vi indsamler ingen personoplysninger og bruger ingen cookies.">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://snartdansk.dk/privatliv.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privatlivspolitik | SnartDansk">
+    <meta property="og:description"
+        content="Læs vores privatlivspolitik. Vi indsamler ingen personoplysninger og bruger ingen cookies.">
+    <meta property="og:url" content="https://snartdansk.dk/privatliv.html">
+    <meta property="og:site_name" content="SnartDansk">
+    <meta property="og:locale" content="da_DK">
+    <meta property="og:image" content="https://snartdansk.dk/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privatlivspolitik | SnartDansk">
+    <meta name="twitter:description" content="Vi indsamler ingen personoplysninger og bruger ingen cookies.">
+
+    <!-- Preconnect for faster Tailwind loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -44,7 +65,8 @@
                 </p>
                 <ul class="space-y-2 text-slate-600">
                     <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd"></path>
@@ -52,7 +74,8 @@
                         <span>Vi bruger <strong>ingen cookies</strong>.</span>
                     </li>
                     <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd"></path>
@@ -61,7 +84,8 @@
                             Pixel).</span>
                     </li>
                     <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd"></path>
@@ -69,7 +93,8 @@
                         <span>Alle beregninger sker <strong>100% lokalt</strong> i din egen browser.</span>
                     </li>
                     <li class="flex items-start gap-2">
-                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                            aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                                 clip-rule="evenodd"></path>
@@ -162,9 +187,11 @@
     <div id="footer-container"></div>
 
     <!-- Load Shared Components -->
-    <script src="/js/calculators.js"></script>
+    <script src="/js/calculators.js" defer></script>
     <script>
-        CalculatorUtils.loadSharedComponents();
+        document.addEventListener('DOMContentLoaded', function () {
+            CalculatorUtils.loadSharedComponents();
+        });
     </script>
 
 </body>

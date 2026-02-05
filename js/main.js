@@ -45,11 +45,13 @@ async function loadData() {
     }
 }
 
+
 /**
  * Handle search input
  */
 function handleSearch(e) {
     const query = e.target.value.toLowerCase().trim();
+    const portalContent = document.getElementById('portal-content');
 
     // Clear current list
     resultsArea.innerHTML = '';
@@ -57,9 +59,17 @@ function handleSearch(e) {
     // Handle empty/short input
     if (query.length < 2) {
         statusText.style.opacity = '0';
-        resultsArea.appendChild(placeholder);
+
+        // Show Portal
+        if (portalContent) portalContent.classList.remove('hidden');
+        resultsArea.classList.add('hidden');
+
         return;
     }
+
+    // Active Search
+    if (portalContent) portalContent.classList.add('hidden');
+    resultsArea.classList.remove('hidden');
 
     // Filter Data
     const matches = lovforslagData.filter(p =>
@@ -90,11 +100,11 @@ function renderResults(matches, query) {
 
     matches.forEach((p, index) => {
         const card = document.createElement('div');
-        
+
         // Add staggered animation delay
         const delay = Math.min(index * 0.05, 0.5);
         card.style.animationDelay = `${delay}s`;
-        
+
         // Smart Card HTML
         card.innerHTML = `
             <div class="result-card bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm flex items-center justify-between group hover:border-blue-200 hover:shadow-md transition-all duration-300 mb-4 cursor-default">
@@ -110,7 +120,7 @@ function renderResults(matches, query) {
                 </div>
             </div>
         `;
-        
+
         // Append the actual card element (first child of wrapper)
         fragment.appendChild(card.firstElementChild);
     });
@@ -186,10 +196,10 @@ function renderNoResults() {
  */
 async function init() {
     await loadData();
-    
+
     // Add event listener
     searchInput.addEventListener('input', handleSearch);
-    
+
     console.log('✅ Name search initialized');
 }
 

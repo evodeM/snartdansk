@@ -1197,3 +1197,17 @@ Når brugeren klikker "Download Rapport":
 1.  Byg "Min Sag" dashboardet (HTML/Tailwind).
 2.  Implementer "Lås op" logikken (f.eks. validering af en hash/kode lokalt for MVP).
 
+---
+
+## OPMÆRKSOMHEDSPUNKTER (Feb 2026)
+
+### Søgefeltet på forsiden (index.html)
+- **Problem:** Søgefeltet har en sticky/fixed position og overlapper portal-sektionen visuelt, når brugeren scroller.
+- **Anbefaling:** Overvej at fjerne sticky-funktionaliteten, eller tilføj mere spacing/padding, så søgefeltet ikke flyder over "Værktøjer" og "Guides" kortene.
+- **Prioritet:** Lav (kosmetisk, påvirker ikke funktionalitet).
+
+### Header dropdown-menu vs. Portal-kategorisering
+- **Observation:** Den nye forside-portal har kategorierne: Værktøjer, Guides & Viden, Aktuelt, Hurtig Hjælp.
+- **Header-dropdown:** Bruger en anden struktur (Beregnere, Værktøjer, Separator, Guides).
+- **Anbefaling:** Overvej at opdatere header-dropdownen, så den matcher portal-strukturen for konsistens.
+- **Prioritet:** Medium (UX-forbedring, men ikke kritisk).
