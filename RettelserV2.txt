@@ -1,0 +1,102 @@
+Nedenstående er rettelser, som jeg har fået til siden. Det bliver meget vigtigt, at du laver den rette GitHub kontrol. 
+
+
+
+For beskaftigelse.html / beskaftigelse-calculator.js 
+
+Man må godt "ikke være i arbejde" når man søger, men man skal være i arbejde når man ansøger. 
+
+Derfor bør du ændre formuleringen "Du mangler lidt endnu" til " Være opmærksom "
+
+
+
+Og derefter i stedet for "Du skal være i beskæftigelse på det tidspunkt, hvor lovforslaget fremsættes.": "Du skal opfylde kravet om 3 år og 6 måneders fuldtidsarbejde inden for de seneste 4 år og samtidig være i arbejde (minimum 15 timer ugentligt), når lovforslaget fremsættes – og helst indtil det vedtages.
+
+
+
+"Baseret på dine svar opfylder du kravene til beskæftigelse"
+
+Til:
+
+"Baseret på dine svar opfylder du kravene til beskæftigelse, men vær opmærksom på, at du skal opfylde kravet om beskæftigelse på det tidspunkt, hvor lovforslaget, som du optages på, fremsættes, samt under fremsættelsen af dette. Du kan ikke være sikker på, hvilket lovforslag du optages på, før du bliver optaget." 
+
+For karens-calculator.js / karens.html  	
+
+i stedet for baseret på officielle regler ændre til --> Baseret på cirkulæreskrivelse om naturalisation. (tilføj evt. linket til den: https://www.retsinformation.dk/eli/retsinfo/2018/9779   
+
+I stedet for at der står "Juridisk grundlag" --> ændre til "Grundlag 
+
+Jeg tænker desuden, at det kunne være smart at linke til en fartbøde beregner fra rådet for sikker trafik: https://www.sikkertrafik.dk/rad-og-viden/bil/fart/beregn-din-fartbode/
+
+På siden står der at man først kan søge når karenstiden er over (ved datoen), men i virkeligheden kan man søge før - karenstiden skal først være over inden udgangen af den måned, hvor lovforslaget man er optaget på forventes vedtaget (slut juni eller slut december normalt). 
+
+
+
+Overordnet feedback til hele undersiden https://snartdansk.dk/karens: 
+
+Du skal implementere en event listener på ændringen af af straf/afgørelse og datoen i stedet for at have en knap hvor man kan trykke beregn - det er mere human centered design 
+
+
+
+i "kortet" vigtig viden, skal der andet tekst. Den nuværende er ikke så relevant.  Pladsen kan måske anvendes til at linke til fartbøde beregneren. 
+
+
+
+Fjern "Beregn"-knappen og lad beregningen ske automatisk når brugeren vælger/ændrer noget i stedet for onClick brug addEventListener til dato og bøde type. 
+
+
+
+Vi har en gentagelses tilfælde knap --> Det skal være muligt, at tilføje en dato og beløbfelt for hvert gentagelsestilfælde man ønsker. Dato
+
+Type (Brug de samme som vi allerede har)
+
+Beløb ( Brug de samme kategorier, men kun dem som ændrer på noget → Brugeren styrer selv hvilken type gentagelse. Collapse/expand - Hvis mange gentagelser, lad hver være sammenklappelig. På mobil: Brug accordion-stil så kun én gentagelse er åben ad gangen.
+
+ Dette skal selvfølgelig fungere med beregneren, og lægge de nødvendige karenstid til. Hele implementeringen skal gøres smart.   
+
+
+
+Open graph image  
+
+
+
+Jeg har vedhæftet en ny open graph billede til forsiden. 
+
+Rolle: Expert SEO-udvikler og Cloudflare Pages-specialist. Input: Du har modtaget en fil ved navn og_image_front.png. Dette er din visuelle reference for  (layout, farver, typografi og visuel hierarki).
+
+Opgave: Du skal gennemgå alle HTML-filer på snartdansk.dk og implementere dynamiske Open Graph og:image tags. Brug myogimage.com API'et til at generere billeder, der ligner det vedhæftede billede så meget som muligt. Logoen er i projektet som favicon
+
+Instruktioner:
+
+Visuel Analyse: Analyser det vedhæftede og_image_front.png. Identificer baggrundsfarve, tekstfarve (HEX), skrifttypens stil og placeringen af logo/elementer.
+
+
+
+Dynamisk Mapping:
+
+Title: Brug sidens aktuelle <h1>. Tilføj altid " (2026 regler)" til titlen for SEO-relevans.
+
+
+
+Description: Udtræk de 2-3 vigtigste nøgleord fra sidens indhold (f.eks. "Beskæftigelseskrav", "Karens", "Gratis beregner").
+
+URL Konstruktion:
+
+Konstruer API-kaldet til myogimage.com/api/og, så det matcher inspirationsbilledets parametre (farve, tema, logo-placering).
+
+
+
+Sørg for, at alle parametre er URL-encoded (håndter æ, ø, å korrekt).
+
+Implementering:
+
+Indsæt de korrekte <meta property="og:image" ...> og <meta name="twitter:card" content="summary_large_image"> tags i <head> på hver side.
+
+
+
+Verificer at stien til logoet i API-kaldet er korrekt i forhold til din Cloudflare Pages rod-mappe.
+
+Mål: Hver underside skal have et unikt OG-image, der ser ud som om det er designet manuelt ud fra din og_image.pngskabelon, men som indeholder sidens specifikke data
+
+
+

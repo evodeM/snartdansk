@@ -61,7 +61,7 @@ function calculateEligibility() {
     if (!state.isCurrentlyEmployed) {
         isEligible = false;
         currentJobOk = false;
-        messages.push('Du skal være i beskæftigelse på det tidspunkt, hvor lovforslaget fremsættes.');
+        messages.push('Du skal opfylde kravet om 3 år og 6 måneders fuldtidsarbejde inden for de seneste 4 år og samtidig være i arbejde (minimum 15 timer ugentligt), når lovforslaget fremsættes – og helst indtil det vedtages.');
     } else if (state.weeklyHours < 15) {
         isEligible = false;
         currentJobOk = false;
@@ -84,7 +84,7 @@ function calculateEligibility() {
 
     return {
         isEligible,
-        status: isEligible ? 'Du opfylder kravene' : 'Du mangler lidt endnu',
+        status: isEligible ? 'Du opfylder kravene' : 'Vær opmærksom',
         messages,
         warnings,
         progress: finalProgress,
@@ -133,7 +133,7 @@ function updateUI() {
         messagesHTML += `
             <div class="flex gap-3 text-sm font-bold leading-tight">
                 <svg class="w-4 h-4 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                Baseret på dine svar opfylder du kravene til beskæftigelse.
+                Baseret på dine svar opfylder du kravene til beskæftigelse, men vær opmærksom på, at du skal opfylde kravet om beskæftigelse på det tidspunkt, hvor lovforslaget, som du optages på, fremsættes, samt under fremsættelsen af dette. Du kan ikke være sikker på, hvilket lovforslag du optages på, før du bliver optaget.
             </div>
         `;
     }
