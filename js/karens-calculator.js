@@ -123,7 +123,7 @@ function calculateKarens() {
     if (primaryKarens === Infinity) {
         isPermanent = true;
         resultTextValue = "Permanent udelukket";
-        explanationText = "Både betinget og ubetinget fængsel medfører permanent udelukkelse fra dansk statsborgerskab jf. UIM retningslinjer § 11.";
+        explanationText = "Både betinget og ubetinget fængsel medfører permanent udelukkelse fra dansk statsborgerskab jf. UIM retningslinjer.";
         status = "CRITICAL";
     } else if (primaryKarens === -1) {
         isBlocked = true;
