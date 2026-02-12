@@ -29,6 +29,31 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
+
+        .offense-card {
+            transition: all 0.3s ease;
+        }
+
+        .offense-card.collapsed .offense-body {
+            max-height: 0;
+            overflow: hidden;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .offense-card .offense-body {
+            max-height: 600px;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .offense-header-chevron {
+            transition: transform 0.3s ease;
+        }
+
+        .offense-card.collapsed .offense-header-chevron {
+            transform: rotate(-90deg);
+        }
     </style>
 </head>
 
@@ -42,15 +67,21 @@
 
             <!-- Page Header -->
             <header class="text-center mb-12">
-                <div
-                    class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                <a href="https://www.retsinformation.dk/eli/retsinfo/2018/9779" target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 hover:bg-blue-100 transition-colors">
                     <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fill-rule="evenodd"
                             d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
                             clip-rule="evenodd"></path>
                     </svg>
-                    <span>Baseret på officielle regler</span>
-                </div>
+                    <span>Baseret på cirkulæreskrivelse om naturalisation</span>
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                        </path>
+                    </svg>
+                </a>
                 <h1 class="text-4xl font-black text-slate-900 tracking-tight">Strafbare forhold</h1>
                 <p class="text-slate-500 mt-2 max-w-xl mx-auto">Tjek om din historik påvirker din mulighed for dansk
                     statsborgerskab.</p>
@@ -70,7 +101,7 @@
                                         clip-rule="evenodd"></path>
                                 </svg>
                             </div>
-                            <h2 class="text-xl font-bold">Indtast oplysninger</h2>
+                            <h2 class="text-xl font-bold">Primær straf/afgørelse</h2>
                         </div>
 
                         <div class="space-y-6">
@@ -95,66 +126,78 @@
                                 <input type="date" id="penaltyDate"
                                     class="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-4 py-4 focus:border-blue-500 transition-all outline-none font-semibold" />
                             </div>
-
-                            <!-- Gentagelse -->
-                            <div id="recidivismCheckbox"
-                                class="p-5 rounded-2xl border-2 cursor-pointer transition-all flex items-center gap-4 border-slate-100 bg-white hover:border-slate-200">
-                                <div
-                                    class="w-6 h-6 rounded-md border-2 flex items-center justify-center transition-colors border-slate-200 bg-white">
-                                    <svg class="w-4 h-4 text-white hidden" id="checkIcon" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                                            d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm font-bold text-slate-800">Gentagelsestilfælde?</p>
-                                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-tighter">Lægger
-                                        typisk 3 år til karens</p>
-                                </div>
-                            </div>
-
-                            <button id="calculateBtn"
-                                class="w-full bg-slate-900 text-white font-black py-5 rounded-2xl hover:bg-blue-600 transition-all shadow-xl shadow-slate-200 active:scale-[0.98] uppercase tracking-widest text-sm">
-                                Beregn Karensperiode
-                            </button>
                         </div>
                     </section>
 
+                    <!-- Gentagelsestilfælde Section -->
+                    <section class="bg-white rounded-[2rem] p-8 shadow-xl shadow-slate-200/40 border border-slate-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="p-3 bg-amber-500 rounded-2xl text-white shadow-lg shadow-amber-200">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h2 class="text-lg font-bold">Gentagelsestilfælde</h2>
+                                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Forlænger
+                                        karenstiden</p>
+                                </div>
+                            </div>
+                            <button id="addOffenseBtn"
+                                class="flex items-center gap-2 px-4 py-2.5 bg-blue-600 text-white rounded-xl text-xs font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200 active:scale-95">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                Tilføj
+                            </button>
+                        </div>
+
+                        <div id="offensesContainer" class="space-y-4">
+                            <!-- Dynamic offense cards will be inserted here -->
+                        </div>
+
+                        <p id="noOffensesText" class="text-center text-sm text-slate-400 py-4 italic">
+                            Ingen gentagelsestilfælde tilføjet.
+                        </p>
+                    </section>
+
+                    <!-- Fartbøde link card -->
                     <div class="bg-slate-900 rounded-[2rem] p-8 text-white">
                         <div class="flex items-center gap-3 mb-4">
-                            <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20"
+                            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"
                                 aria-hidden="true">
                                 <path fill-rule="evenodd"
                                     d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
                                     clip-rule="evenodd"></path>
                             </svg>
-                            <h3 class="font-bold text-sm uppercase">Vigtig viden</h3>
+                            <h3 class="font-bold text-sm uppercase">Har du fået en fartbøde?</h3>
                         </div>
-                        <p class="text-slate-400 text-xs leading-relaxed font-medium">
-                            Reglerne om vandel (god opførsel) er strenge. Selv mindre forseelser kan have opsættende
-                            virkning, hvis de sker gentagne gange eller under en eksisterende karensperiode.
+                        <p class="text-slate-400 text-xs leading-relaxed font-medium mb-4">
+                            Brug Rådet for Sikker Trafiks beregner til at finde ud af, hvor stor din fartbøde er, og
+                            indtast derefter beløbet her.
                         </p>
+                        <a href="https://www.sikkertrafik.dk/rad-og-viden/bil/fart/beregn-din-fartbode/" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2.5 bg-amber-500 text-slate-900 rounded-xl text-xs font-black hover:bg-amber-400 transition-colors">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                </path>
+                            </svg>
+                            Beregn din fartbøde →
+                        </a>
                     </div>
                 </div>
 
                 <!-- RESULTAT SEKTION -->
                 <div class="lg:col-span-7">
-                    <div id="resultPlaceholder"
-                        class="h-full min-h-[400px] border-4 border-dashed border-slate-200 rounded-[3rem] flex flex-col items-center justify-center p-12 text-center opacity-60">
-                        <div
-                            class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-6 text-slate-300">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-400 italic">Venter på beregning...</h3>
-                        <p class="text-slate-400 text-sm mt-2">Udfyld formularen til venstre for at se din status.</p>
-                    </div>
-
-                    <div id="resultSection" class="hidden space-y-6">
+                    <div id="resultSection" class="space-y-6">
                         <!-- Result Card -->
                         <div
                             class="bg-white rounded-[2.5rem] p-10 shadow-2xl shadow-slate-200 border border-slate-100 relative overflow-hidden">
@@ -165,22 +208,28 @@
                                             class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">
                                             Ansøgnings-status</p>
                                         <h2 class="text-3xl font-black text-slate-900 leading-tight" id="resultText">
+                                            Venter på input...
                                         </h2>
                                     </div>
-                                    <div id="statusBadge" class="p-4 rounded-2xl">
-                                        <!-- Icon will be injected -->
+                                    <div id="statusBadge" class="p-4 rounded-2xl bg-slate-100">
+                                        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
                                     </div>
                                 </div>
 
                                 <div class="grid grid-cols-2 gap-4 mb-8">
                                     <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
                                         <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Mål-dato</p>
-                                        <p class="font-black text-slate-800 text-lg" id="targetDate"></p>
+                                        <p class="font-black text-slate-800 text-lg" id="targetDate">—</p>
                                     </div>
                                     <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
                                         <p class="text-[10px] font-bold text-slate-400 uppercase mb-1">Status</p>
                                         <div id="statusLevel"
-                                            class="text-xs font-black uppercase px-2 py-1 rounded inline-block"></div>
+                                            class="text-xs font-black uppercase px-2 py-1 rounded inline-block bg-slate-100 text-slate-500">
+                                            —</div>
                                     </div>
                                 </div>
 
@@ -199,8 +248,9 @@
                                 </svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-slate-800 mb-2">Juridisk Grundlag</h4>
-                                <p class="text-sm text-slate-500 leading-relaxed italic" id="explanation"></p>
+                                <h4 class="font-bold text-slate-800 mb-2">Grundlag</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed italic" id="explanation">Vælg en
+                                    straftype og dato for at se beregningen.</p>
                             </div>
                         </div>
 
@@ -213,9 +263,10 @@
                                     clip-rule="evenodd"></path>
                             </svg>
                             <p class="text-xs text-amber-800 font-medium leading-relaxed">
-                                <strong>Bemærk:</strong> Beregningen følger de generelle retningslinjer i
-                                cirkulæreskrivelsen. Der tages ikke højde for personlige forhold, benådninger eller
-                                særregler for visse typer kriminalitet.
+                                <strong>Bemærk:</strong> Karenstiden skal være opfyldt ved udgangen af den måned, hvor
+                                det næste lovforslag om indfødsrets meddelelse forventes vedtaget (typisk slut juni
+                                eller slut december). Du kan altså godt <strong>søge</strong> inden karenstiden
+                                er over, da den blot skal være udløbet inden lovforslaget vedtages.
                             </p>
                         </div>
                     </div>
