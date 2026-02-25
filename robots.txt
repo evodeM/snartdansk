@@ -3,14 +3,19 @@ User-agent: *
 
 # Allow all public pages
 Allow: /
-Allow: /index.html
-Allow: /faq.html
-Allow: /beskaftigelse.html
-Allow: /karens.html
-Allow: /udlandsophold.html
-Allow: /tjekliste.html
-Allow: /dispensation.html
-Allow: /pdf-vaerktoj.html
+Allow: /faq
+Allow: /beskaftigelse
+Allow: /karens
+Allow: /udlandsophold
+Allow: /tjekliste
+Allow: /dispensation
+Allow: /pdf-vaerktoj
+Allow: /grundlovsceremoni
+Allow: /sindelagskontrol
+Allow: /ventetid
+Allow: /udvisningsregler-2026
+Allow: /indfoedsretsproeven
+Allow: /privatliv
 
 # Block sensitive data files (legal compliance - name list should not be indexed)
 Disallow: /data.json

@@ -16,7 +16,7 @@ Brug skabelonen **og:corporate** på myogimage.com til at lave alle billeder.
 | **Title** | `Er du på indfødsretslisten? Tjek L 98 nu` |
 | **Subtitle** | `Søg gratis i lovforslaget fra januar 2026 og find dit navn på få sekunder.` |
 | **Filnavn** | `og-index.png` |
-
+ignorere denne del. 
 ---
 
 ## 2. beskaftigelse.html

@@ -10,7 +10,7 @@
     
     <!-- FAQ - General information -->
     <url>
-        <loc>https://snartdansk.dk/faq.html</loc>
+        <loc>https://snartdansk.dk/faq</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
@@ -18,21 +18,21 @@
     
     <!-- Calculators -->
     <url>
-        <loc>https://snartdansk.dk/beskaftigelse.html</loc>
+        <loc>https://snartdansk.dk/beskaftigelse</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://snartdansk.dk/karens.html</loc>
+        <loc>https://snartdansk.dk/karens</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://snartdansk.dk/udlandsophold.html</loc>
+        <loc>https://snartdansk.dk/udlandsophold</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -40,14 +40,14 @@
     
     <!-- Tools -->
     <url>
-        <loc>https://snartdansk.dk/tjekliste.html</loc>
+        <loc>https://snartdansk.dk/tjekliste</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://snartdansk.dk/pdf-vaerktoj.html</loc>
+        <loc>https://snartdansk.dk/pdf-vaerktoj</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -55,19 +55,19 @@
     
     <!-- Guides -->
     <url>
-        <loc>https://snartdansk.dk/dispensation.html</loc>
+        <loc>https://snartdansk.dk/dispensation</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://snartdansk.dk/grundlovsceremoni.html</loc>
+        <loc>https://snartdansk.dk/grundlovsceremoni</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://snartdansk.dk/sindelagskontrol.html</loc>
+        <loc>https://snartdansk.dk/sindelagskontrol</loc>
         <lastmod>2026-01-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -75,19 +75,19 @@
     
     <!-- Nyheder / Lovændringer -->
     <url>
-        <loc>https://snartdansk.dk/ventetid.html</loc>
+        <loc>https://snartdansk.dk/ventetid</loc>
         <lastmod>2026-02-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://snartdansk.dk/udvisningsregler-2026.html</loc>
+        <loc>https://snartdansk.dk/udvisningsregler-2026</loc>
         <lastmod>2026-01-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://snartdansk.dk/indfoedsretsproeven.html</loc>
+        <loc>https://snartdansk.dk/indfoedsretsproeven</loc>
         <lastmod>2026-02-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -95,7 +95,7 @@
     
     <!-- Juridisk information -->
     <url>
-        <loc>https://snartdansk.dk/privatliv.html</loc>
+        <loc>https://snartdansk.dk/privatliv</loc>
         <lastmod>2026-01-26</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
