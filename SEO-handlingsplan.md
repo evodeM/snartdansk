@@ -6,6 +6,23 @@ Målet er todelt: (1) rette de tekniske ting, der holder sitet tilbage, og (2) f
 
 ---
 
+## ✅ Status pr. 10. juni 2026 — udført
+
+Følgende "denne uge"-opgaver er allerede gennemført i filerne:
+
+- **Sitemap opdateret** med øve-prøven (`/ovelse-indfodsretsproeven`).
+- **robots.txt:** `Allow: /ovelse-indfodsretsproeven` tilføjet.
+- **Øve-prøven i navigationen:** allerede i headeren ("Træn til Prøven"); nu også tilføjet i footerens værktøjsliste.
+- **Øve-prøven (SEO):** tilføjet statisk, crawlbar tekst ("Om Indfødsretsprøven" + eksempel-spørgsmål + FAQ) og `FAQPage`-JSON-LD.
+- **Forsiden:** tilføjet et tydeligt statusbanner om, at L 98 er bortfaldet (valg 24. marts 2026, ceremonier 22. maj aflyst, ny regering 1. juni), og opdateret forældet "(L 98)" i `<title>`, meta description og twitter:title.
+- **Structured data:** `WebApplication` tilføjet på de fem værktøjer og `BreadcrumbList` på alle seks tidligere schema-løse sider (al JSON-LD valideret).
+
+**Mangler stadig af "denne uge" (kræver din handling — kan ikke gøres i filerne):**
+
+- **Google Search Console:** opret/verificér, indsend `sitemap.xml`, og kør "Anmod om indeksering" på forsiden og øve-prøven. Dette er det vigtigste næste skridt for at få de nye sider hurtigt indekseret.
+
+---
+
 ## 1. Teknisk fundament (gør først)
 
 Det her er forudsætningen for, at alt det andet virker.
@@ -14,7 +31,7 @@ Det her er forudsætningen for, at alt det andet virker.
 - **robots.txt:** tilføj en linje, så den nye side eksplicit er tilladt (den er teknisk dækket af `Allow: /`, men hold listen konsistent):
   `Allow: /ovelse-indfodsretsproeven`
 - **Google Search Console:** opret/verificér ejerskab, indsend `sitemap.xml`, og brug "Anmod om indeksering" på nye og ændrede sider. Det er dit vigtigste måleværktøj — og det bryder ikke din no-tracking-profil (det er server-side, ikke besøgs-tracking).
-- **Structured data (JSON-LD):** tilføj på de sider, der mangler det — `beskaftigelse`, `karens`, `udlandsophold`, `tjekliste`, `pdf-vaerktoj`. Brug `WebApplication` eller `HowTo` på beregnerne. Tilføj `BreadcrumbList` overalt.
+- **Structured data (JSON-LD):** ✅ *Udført 10. juni 2026* — `WebApplication` tilføjet på `beskaftigelse`, `karens`, `udlandsophold`, `tjekliste`, `pdf-vaerktoj`, og `BreadcrumbList` på alle seks (inkl. `privatliv`). Næste skridt: udrul evt. `BreadcrumbList` til de øvrige undersider (guides/aktuelt).
 - **Øve-prøven specifikt:** tilføj `Quiz`- eller `FAQPage`-JSON-LD, og skriv statisk, crawlbar introtekst i HTML'en (overskrift + et par afsnit + 1-2 eksempel-spørgsmål skrevet direkte i sidens kildekode). Quizzen tegnes af JavaScript, så uden statisk tekst ser Google næsten en tom side.
 - **Performance:** Tailwind via CDN (kompilerer i browseren) er den største bremse på Core Web Vitals. På sigt: byg én minificeret CSS-fil. Mobil-hastighed er en direkte ranking-faktor.
 - **404-siden:** tilføj `<meta name="robots" content="noindex">` og links tilbage til hovedsiderne.
@@ -73,7 +90,7 @@ To stærke trafikmotorer lige nu:
 ### 1-3 uger
 5. Byg samlesiden `/nye-regler-2026` med Article + FAQ-schema, og tilføj den til sitemap.
 6. Opdatér sindelagskontrol, ventetid, faq og dispensation med de nye regler + intern linking.
-7. Tilføj manglende structured data på de fem beregner-/værktøjssider.
+7. ~~Tilføj manglende structured data på de fem beregner-/værktøjssider.~~ ✅ Udført 10. juni 2026.
 
 ### Når der er tid
 8. Erstat Tailwind-CDN med en bygget, minificeret CSS-fil (performance).
