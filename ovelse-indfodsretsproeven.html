@@ -16,6 +16,21 @@
     .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
   </style>
+
+  <!-- Structured data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Hvor mange spørgsmål er der i indfødsretsprøven?","acceptedAnswer":{"@type":"Answer","text":"Prøven har 45 spørgsmål, som du skal besvare på 45 minutter."}},
+      {"@type":"Question","name":"Hvor mange skal jeg have rigtige for at bestå?","acceptedAnswer":{"@type":"Answer","text":"Du skal have mindst 36 ud af 45 rigtige, og heraf mindst 4 af de 5 spørgsmål om danske værdier."}},
+      {"@type":"Question","name":"Hvad er værdispørgsmålene?","acceptedAnswer":{"@type":"Answer","text":"5 af spørgsmålene handler om grundlæggende danske værdier som ytringsfrihed og ligestilling. Du skal have mindst 4 af dem rigtige."}},
+      {"@type":"Question","name":"Hvornår afholdes indfødsretsprøven?","acceptedAnswer":{"@type":"Answer","text":"Indfødsretsprøven afholdes to gange om året, typisk i juni og november."}},
+      {"@type":"Question","name":"Er denne træning den officielle prøve?","acceptedAnswer":{"@type":"Answer","text":"Nej. Det er en uofficiel øve-side med spørgsmål baseret på offentligt materiale fra tidligere prøver. Den officielle prøve afholdes af SIRI."}}
+    ]
+  }
+  </script>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen">
 
@@ -23,15 +38,20 @@
   <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <div class="flex items-center space-x-3 cursor-pointer" onclick="changeView('dashboard')">
-        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-blue-500/20">DK</div>
+        <img src="/favicon.svg" alt="SnartDansk Logo" class="w-10 h-10 rounded-xl shadow-md shadow-blue-500/20" />
         <div>
           <h1 class="text-lg font-bold tracking-tight text-slate-950">Indfødsretsprøven</h1>
           <p class="text-xs text-slate-500 font-medium">Træningsportal • 2021 - 2025</p>
         </div>
       </div>
-      <div class="flex items-center space-x-2">
-        <button onclick="changeView('dashboard')" class="text-sm font-semibold hover:text-blue-600 px-3 py-2 transition">Hjem</button>
-        <button onclick="changeView('table-view')" class="text-sm font-semibold hover:text-blue-600 px-3 py-2 transition">Spørgsmålsoversigt</button>
+      <div class="flex items-center space-x-1 sm:space-x-2">
+        <a href="/" class="text-sm font-semibold text-slate-500 hover:text-blue-600 px-2 sm:px-3 py-2 transition flex items-center gap-1" title="Tilbage til SnartDansk">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+          <span class="hidden sm:inline">SnartDansk</span>
+        </a>
+        <div class="w-px h-4 bg-slate-300 mx-1 hidden sm:block"></div>
+        <button onclick="changeView('dashboard')" class="text-sm font-semibold hover:text-blue-600 px-2 sm:px-3 py-2 transition">Hjem</button>
+        <button onclick="changeView('table-view')" class="text-sm font-semibold hover:text-blue-600 px-2 sm:px-3 py-2 transition">Oversigt</button>
       </div>
     </div>
   </header>
@@ -137,6 +157,59 @@
 
         </div>
       </div>
+
+      <!-- Statisk info + FAQ (synlig og crawlbar for SEO) -->
+      <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-8">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-900 mb-3">Om Indfødsretsprøven</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Indfødsretsprøven er en obligatorisk prøve, du skal bestå for at få dansk statsborgerskab. Prøven tester dit kendskab til danske samfundsforhold, dansk kultur og historie samt danske værdier. Den afholdes to gange om året — i juni (sommer) og november (vinter).
+          </p>
+          <p class="text-slate-600 leading-relaxed mt-3">
+            Siden november 2021 består prøven af <strong>45 spørgsmål</strong>, og du har <strong>45 minutter</strong>. For at bestå skal du svare rigtigt på <strong>mindst 36 ud af 45 spørgsmål</strong> — og heraf <strong>mindst 4 ud af de 5 spørgsmål om danske værdier</strong>. 35 spørgsmål bygger på lærematerialet, 5 handler om aktuelle begivenheder, og 5 om danske værdier.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold text-slate-900 mb-4">Eksempler på spørgsmål</h4>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <p class="font-semibold text-slate-800">Hvornår fik Danmark sin første demokratiske grundlov?</p>
+              <p class="text-sm text-slate-500 mt-1">A: 1849 · B: 1915 · C: 1953 — <span class="font-semibold text-emerald-600">Rigtigt: A (1849)</span></p>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+              <p class="font-semibold text-slate-800">Hvor mange medlemmer sidder der i Folketinget?</p>
+              <p class="text-sm text-slate-500 mt-1">A: 150 · B: 179 · C: 200 — <span class="font-semibold text-emerald-600">Rigtigt: B (179)</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-lg font-bold text-slate-900 mb-4">Ofte stillede spørgsmål</h4>
+          <div class="space-y-4">
+            <div>
+              <h5 class="font-semibold text-slate-800">Hvor mange spørgsmål er der i indfødsretsprøven?</h5>
+              <p class="text-sm text-slate-600 mt-1">Prøven har 45 spørgsmål, som du skal besvare på 45 minutter.</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-slate-800">Hvor mange skal jeg have rigtige for at bestå?</h5>
+              <p class="text-sm text-slate-600 mt-1">Du skal have mindst 36 ud af 45 rigtige, og heraf mindst 4 af de 5 spørgsmål om danske værdier.</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-slate-800">Hvad er værdispørgsmålene?</h5>
+              <p class="text-sm text-slate-600 mt-1">5 af spørgsmålene handler om grundlæggende danske værdier som ytringsfrihed, ligestilling og forholdet mellem religion og lovgivning. Du skal have mindst 4 af dem rigtige.</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-slate-800">Hvornår afholdes prøven?</h5>
+              <p class="text-sm text-slate-600 mt-1">Indfødsretsprøven afholdes to gange om året — typisk i juni og november.</p>
+            </div>
+            <div>
+              <h5 class="font-semibold text-slate-800">Er denne træning den officielle prøve?</h5>
+              <p class="text-sm text-slate-600 mt-1">Nej. Dette er en uofficiel øve-side med spørgsmål baseret på offentligt tilgængeligt materiale fra tidligere prøver. Den officielle prøve afholdes af SIRI — brug altid det officielle læremateriale som forberedelse.</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
 
     <!-- ================= SIMULATOR / TRAINING SCREEN ================= -->
