@@ -946,15 +946,19 @@
           <td class="p-4 font-bold text-xs text-slate-500 whitespace-nowrap">${q.exam}</td>
           <td class="p-4 font-bold text-slate-900 max-w-sm">${q.question}</td>
           <td class="p-4 text-xs text-slate-500 max-w-xs space-y-1">${q.options.map(o => `<div>• ${o}</div>`).join('')}</td>
-          <td class="p-4 text-center"><span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-blue-700 font-extrabold">${q.answer}</span></td>
-          <td class="p-4 font-semibold text-emerald-600 text-xs"><span class="answer-content ${showAllTableAnswers ? '' : 'blur-md select-none'} transition-all cursor-pointer" onclick="toggleSingleAnswerInTable(this)">${correctOptionText}</span></td>
+          <td class="p-4 text-center"><span class="answer-content inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 text-blue-700 font-extrabold ${showAllTableAnswers ? '' : 'blur-md select-none'} transition-all cursor-pointer" onclick="toggleSingleRowAnswersInTable(this)">${q.answer}</span></td>
+          <td class="p-4 font-semibold text-emerald-600 text-xs"><span class="answer-content ${showAllTableAnswers ? '' : 'blur-md select-none'} transition-all cursor-pointer" onclick="toggleSingleRowAnswersInTable(this)">${correctOptionText}</span></td>
           <td class="p-4 whitespace-nowrap"><span class="inline-flex px-2 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-slate-100 text-slate-500">${q.category}</span></td>`;
         tableBody.appendChild(tr);
       });
     }
-    function toggleSingleAnswerInTable(el) {
-      el.classList.toggle('blur-md');
-      el.classList.toggle('select-none');
+    function toggleSingleRowAnswersInTable(el) {
+      const tr = el.closest('tr');
+      const answers = tr.querySelectorAll('.answer-content');
+      answers.forEach(a => {
+        a.classList.toggle('blur-md');
+        a.classList.toggle('select-none');
+      });
     }
     function toggleAllAnswersInTable() {
       showAllTableAnswers = !showAllTableAnswers;
