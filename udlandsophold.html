@@ -194,8 +194,10 @@
     <!-- Load Shared Components -->
     <script src="/js/calculators.js" defer></script>
     <script>
-        // Load header and footer
-        CalculatorUtils.loadSharedComponents();
+        // Load header and footer when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            CalculatorUtils.loadSharedComponents();
+        });
     </script>
 
     <!-- Calculator Logic -->
