@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indfødsretsprøven - Træn og Bestå (2021 - 2025)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts for modern look -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #475569;
+    }
+  </style>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200">
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center space-x-3 cursor-pointer" onclick="changeView('dashboard')">
+        <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-brand-500/20">
+          DK
+        </div>
+        <div>
+          <h1 class="text-lg font-bold tracking-tight text-slate-950 dark:text-white">Indfødsretsprøven</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Træningsportal • 2021 - 2025</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <!-- Dashboard Button -->
+        <button onclick="changeView('dashboard')" class="text-sm font-semibold hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 transition">
+          Hjem
+        </button>
+        <!-- Table view shortcut -->
+        <button onclick="changeView('table-view')" class="text-sm font-semibold hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 transition flex items-center space-x-1">
+          <span>Spørgsmålsoversigt</span>
+        </button>
+        
+        <!-- Theme Toggle -->
+        <button onclick="toggleTheme()" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition" aria-label="Skift lys/mørk tilstand">
+          <!-- Sun Icon (visible in dark mode) -->
+          <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+          <!-- Moon Icon (visible in light mode) -->
+          <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- ================= DASHBOARD SCREEN ================= -->
+    <section id="screen-dashboard" class="space-y-8">
+      <!-- Velkomst & Info -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 text-white p-8 sm:p-12 shadow-xl shadow-slate-900/10">
+        <div class="absolute top-0 right-0 -mt-8 -mr-8 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative z-10 max-w-3xl">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/20 text-brand-300 mb-4 border border-brand-500/30">Opdateret til 2026-pensum</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Er du klar til Indfødsretsprøven?</h2>
+          <p class="text-slate-300 text-lg leading-relaxed mb-6">
+            Her kan du træne med rigtige spørgsmål fra prøveperioderne <strong>2021 til og med 2025</strong>. Vores system simulerer de præcise betingelser for at bestå, inklusive de afgørende spørgsmål om danske værdier.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <button onclick="startMode('simulation')" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition-all shadow-lg shadow-brand-600/30 active:scale-[0.98]">
+              Start Simuleret Prøve (45 min)
+            </button>
+            <button onclick="changeView('table-view')" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold border border-slate-700 transition active:scale-[0.98]">
+              Se alle spørgsmål som tabel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistik overblik -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-slate-500 dark:text-slate-400 text-sm font-semibold">Gennemførte forsøg</div>
+          <div class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1" id="stat-total-tests">0</div>
+          <div class="text-xs text-slate-400 mt-2">Gemt på denne enhed</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-slate-500 dark:text-slate-400 text-sm font-semibold">Beståelsesprocent</div>
+          <div class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-1" id="stat-pass-rate">0%</div>
+          <div class="text-xs text-slate-400 mt-2">Mål: 100%</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-slate-500 dark:text-slate-400 text-sm font-semibold font-semibold">Gennemsnitlig score</div>
+          <div class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1" id="stat-avg-score">0.0</div>
+          <div class="text-xs text-slate-400 mt-2">Ud af 45 spørgsmål</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <div class="text-slate-500 dark:text-slate-400 text-sm font-semibold">Bedste resultat</div>
+          <div class="text-3xl font-extrabold text-brand-600 dark:text-brand-400 mt-1" id="stat-best-score">0 / 45</div>
+          <div class="text-xs text-slate-400 mt-2">Dine personlige rekord</div>
+        </div>
+      </div>
+
+      <!-- Træningstilstande -->
+      <div>
+        <h3 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-6">Vælg din træningsmetode</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Simuleret Prøve Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Officiel Prøvesimulering</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                45 spørgsmål trukket tilfældigt fra pensum og historiske tests. 45 minutters tidsfrist. Kræver mindst 36 rigtige og 4/5 i værdier for at bestå.
+              </p>
+            </div>
+            <button onclick="startMode('simulation')" class="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white text-white font-semibold transition text-sm">
+              Start Simulering
+            </button>
+          </div>
+
+          <!-- Lyn-træning Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Hurtig Lyn-træning</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                Kun 10 hurtige spørgsmål med øjeblikkelig feedback efter hvert svar. Perfekt til en hurtig pause på farten.
+              </p>
+            </div>
+            <button onclick="startMode('quick')" class="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white text-white font-semibold transition text-sm">
+              Start 10 Spørgsmål
+            </button>
+          </div>
+
+          <!-- Kategoritræning Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V4zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V16zm10 0a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V16z"></path></svg>
+              </div>
+              <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Træn efter Emne</h4>
+              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                Gå i dybden med de kategorier, du finder sværest:
+              </p>
+              <div class="space-y-2 mb-6">
+                <select id="category-select" class="w-full bg-slate-100 dark:bg-slate-700 border-0 rounded-xl px-3 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-brand-500">
+                  <option value="Kultur og Historie">Kultur og Historie</option>
+                  <option value="Samfundsforhold">Samfundsforhold</option>
+                  <option value="Aktuelle Spørgsmål">Aktuelle Spørgsmål (2021-2025)</option>
+                  <option value="Danske Værdier">Danske Værdier (Afgørende)</option>
+                </select>
+              </div>
+            </div>
+            <button onclick="startMode('category')" class="w-full py-3 rounded-xl bg-slate-900 dark:bg-slate-100 dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-white text-white font-semibold transition text-sm">
+              Træn efter kategori
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Særlige Historiske Prøver -->
+      <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Prøv en specifik historisk prøve</h4>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mb-6">
+          Træn med præcis de 45 spørgsmål, der blev stillet i en specifik periode. Vælg herunder:
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+          <button onclick="startSpecificExam('2025-11')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">November 2025</button>
+          <button onclick="startSpecificExam('2025-05')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">Maj 2025</button>
+          <button onclick="startSpecificExam('2024-11')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">November 2024</button>
+          <button onclick="startSpecificExam('2024-05')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">Maj 2024</button>
+          <button onclick="startSpecificExam('2023-11')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">November 2023</button>
+          <button onclick="startSpecificExam('2023-05')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">Maj 2023</button>
+          <button onclick="startSpecificExam('2022-11')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">November 2022</button>
+          <button onclick="startSpecificExam('2022-06')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">Juni 2022</button>
+          <button onclick="startSpecificExam('2021-11')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">November 2021</button>
+          <button onclick="startSpecificExam('2021-06')" class="px-4 py-3 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-brand-600 hover:text-white dark:hover:bg-brand-600 dark:hover:text-white font-semibold text-sm transition">Juni 2021</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= SIMULATOR / TRAINING SCREEN ================= -->
+    <section id="screen-simulator" class="hidden space-y-6">
+      <!-- Prøve Header -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <div>
+          <span id="simulator-badge" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 dark:bg-brand-900/30 dark:text-brand-300">
+            Prøvetilstand
+          </span>
+          <h3 id="simulator-title" class="text-xl font-bold text-slate-900 dark:text-white mt-2">Indfødsretsprøven Simulering</h3>
+        </div>
+        
+        <!-- Timer & Fremdrift -->
+        <div class="flex items-center space-x-6 w-full sm:w-auto justify-between sm:justify-end">
+          <div class="text-right">
+            <p class="text-xs text-slate-400 font-semibold uppercase tracking-wider">Fremdrift</p>
+            <p id="simulator-progress-text" class="text-lg font-extrabold text-slate-900 dark:text-white">Spørgsmål 1 af 45</p>
+          </div>
+          <div id="simulator-timer-box" class="flex items-center space-x-2 bg-slate-100 dark:bg-slate-700 px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-600">
+            <svg class="w-5 h-5 text-slate-500 dark:text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span id="simulator-timer" class="text-lg font-mono font-bold text-slate-800 dark:text-white">45:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spørgsmåls fremdrifts-bar -->
+      <div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2.5">
+        <div id="simulator-progress-bar" class="bg-brand-600 h-2.5 rounded-full transition-all duration-300" style="width: 2%"></div>
+      </div>
+
+      <!-- Grid for Spørgsmålskort og Sidebar navigatør -->
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        
+        <!-- Hovedspørgsmålskort -->
+        <div class="lg:col-span-3 space-y-6">
+          <div class="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md relative overflow-hidden">
+            <!-- Særlig kategori advarsel -->
+            <div id="value-question-warning" class="hidden mb-6 p-4 bg-amber-50 dark:bg-amber-950/30 text-amber-800 dark:text-amber-300 rounded-2xl border border-amber-200 dark:border-amber-900/50 flex items-start space-x-3">
+              <svg class="w-5 h-5 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+              <div>
+                <strong class="font-semibold block text-sm">Afgørende Dansk Værdi Spørgsmål (41-45):</strong>
+                <span class="text-xs">Du skal have mindst 4 ud af de 5 danske værdier korrekte for at bestå prøven, uanset din samlede score!</span>
+              </div>
+            </div>
+
+            <!-- Kategori badge -->
+            <div class="flex items-center justify-between mb-4">
+              <span id="question-category" class="text-xs font-bold tracking-wider uppercase text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/40 px-3 py-1 rounded-full">Kultur & Historie</span>
+              <span id="question-source" class="text-xs font-semibold text-slate-400">Kilde: Generelt Pensum</span>
+            </div>
+
+            <!-- Spørgsmålstekst -->
+            <h4 id="question-text" class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug mb-8">
+              Hvilket år fik Danmark sin første grundlov?
+            </h4>
+
+            <!-- Svarmuligheder -->
+            <div id="options-container" class="space-y-4">
+              <!-- Dynamiske svarmuligheds-knapper vil blive indsat her -->
+            </div>
+
+            <!-- Forklaringsboks (Kun synlig i hurtig eller øvelsestilstand efter svar) -->
+            <div id="feedback-explanation" class="hidden mt-8 p-5 bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/50 rounded-2xl">
+              <div class="flex items-start space-x-3">
+                <span class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">i</span>
+                <div>
+                  <h5 class="font-bold text-blue-900 dark:text-blue-300 text-sm mb-1">Uddybende Forklaring</h5>
+                  <p id="explanation-text" class="text-xs sm:text-sm text-blue-800 dark:text-blue-400 leading-relaxed"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bund navigation -->
+          <div class="flex items-center justify-between">
+            <button onclick="prevQuestion()" id="btn-prev" class="px-5 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 font-bold transition flex items-center space-x-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+              <span>Forrige</span>
+            </button>
+            
+            <!-- Flag/Markér spørgsmål -->
+            <button onclick="toggleFlag()" id="btn-flag" class="px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 hover:bg-yellow-50 dark:hover:bg-yellow-950/20 text-slate-600 dark:text-slate-400 hover:text-yellow-600 dark:hover:text-yellow-500 transition flex items-center space-x-2">
+              <svg class="w-5 h-5" id="flag-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a0.5.5 0 01.5-.5h2a0.5.5 0 01.5.5v12h-3v-12zm3 0h11l-3 4 3 4H8V5z"></path></svg>
+              <span id="flag-text">Marker til senere</span>
+            </button>
+
+            <button onclick="nextQuestion()" id="btn-next" class="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold transition flex items-center space-x-2 shadow-lg shadow-brand-600/20">
+              <span id="next-text">Næste</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar Spørgsmålsnavigatør (Kun synlig i fuldlængde simulering) -->
+        <div id="simulator-sidebar" class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div>
+            <h5 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Spørgsmålsoversigt</h5>
+            <div class="grid grid-cols-5 gap-2" id="sidebar-grid">
+              <!-- Dynamiske brikker 1-45 -->
+            </div>
+          </div>
+          
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+            <button onclick="confirmSubmitTest()" class="w-full py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/20 transition duration-150">
+              Aflever og Ret Prøve
+            </button>
+            <button onclick="confirmQuitTest()" class="w-full mt-2 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 text-xs font-semibold transition">
+              Afbryd Prøve
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= RESULTS SCREEN ================= -->
+    <section id="screen-results" class="hidden space-y-8">
+      <!-- Bestået / dumpet banner -->
+      <div id="results-banner" class="rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div class="relative z-10 max-w-2xl mx-auto">
+          <div class="w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl mb-6 shadow-md" id="results-badge-icon">
+            🎉
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black mb-4" id="results-headline">Du har BESTÅET!</h2>
+          <p class="text-lg opacity-90 leading-relaxed mb-6" id="results-summary-text">
+            Flot klaret! Du fik 41 rigtige ud af 45 mulige, inklusive de nødvendige korrekte svar under de danske værdier.
+          </p>
+          <div class="flex justify-center gap-4">
+            <button onclick="changeView('dashboard')" class="px-6 py-3 rounded-xl bg-white text-slate-900 font-bold transition shadow hover:bg-slate-50">
+              Gå til Dashboard
+            </button>
+            <button onclick="changeView('table-view')" class="px-6 py-3 rounded-xl bg-black/20 hover:bg-black/30 border border-white/20 text-white font-semibold transition">
+              Gennemse alle spørgsmål
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specifik pointsfordeling -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Score Card 1: Samlet -->
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+          <h4 class="text-slate-500 dark:text-slate-400 font-bold text-sm uppercase tracking-wider">Samlet Score</h4>
+          <div class="text-5xl font-black my-4 text-slate-900 dark:text-white" id="results-score-total">0 / 45</div>
+          <div class="text-xs text-slate-400">Krav: Mindst 36 rigtige svar</div>
+          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full mt-4 overflow-hidden">
+            <div id="results-bar-total" class="bg-brand-600 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Score Card 2: Danske Værdier -->
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+          <h4 class="text-slate-500 dark:text-slate-400 font-bold text-sm uppercase tracking-wider">Danske Værdier</h4>
+          <div class="text-5xl font-black my-4 text-slate-900 dark:text-white" id="results-score-values">0 / 5</div>
+          <div class="text-xs text-slate-400">Krav: Mindst 4 rigtige svar (spm. 41-45)</div>
+          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full mt-4 overflow-hidden">
+            <div id="results-bar-values" class="bg-amber-500 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Score Card 3: Prøvetid -->
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm text-center">
+          <h4 class="text-slate-500 dark:text-slate-400 font-bold text-sm uppercase tracking-wider">Brugt Tid</h4>
+          <div class="text-5xl font-black my-4 text-slate-900 dark:text-white" id="results-time-spent">00:00</div>
+          <div class="text-xs text-slate-400">Maks. tilladte tid: 45:00 minutter</div>
+          <div class="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full mt-4 overflow-hidden">
+            <div id="results-bar-time" class="bg-indigo-500 h-2.5 rounded-full" style="width: 0%"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Detaljeret oversigt over besvarelser -->
+      <div>
+        <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Gennemgå dine fejl og rigtige svar</h3>
+        <div class="space-y-4" id="results-questions-list">
+          <!-- Dynamisk liste over besvarede spørgsmål med farveindikationer -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= TABLE VIEW / QUESTIONS OVERVIEW SCREEN ================= -->
+    <section id="screen-table-view" class="hidden space-y-6">
+      <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Komplet Spørgsmålsdatabase (2021-2025)</h2>
+        <p class="text-slate-600 dark:text-slate-300 text-sm mb-6">
+          Søg på tværs af alle spørgsmål, filtrer efter prøveperiode eller kategori, og se de korrekte svar. Du kan klikke på "Vis/Skjul Svar" for at bruge tabellen som en hurtig interaktiv læringsliste!
+        </p>
+
+        <!-- Søge og filter bjælke -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+          <div class="md:col-span-2 relative">
+            <input type="text" id="table-search" oninput="filterTable()" placeholder="Søg i spørgsmålstekst eller svarmuligheder..." class="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-700 rounded-xl border-0 focus:ring-2 focus:ring-brand-500 text-sm font-semibold transition">
+            <div class="absolute left-3 top-3 text-slate-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+          </div>
+          
+          <div>
+            <select id="table-filter-period" onchange="filterTable()" class="w-full bg-slate-100 dark:bg-slate-700 rounded-xl border-0 px-3 py-3 text-sm font-semibold focus:ring-2 focus:ring-brand-500 transition">
+              <option value="all">Alle Perioder</option>
+              <option value="November 2025">November 2025</option>
+              <option value="Maj 2025">Maj 2025</option>
+              <option value="November 2024">November 2024</option>
+              <option value="Maj 2024">Maj 2024</option>
+              <option value="November 2023">November 2023</option>
+              <option value="Maj 2023">Maj 2023</option>
+              <option value="November 2022">November 2022</option>
+              <option value="Juni 2022">Juni 2022</option>
+              <option value="November 2021">November 2021</option>
+              <option value="Juni 2021">Juni 2021</option>
+              <option value="Generelt Pensum">Generelt Pensum</option>
+            </select>
+          </div>
+
+          <div>
+            <select id="table-filter-category" onchange="filterTable()" class="w-full bg-slate-100 dark:bg-slate-700 rounded-xl border-0 px-3 py-3 text-sm font-semibold focus:ring-2 focus:ring-brand-500 transition">
+              <option value="all">Alle Kategorier</option>
+              <option value="Kultur og Historie">Kultur og Historie</option>
+              <option value="Samfundsforhold">Samfundsforhold</option>
+              <option value="Aktuelle Spørgsmål">Aktuelle Spørgsmål</option>
+              <option value="Danske Værdier">Danske Værdier</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider" id="table-results-count">Viser 0 ud af 0 spørgsmål</span>
+          <button onclick="toggleAllAnswersInTable()" id="btn-toggle-answers" class="text-xs font-bold text-brand-600 dark:text-brand-400 hover:underline flex items-center space-x-1">
+            <span>Vis alle korrekte svar</span>
+          </button>
+        </div>
+
+        <!-- TabelContainer -->
+        <div class="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 custom-scrollbar">
+          <table class="w-full text-left border-collapse" id="database-table">
+            <thead>
+              <tr class="bg-slate-100 dark:bg-slate-700/50 text-slate-400 text-xs font-extrabold uppercase tracking-wider">
+                <th class="p-4 whitespace-nowrap">Prøveperiode</th>
+                <th class="p-4 whitespace-nowrap">Nr.</th>
+                <th class="p-4 min-w-[250px]">Spørgsmålstekst</th>
+                <th class="p-4 min-w-[200px]">Svarmuligheder</th>
+                <th class="p-4 whitespace-nowrap">Korrekt Bogstav</th>
+                <th class="p-4 min-w-[150px]">Korrekt Tekst</th>
+                <th class="p-4 whitespace-nowrap">Kategori</th>
+              </tr>
+            </thead>
+            <tbody id="table-body" class="divide-y divide-slate-200 dark:divide-slate-800 text-sm">
+              <!-- Dynamiske tabel rækker her -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Custom Alert Modal (instead of blocky default alerts) -->
+  <div id="custom-alert-modal" class="hidden fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full p-6 shadow-xl border border-slate-200 dark:border-slate-700 text-center space-y-4">
+      <div class="w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center mx-auto text-xl font-bold">!</div>
+      <h4 class="text-lg font-bold text-slate-950 dark:text-white" id="modal-title">Bekræft venligst</h4>
+      <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed" id="modal-description">Er du sikker på, du vil udføre denne handling?</p>
+      <div class="flex items-center justify-center space-x-3 pt-2">
+        <button id="modal-btn-cancel" class="px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-semibold transition">Afbryd</button>
+        <button id="modal-btn-confirm" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-bold transition">Bekræft</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App Logic -->
+  <script>
+    // ================= QUESTION DATABASE =================
+    // Real citizenship test questions from 2021-2025, combined with standard study questions.
+    const questionDatabase = [
+      // 2025 November Current Affairs & Values
+      {
+        exam: "November 2025",
+        num: 39,
+        question: "Hvilken fødevare er steget mest det seneste år (fra oktober 2024 til oktober 2025 ifølge Danmarks Statistiks Forbrugerprisindeks)?",
+        options: ["A: Friske grøntsager", "B: Mel og gryn", "C: Okse- og kalvekød"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Okse- og kalvekød var den fødevarekategori, som ifølge Danmarks Statistiks Forbrugerprisindeks oplevede den største prisstigning i denne specifikke periode."
+      },
+      {
+        exam: "November 2025",
+        num: 40,
+        question: "Hvorfor blev Københavns Lufthavn lukket om aftenen den 22. september 2025?",
+        options: ["A: Medarbejderne i lufthavnen strejkede", "B: Der var rapporteret droner ved lufthavnen", "C: En stormflod med kraftig blæst og oversvømmelser ramte lufthavnen"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Lufthavnen blev kortvarigt lukket af sikkerhedshensyn som følge af rapporter om uautoriserede droner i luftrummet nær landingsbanerne."
+      },
+      {
+        exam: "November 2025",
+        num: 41,
+        question: "Kan man ifølge dansk lov blive straffet med fængsel i 16 år, hvis man med vold eller trussel om vold forsøger at forhindre Folketinget i at træffe en beslutning?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Ifølge Straffelovens kapitel 12 (§ 112) er voldelige angreb eller trusler rettet mod statens øverste organer (Folketinget) en yderst alvorlig forbrydelse, der kan straffes med fængsel indtil 16 år."
+      },
+      {
+        exam: "November 2025",
+        num: 42,
+        question: "Er der i dansk lov en regel om, at en arbejdsgiver skal give kvinder og mænd lige løn for samme arbejde?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Ligelønsloven i Danmark slår fast, at kvinder og mænd skal modtage samme løn for det samme arbejde eller arbejde af samme værdi."
+      },
+      {
+        exam: "November 2025",
+        num: 43,
+        question: "Er det som udgangspunkt strafbart at udtale sig kritisk om andres religion?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "B",
+        category: "Danske Værdier",
+        explanation: "Ytringsfriheden i Danmark sikrer, at man har ret til at udtale sig kritisk, satirisk eller analyserende om religion og religiøse skikke. Det er ikke strafbart, så længe udtalelsen ikke overskrider grænsen for f.eks. hadtale mod personer (§ 266b)."
+      },
+      
+      // 2025 Maj Current Affairs & Values
+      {
+        exam: "Maj 2025",
+        num: 36,
+        question: "Hvilken årsdag blev markeret den 5. maj 2025?",
+        options: ["A: 50-årsdagen for Danmarks indtræden i EF", "B: 80-årsdagen for Danmarks befrielse efter 2. Verdenskrig", "C: 100-årsdagen for Sønderjyllands genforening med Danmark"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Den 5. maj 1945 blev Danmark befriet efter fem års tysk besættelse under 2. Verdenskrig. Den 5. maj 2025 var således 80-årsdagen for befrielsen."
+      },
+      {
+        exam: "Maj 2025",
+        num: 37,
+        question: "Hvor var der valg til parlamentet i marts 2025?",
+        options: ["A: Grønland", "B: Færøerne"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "I marts 2025 blev der afholdt parlamentsvalg til det grønlandske parlament, Inatsisartut."
+      },
+      {
+        exam: "Maj 2025",
+        num: 38,
+        question: "Hvad var Mette Frederiksen og en række andre europæiske stats- og regeringschefer til møde om i London i marts 2025?",
+        options: ["A: Klimaforandringer", "B: Situationen i Ukraine", "C: Grænseoverskridende kriminalitet"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Mødet i London i marts 2025 samlede europæiske ledere for at drøfte den sikkerhedspolitiske situation og forsvarshjælpen til Ukraine."
+      },
+      {
+        exam: "Maj 2025",
+        num: 39,
+        question: "Hvilken fødselsdag fejrede prinsesse Isabella i april 2025?",
+        options: ["A: 18 år", "B: 20 år", "C: 25 år"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Prinsesse Isabella, født den 21. april 2007, fejrede sin 18-års fødselsdag (myndighedsalderen i Danmark) i april 2025."
+      },
+      {
+        exam: "Maj 2025",
+        num: 40,
+        question: "Hvem blev i marts 2025 valgt til verdens bedste mandlige håndboldspiller (2024 IHF Male World Player of the Year)?",
+        options: ["A: Magnus Saugstrup", "B: Emil Jakobsen", "C: Mathias Gidsel"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Mathias Gidsel blev hædret med den prestigefyldte IHF-pris for sine ekstraordinære præstationer for det danske landshold og sin tyske klub."
+      },
+      {
+        exam: "Maj 2025",
+        num: 41,
+        question: "Er tvangsægteskab strafbart i Danmark?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Dansk lov forbyder strengt tvangsægteskab. Enhver, der tvinger en anden til at indgå ægteskab, kan straffes efter straffeloven."
+      },
+      {
+        exam: "Maj 2025",
+        num: 42,
+        question: "Har mænd og kvinder lige rettigheder til uddannelse og erhvervsvalg i Danmark?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Ligestilling er en grundlæggende værdi i det danske samfund. Kvinder og mænd har lige adgang til alle uddannelser og erhverv."
+      },
+
+      // 2024 November Current Affairs & Values
+      {
+        exam: "November 2024",
+        num: 38,
+        question: "Hvilken skuespiller, som blandt andet medvirkede i Cirkusrevyen i perioden 1986-2021, døde i oktober 2024?",
+        options: ["A: Dirch Passer", "B: Helle Virkner", "C: Ulf Pilgaard"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Ulf Pilgaard var en af Danmarks mest elskede skuespillere og Cirkusrevyens ubestridte konge gennem mere end tre årtier. Han døde i oktober 2024."
+      },
+      {
+        exam: "November 2024",
+        num: 39,
+        question: "Hvad blev aftalt i 'Den Grønne Trepart' mellem regeringen, kommunerne og en række erhvervs- og miljøorganisationer i juni 2024?",
+        options: ["A: At en del af Danmarks landbrugsjord skal omdannes til natur", "B: At reducere kvoterne for, hvor meget der må fiskes i dansk farvand", "C: At forhøje den offentlige støtte til elbiler"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Den Grønne Trepart lavede en historisk aftale om omlægning af dansk landbrug, hvor store arealer udtages til skov og natur for at reducere kvælstofudslip og CO2."
+      },
+      {
+        exam: "November 2024",
+        num: 40,
+        question: "Hvem meddelte i september 2024, at hun ikke genopstiller ved næste valg efter 40 år som medlem af Folketinget?",
+        options: ["A: Pia Olsen Dyhr", "B: Mette Frederiksen", "C: Pia Kjærsgaard"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Pia Kjærsgaard, medstifter og mangeårig formand for Dansk Folkeparti samt tidligere formand for Folketinget, meddelte at hendes nuværende periode bliver den sidste efter fire årtier i dansk politik."
+      },
+      {
+        exam: "November 2024",
+        num: 41,
+        question: "Har alle friskoler i Danmark pligt til at styrke elevernes respekt for grundlæggende friheds- og menneskerettigheder?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Efter den såkaldte friskolelov (tilsynsreglerne) skal alle fri- og privatskoler overholde 'frihed og folkestyre'-kravet, som bl.a. omfatter undervisning i menneskerettigheder."
+      },
+      {
+        exam: "November 2024",
+        num: 42,
+        question: "Can man blive straffet med fængsel, hvis man snyder med optællingen af stemmer til Folketinget?",
+        options: ["A: Ja", "B: Nej"],
+        answer: "A",
+        category: "Danske Værdier",
+        explanation: "Valgsvindel eller bevidst sabotage af valghandlingen og stemmeoptællingen truer demokratiets fundament og straffes hårdt med fængsel under straffelovens bestemmelser."
+      },
+
+      // 2024 Maj Current Affairs
+      {
+        exam: "Maj 2024",
+        num: 36,
+        question: "Hvilken historisk bygning i København brændte den 16. april 2024?",
+        options: ["A: Holmens Kirke", "B: Børsen", "C: Rosenborg Slot"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Den historiske Børsbygning fra 1600-tallet undergik en voldsom brand, hvor det ikoniske dragespir kollapsede, hvilket rystede hele Danmark."
+      },
+      {
+        exam: "Maj 2024",
+        num: 37,
+        question: "Hvem blev Danmarks nye konge i januar 2024?",
+        options: ["A: Frederik den 4.", "B: Frederik den 7.", "C: Frederik den 10."],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Efter Dronning Margrethe 2.'s historiske abdikation nytårsaften overtog hendes ældste søn tronen som Kong Frederik 10. den 14. januar 2024."
+      },
+      {
+        exam: "Maj 2024",
+        num: 38,
+        question: "Hvor har krigsskibet Ivar Huitfeldt patruljeret i foråret 2024?",
+        options: ["A: Ved den Arabiske Halvø", "B: Ved Cuba", "C: Ved Taiwan"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Fregatten Ivar Huitfeldt var udsendt til Det Røde Hav og Adenbugten nær Den Arabiske Halvø for at beskytte international skibsfart mod angreb."
+      },
+      {
+        exam: "Maj 2024",
+        num: 39,
+        question: "Mikkel Hansen (født 1987) har i 2024 meddelt, at han stopper som professionel sportsmand. I hvilken sport er han professionel?",
+        options: ["A: Fodbold", "B: Håndbold", "C: Badminton"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Mikkel Hansen betragtes som en af verdens absolut bedste herrehåndboldspillere gennem tiderne og indstillede sin karriere efter OL i Paris 2024."
+      },
+      {
+        exam: "Maj 2024",
+        num: 40,
+        question: "Hvilket parti var Søren Pape Poulsen formand for indtil sin død i marts 2024?",
+        options: ["A: Venstre", "B: Radikale Venstre", "C: Det Konservative Folkeparti"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Søren Pape Poulsen var partiformand for Det Konservative Folkeparti fra 2014 frem til sin uventede død i marts 2024."
+      },
+
+      // 2023 November Current Affairs
+      {
+        exam: "November 2023",
+        num: 37,
+        question: "Hvem blev ny formand for Venstre i november 2023?",
+        options: ["A: Stephanie Lohse", "B: Sophie Løhde", "C: Troels Lund Poulsen"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Troels Lund Poulsen blev valgt som formand for Venstre efter Jakob Ellemann-Jensen trak sig fra dansk politik."
+      },
+      {
+        exam: "November 2023",
+        num: 38,
+        question: "Hvilken fødselsdag fejrede prins Christian i oktober 2023?",
+        options: ["A: 18 år", "B: 20 år", "C: 25 år"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Prins Christian (nu Kronprins) fyldte 18 år den 15. oktober 2023 og fejrede det med en stor gallataffel på Christiansborg Slot."
+      },
+      {
+        exam: "November 2023",
+        num: 39,
+        question: "Hvilken af følgende handlinger kan blive strafbar efter en ændring af straffeloven, som regeringen har foreslået i efteråret 2023?",
+        options: ["A: At bære religiøs hovedbeklædning i folkeskolen", "B: At brænde Biblen, Koranen eller Toraen offentligt", "C: At foretage omskæring af drenge"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Regeringen fremsatte lovforslag (populært kaldet 'koranloven') om at forbyde utilbørlig behandling af skrifter med væsentlig religiøs betydning på offentlige steder."
+      },
+      {
+        exam: "November 2023",
+        num: 40,
+        question: "Fra hvilket land modtog Danmark statsbesøg af en præsident i august 2023?",
+        options: ["A: Frankrig", "B: Indien", "C: Ukraine"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Ukraines præsident Volodymyr Zelenskyj besøgte Danmark i august 2023, hvor han bl.a. talte foran Folketinget og mødtes med Kongefamilien."
+      },
+
+      // 2023 Maj Current Affairs
+      {
+        exam: "Maj 2023",
+        num: 36,
+        question: "Hvad hedder formanden for SF (Socialistisk Folkeparti)?",
+        options: ["A: Franciska Rosenkilde", "B: Mai Villadsen", "C: Pia Olsen Dyhr"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Pia Olsen Dyhr har været formand for Socialistisk Folkeparti (SF) siden 2014."
+      },
+      {
+        exam: "Maj 2023",
+        num: 37,
+        question: "Hvilken helligdag bliver afskaffet fra 2024?",
+        options: ["A: Store Bededag", "B: Kristi Himmelfartsdag", "C: Skærtorsdag"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "SVM-regeringen vedtog at afskaffe Store Bededag som helligdag fra og med 2024 med henblik på at øge arbejdsudbuddet og finansiere forsvarsudgifter."
+      },
+      {
+        exam: "Maj 2023",
+        num: 38,
+        question: "I hvilken sport vandt det danske herrelandshold verdensmesterskabet i januar 2023?",
+        options: ["A: Volleyball", "B: Basketball", "C: Håndbold"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Danmarks herrehåndboldlandshold vandt guld ved VM i 2023 efter en sejr over Frankrig i finalen."
+      },
+      {
+        exam: "Maj 2023",
+        num: 39,
+        question: "Hvilken forfatter til blandt andet tv-serien Matador døde i januar 2023 105 år gammel?",
+        options: ["A: Klaus Rifbjerg", "B: Lise Nørgaard", "C: Inger Christensen"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Lise Nørgaard, skaberen af nationalklenodiet 'Matador' og en fremtrædende journalist og forfatter, gik bort i en alder af 105 år i januar 2023."
+      },
+      {
+        exam: "Maj 2023",
+        num: 40,
+        question: "Hvilken nobelpris blev Morten Meldal tildelt i december 2022?",
+        options: ["A: Nobelprisen i økonomi", "B: Nobelprisen i litteratur", "C: Nobelprisen i kemi"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Morten Meldal modtog Nobelprisen i kemi i 2022 sammen med K. Barry Sharpless og Carolyn R. Bertozzi for deres udvikling af 'klik-kemi'."
+      },
+
+      // 2022 November Current Affairs
+      {
+        exam: "November 2022",
+        num: 36,
+        question: "Hvilken dansk cykelrytter vandt Tour de France i 2022?",
+        options: ["A: Magnus Cort", "B: Mads Pedersen", "C: Jonas Vingegaard"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Jonas Vingegaard vandt sit første Tour de France i sommeren 2022 efter en historisk duel i bjergene."
+      },
+      {
+        exam: "November 2022",
+        num: 37,
+        question: "Hvilken tidligere minister stiftede partiet Danmarksdemokraterne i juni 2022?",
+        options: ["A: Inger Støjberg", "B: Sophie Løhde", "C: Søren Gade"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Inger Støjberg dannede partiet Danmarksdemokraterne i sommeren 2022, som opnåede et flot valgresultat kort efter."
+      },
+      {
+        exam: "November 2022",
+        num: 38,
+        question: "I hvilket farvand skete der tæt på Danmarks kyst store udslip af gas fra gasledningerne Nord Stream 1 og Nord Stream 2 i september?",
+        options: ["A: Nordsøen", "B: Østersøen", "C: Kattegat"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Lækagerne på Nord Stream-ledningerne skete i Østersøen tæt på Bornholm som følge af bevidst sabotage."
+      },
+      {
+        exam: "November 2022",
+        num: 39,
+        question: "Hvor høj var valgdeltagelsen ved folketingsvalget i november 2022?",
+        options: ["A: Cirka 45 procent", "B: Cirka 65 procent", "C: Cirka 85 procent"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Valgdeltagelsen ved folketingsvalget i november 2022 var på 84,1 procent, hvilket er normalt for det generelt høje engagement i Danmark."
+      },
+      {
+        exam: "November 2022",
+        num: 40,
+        question: "Hvor skete der et skudangreb den 3. juli 2022?",
+        options: ["A: I shoppingcenteret Fields", "B: I Københavns Lufthavn", "C: På Hotel Bella Sky"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Et tragisk skyderi fandt sted i storcentret Field's på Amager i København, hvor flere personer mistede livet."
+      },
+
+      // 2022 Juni Current Affairs
+      {
+        exam: "Juni 2022",
+        num: 37,
+        question: "Hvem blev valgt til formand for Dansk Folkeparti i januar 2022?",
+        options: ["A: Pia Kjærsgaard", "B: Morten Messerschmidt", "C: Kristian Thulesen Dahl"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Morten Messerschmidt vandt formandsvalget på Dansk Folkepartis ekstraordinære årsmøde i januar 2022."
+      },
+      {
+        exam: "Juni 2022",
+        num: 38,
+        question: "Hvilke partier anbefaler vælgerne at stemme nej til, at Danmark afskaffer EU-forsvarsforbeholdet ved folkeafstemningen den 1. juni?",
+        options: ["A: Socialdemokratiet, Radikale Venstre og Socialistisk Folkeparti", "B: Venstre, Det Konservative Folkeparti og Liberal Alliance", "C: Dansk Folkeparti, Enhedslisten og Nye Borgerlige"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Fløjene i dansk politik (DF, Enhedslisten og Nye Borgerlige) anbefalede et 'Nej' til at afskaffe EU-forsvarsforbeholdet."
+      },
+      {
+        exam: "Juni 2022",
+        num: 39,
+        question: "Hvilken fodboldspiller spillede igen for landsholdet i marts 2022 efter 9 måneders fravær på grund af et hjertestop?",
+        options: ["A: Simon Kjær", "B: Christian Eriksen", "C: Kasper Schmeichel"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Christian Eriksen gjorde et sensationelt comeback til topfodbold og landsholdet efter sit hjertestop under EM i juni 2021."
+      },
+      {
+        exam: "Juni 2022",
+        num: 40,
+        question: "Hvilken domstol dømte tidligere udlændinge- og integrationsminister Inger Støjberg for ulovligt at have adskilt asylsøgende par?",
+        options: ["A: Landsretten", "B: Højesteret", "C: Rigsretten"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Inger Støjberg blev idømt 60 dages ubetinget fængsel i en historisk rigsretssag i december 2021."
+      },
+
+      // 2021 November Current Affairs
+      {
+        exam: "November 2021",
+        num: 36,
+        question: "I hvilken sport vandt Viktor Axelsen guld ved OL i Tokyo?",
+        options: ["A: Badminton", "B: Hækkeløb", "C: Svømning"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Viktor Axelsen vandt OL-guld i herresingle i badminton efter en suveræn præstation i Tokyo i sommeren 2021."
+      },
+      {
+        exam: "November 2021",
+        num: 37,
+        question: "Hvem opløste i september 2021 foreningen ”Loyal to Familia”?",
+        options: ["A: Folketinget", "B: Regeringen", "C: Højesteret"],
+        answer: "C",
+        options: ["A: Folketinget", "B: Regeringen", "C: Højesteret"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Højesteret stadfæstede opløsningen af LTF, hvilket markerede første gang siden 1924, at en forening blev opløst ved dom efter Grundlovens § 78."
+      },
+      {
+        exam: "November 2021",
+        num: 38,
+        question: "Hvem blev udnævnt til kultur- og kirkeminister i august 2021?",
+        options: ["A: Pernille Skipper", "B: Sophie Løhde", "C: Ane Halsboe-Jørgensen"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Ane Halsboe-Jørgensen overtog posten som kultur- og kirkeminister i forbindelse med en mindre regeringsrokade i august 2021."
+      },
+      {
+        exam: "November 2021",
+        num: 39,
+        question: "Hvilket parti fik flest stemmer ved kommunalvalget på landsplan den 16. november 2021?",
+        options: ["A: Socialdemokratiet", "B: Venstre", "C: Konservative Folkeparti"],
+        answer: "A",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Socialdemokratiet forblev trods tilbagegang det største parti på landsplan ved kommunalvalget i 2021."
+      },
+      {
+        exam: "November 2021",
+        num: 40,
+        question: "Hvilken gruppe af offentligt ansatte strejkede i sommeren 2021 efter at have stemt nej til et overenskomstforslag?",
+        options: ["A: Folkeskolelærere", "B: Sygeplejersker", "C: Pædagoger"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Sygeplejerskerne strejkede i flere uger i sommeren 2021, indtil regeringen greb ind med et lovindgreb i slutningen af august."
+      },
+
+      // 2021 Juni Current Affairs
+      {
+        exam: "Juni 2021",
+        num: 36,
+        question: "Hvad omhandler Folketingets tiltale i rigsretssagen mod tidligere udlændinge- og integrationsminister Inger Støjberg blandt andet?",
+        options: ["A: Beslaglæggelse af flygtninges værdigenstande ved indrejse", "B: Midlertidigt stop for familiesammenføringer", "C: Adskillelse af asylsøgende ægtefæller og samlevende par"],
+        answer: "C",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Rigsretssagen kørte på baggrund af instruksen fra 2016 om at adskille alle asylansøgende par, hvor den ene part var mindreårig, uden individuel partshøring."
+      },
+      {
+        exam: "Juni 2021",
+        num: 37,
+        question: "Hvilken begivenhed blev markeret den 5. april 2021?",
+        options: ["A: 50-årsdagen for Danmarks indtræden i Det Europæiske Fællesskab (EF)", "B: 75-årsdagen for, at den sovjetiske hær forlod Bornholm efter 2. Verdenskrig", "C: 100-årsdagen for Sønderjyllands genforening med Danmark"],
+        answer: "B",
+        category: "Aktuelle Spørgsmål",
+        explanation: "Den sovjetiske hær forlod Bornholm den 5. april 1946 efter at have besat øen i næsten et år efter Danmarks officielle befrielse."
+      },
+
+      // General Curriculum Questions (Kultur og Historie & Samfundsforhold)
+      {
+        exam: "Generelt Pensum",
+        num: 1,
+        question: "Hvem skrev Danmarks nationalsang 'Der er et yndigt land'?",
+        options: ["A: Adam Oehlenschläger", "B: H.C. Andersen", "C: N.F.S. Grundtvig"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Adam Oehlenschläger skrev teksten til nationalsangen omkring 1819, mens melodien blev komponeret af H.E. Krøyer."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 2,
+        question: "Hvornår fik Danmark sin første demokratiske grundlov?",
+        options: ["A: 1849", "B: 1915", "C: 1953"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Danmarks Riges Grundlov blev underskrevet af Kong Frederik 7. den 5. juni 1849, hvilket markerede overgangen fra enevælde til konstitutionelt monarki."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 3,
+        question: "Hvem er Danmarks officielle statsoverhoved?",
+        options: ["A: Statsministeren", "B: Kongen", "C: Folketingets formand"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Danmark er et konstitutionelt monarki, hvilket betyder at regenten (Kong Frederik 10.) er det formelle statsoverhoved uden reel politisk magt."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 4,
+        question: "Hvor mange medlemmer sidder der i Folketinget?",
+        options: ["A: 150 medlemmer", "B: 179 medlemmer", "C: 200 medlemmer"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Folketinget består af 179 medlemmer, herunder 2 valgt fra Grønland og 2 fra Færøerne."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 5,
+        question: "I hvilket år blev reformationen officielt indført i Danmark?",
+        options: ["A: 1536", "B: 1660", "C: 1849"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Reformationen i Danmark blev gennemført i 1536 af Kong Christian 3., hvorved den katolske kirke blev erstattet af en luthersk-evangelisk statskirke."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 6,
+        question: "Hvad var formålet med Kanslergadeforliget i 1933?",
+        options: ["A: At løse akutte økonomiske og sociale problemer under depressionen", "B: At reformere det danske miljø- og energisystem", "C: At indføre nye regler for integration og indvandring"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Kanslergadeforliget var et epokegørende kompromis, der lagde grunden til den moderne danske velfærdsstat ved at afbøde krisens sociale konsekvenser."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 7,
+        question: "Hvornår opnåede danske kvinder valgret til Folketinget?",
+        options: ["A: 1849", "B: 1915", "C: 1953"],
+        answer: "B",
+        category: "Kultur og Historie",
+        explanation: "Grundlovsændringen i 1915 tildelte kvinder og tjenestefolk uden egen husstand stemmeret til Rigsdagen."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 8,
+        question: "Hvad kaldes den bygning i København, hvor Folketinget har til huse?",
+        options: ["A: Christiansborg", "B: Amalienborg", "C: Rosenborg"],
+        answer: "A",
+        category: "Samfundsforhold",
+        explanation: "Christiansborg Slot huser både Folketinget, Statsministeriet og Højesteret, og er dermed magtens centrum i Danmark."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 9,
+        question: "Hvilken kendt forfatter har skrevet eventyret om 'Den lille Havfrue'?",
+        options: ["A: Søren Kierkegaard", "B: H.C. Andersen", "C: Karen Blixen"],
+        answer: "B",
+        category: "Kultur og Historie",
+        explanation: "Hans Christian Andersen skrev det berømte eventyr i 1837. Statuen på Langelinie er inspireret af dette værk."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 10,
+        question: "Hvor ofte skal der senest afholdes folketingsvalg i Danmark?",
+        options: ["A: Hvert 3. år", "B: Hvert 4. år", "C: Hvert 5. år"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Ifølge grundloven skal der afholdes valg mindst hvert fjerde år. Statsministeren kan dog udskrive valg på et hvilket som helst tidligere tidspunkt."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 11,
+        question: "Hvad er Højesteret i Danmark?",
+        options: ["A: Landets øverste domstol", "B: En politisk undersøgelseskommission", "C: En del af Justitsministeriet"],
+        answer: "A",
+        category: "Samfundsforhold",
+        explanation: "Højesteret er den øverste domstol i Danmark og fungerer som appelinstans for principielle sager fra landsretterne."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 12,
+        question: "Hvem udpeger statsministeren efter en 'dronningerunde' / 'kongerunde'?",
+        options: ["A: Folketingets formand", "B: Regenten (Kongen/Dronningen)", "C: Højesteretspræsidenten"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Efter rådgivning fra partierne udpeger regenten formelt den kongelige undersøger eller kommende statsminister."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 13,
+        question: "Hvad er N.F.S. Grundtvig især kendt for at have haft enorm indflydelse på?",
+        options: ["A: Folkehøjskoler og andelsbevægelsen", "B: Udbygningen af det danske jernbanenet", "C: Det danske militærforsvar"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Grundtvigs pædagogiske tanker lagde bunden for folkehøjskolerne, og hans livssyn dannede rødderne for andelstanken i landbruget."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 14,
+        question: "Hvilke lande indgik i Kalmarunionen i 1397 under ledelse af Margrete 1.?",
+        options: ["A: Danmark, Tyskland og England", "B: Danmark, Norge og Sverige", "C: Danmark, Island og Grønland"],
+        answer: "B",
+        category: "Kultur og Historie",
+        explanation: "Kalmarunionen samlede de tre nordiske riger under et fælles monarki fra 1397 indtil Sveriges endelige udtræden i 1523."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 15,
+        question: "Hvilken historisk katastrofe ramte den danske hær ved Dybbøl i 1864?",
+        options: ["A: Danmark tabte krigen mod Preussen og Østrig og mistede hertugdømmerne", "B: Den danske flåde sank under en voldsom storm", "C: København brændte ned til grunden"],
+        answer: "A",
+        category: "Kultur og Historie",
+        explanation: "Slaget ved Dybbøl den 18. april 1864 førte til Danmarks totale nederlag i 2. Slesvigske Krig og tabet af Slesvig, Holsten og Lauenborg."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 16,
+        question: "Hvem betaler kirkeskat i Danmark?",
+        options: ["A: Alle skatteydere uanset religion", "B: Kun medlemmer af den danske Folkekirke", "C: Ingen, folkekirken finansieres fuldt ud af staten"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Kirkeskatten opkræves kun fra borgere, der er medlemmer af Folkekirken. Udmeldelse fritager en for denne skat."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 17,
+        question: "Hvad er den kriminelle lavalder i Danmark?",
+        options: ["A: 12 år", "B: 15 år", "C: 18 år"],
+        answer: "B",
+        category: "Samfundsforhold",
+        explanation: "Den kriminelle lavalder blev i 2012 fastsat til 15 år. Børn under 15 år kan ikke idømmes straf ved domstolene."
+      },
+      {
+        exam: "Generelt Pensum",
+        num: 18,
+        question: "Hvornår blev Danmark medlem af EF (det nuværende EU)?",
+        options: ["A: 1959", "B: 1973", "C: 1993"],
+        answer: "B",
+        category: "Kultur og Historie",
+        explanation: "Danmark trådte ind i EF den 1. januar 1973 efter en folkeafstemning i oktober 1972, hvor 63,3% stemte ja."
+      }
+    ];
+
+    // ================= STATE MANAGEMENT =================
+    let currentView = 'dashboard';
+    let currentQuestions = [];
+    let currentQuestionIndex = 0;
+    let userAnswers = {}; // Map of index -> answer ("A", "B", "C")
+    let flaggedQuestions = new Set(); // Indices of flagged questions
+    let examTimer = null;
+    let secondsRemaining = 45 * 60; // 45 minutes in seconds
+    let activeMode = ''; // 'simulation', 'quick', 'category'
+    let showAllTableAnswers = false;
+
+    // Local Storage for tracking statistics
+    let stats = {
+      totalTests: 0,
+      passedCount: 0,
+      scores: [], // Array of numbers out of 45
+      bestScore: 0
+    };
+
+    // Initialize statistics from localStorage
+    function initStats() {
+      const savedStats = localStorage.getItem('indfoedsrets_stats');
+      if (savedStats) {
+        stats = JSON.parse(savedStats);
+      }
+      updateStatsUI();
+    }
+
+    function saveStats() {
+      localStorage.setItem('indfoedsrets_stats', JSON.stringify(stats));
+      updateStatsUI();
+    }
+
+    function updateStatsUI() {
+      document.getElementById('stat-total-tests').innerText = stats.totalTests;
+      const passRate = stats.totalTests > 0 ? Math.round((stats.passedCount / stats.totalTests) * 100) : 0;
+      document.getElementById('stat-pass-rate').innerText = passRate + '%';
+      
+      const totalScoreSum = stats.scores.reduce((a, b) => a + b, 0);
+      const avgScore = stats.scores.length > 0 ? (totalScoreSum / stats.scores.length).toFixed(1) : '0.0';
+      document.getElementById('stat-avg-score').innerText = avgScore;
+      document.getElementById('stat-best-score').innerText = stats.bestScore + ' / 45';
+    }
+
+    // ================= NAVIGATION & VIEW SWITCHING =================
+    function changeView(viewId) {
+      // Hide all views
+      document.getElementById('screen-dashboard').classList.add('hidden');
+      document.getElementById('screen-simulator').classList.add('hidden');
+      document.getElementById('screen-results').classList.add('hidden');
+      document.getElementById('screen-table-view').classList.add('hidden');
+      
+      // Show active view
+      document.getElementById(`screen-${viewId}`).classList.remove('hidden');
+      currentView = viewId;
+      window.scrollTo(0, 0);
+
+      if (viewId === 'table-view') {
+        renderTable();
+      }
+    }
+
+    // Custom alerts instead of default alert()
+    function showAlert(title, desc, confirmText, confirmCallback, cancelText = "Annuller") {
+      const modal = document.getElementById('custom-alert-modal');
+      const titleEl = document.getElementById('modal-title');
+      const descEl = document.getElementById('modal-description');
+      const btnConfirm = document.getElementById('modal-btn-confirm');
+      const btnCancel = document.getElementById('modal-btn-cancel');
+
+      titleEl.innerText = title;
+      descEl.innerText = desc;
+      btnConfirm.innerText = confirmText;
+      btnCancel.innerText = cancelText;
+
+      modal.classList.remove('hidden');
+
+      // Clones to remove old event listeners
+      const newConfirm = btnConfirm.cloneNode(true);
+      const newCancel = btnCancel.cloneNode(true);
+      btnConfirm.parentNode.replaceChild(newConfirm, btnConfirm);
+      btnCancel.parentNode.replaceChild(newCancel, btnCancel);
+
+      newConfirm.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        if (confirmCallback) confirmCallback();
+      });
+
+      newCancel.addEventListener('click', () => {
+        modal.classList.add('hidden');
+      });
+    }
+
+    // ================= EXAM LOGIC =================
+    function startMode(mode) {
+      activeMode = mode;
+      userAnswers = {};
+      flaggedQuestions.clear();
+      currentQuestionIndex = 0;
+      
+      if (mode === 'simulation') {
+        generateSimulationTest();
+        startTimer();
+        document.getElementById('simulator-timer-box').classList.remove('hidden');
+        document.getElementById('simulator-sidebar').classList.remove('hidden');
+        document.getElementById('simulator-badge').innerText = 'Simuleret Prøve (45 min)';
+      } else if (mode === 'quick') {
+        generateQuickTest();
+        document.getElementById('simulator-timer-box').classList.add('hidden');
+        document.getElementById('simulator-sidebar').classList.add('hidden');
+        document.getElementById('simulator-badge').innerText = 'Hurtig Lyn-træning';
+      } else if (mode === 'category') {
+        const cat = document.getElementById('category-select').value;
+        generateCategoryTest(cat);
+        document.getElementById('simulator-timer-box').classList.add('hidden');
+        document.getElementById('simulator-sidebar').classList.add('hidden');
+        document.getElementById('simulator-badge').innerText = 'Kategoritræning: ' + cat;
+      }
+      
+      changeView('simulator');
+      renderQuestion();
+      renderSidebar();
+    }
+
+    function startSpecificExam(examName) {
+      activeMode = 'simulation';
+      userAnswers = {};
+      flaggedQuestions.clear();
+      currentQuestionIndex = 0;
+
+      // Filter exactly from this historical exam
+      let examQuestions = questionDatabase.filter(q => q.exam === examName);
+      
+      // If we don't have exactly 45, we fill the rest from Generelt Pensum to construct a full 45-question test simulator!
+      if (examQuestions.length < 45) {
+        // Backfill with standard questions
+        const needed = 45 - examQuestions.length;
+        const pool = questionDatabase.filter(q => q.exam !== examName);
+        const shuffledPool = shuffleArray([...pool]);
+        examQuestions = [...examQuestions, ...shuffledPool.slice(0, needed)];
+      }
+
+      // Sort questions so that "Danske Værdier" are at the end (questions 41-45)
+      examQuestions.sort((a, b) => {
+        const aVal = a.category === 'Danske Værdier' ? 1 : 0;
+        const bVal = b.category === 'Danske Værdier' ? 1 : 0;
+        return aVal - bVal;
+      });
+
+      currentQuestions = examQuestions.slice(0, 45);
+      
+      startTimer();
+      document.getElementById('simulator-timer-box').classList.remove('hidden');
+      document.getElementById('simulator-sidebar').classList.remove('hidden');
+      document.getElementById('simulator-badge').innerText = `Historisk Prøve: ${examName}`;
+      
+      changeView('simulator');
+      renderQuestion();
+      renderSidebar();
+    }
+
+    // Generate simulated test according to rules:
+    // 35 questions from Læremateriale (Historie/Kultur & Samfundsforhold)
+    // 5 current affairs questions (Aktuelle Spørgsmål)
+    // 5 values questions (Danske Værdier) positioned as 41-45
+    function generateSimulationTest() {
+      const samfundsPool = questionDatabase.filter(q => q.category === 'Samfundsforhold' || q.category === 'Kultur og Historie');
+      const aktuellePool = questionDatabase.filter(q => q.category === 'Aktuelle Spørgsmål');
+      const vaerdierPool = questionDatabase.filter(q => q.category === 'Danske Værdier');
+
+      const selectedSamfund = shuffleArray([...samfundsPool]).slice(0, 35);
+      const selectedAktuelle = shuffleArray([...aktuellePool]).slice(0, 5);
+      const selectedVaerdier = shuffleArray([...vaerdierPool]).slice(0, 5);
+
+      // Assemble final array, ensuring values are at the end (41-45)
+      currentQuestions = [...selectedSamfund, ...selectedAktuelle, ...selectedVaerdier];
+    }
+
+    function generateQuickTest() {
+      // 10 random questions
+      currentQuestions = shuffleArray([...questionDatabase]).slice(0, 10);
+    }
+
+    function generateCategoryTest(category) {
+      const filtered = questionDatabase.filter(q => q.category === category);
+      currentQuestions = shuffleArray([...filtered]);
+      if (currentQuestions.length === 0) {
+        // Fallback
+        currentQuestions = shuffleArray([...questionDatabase]).slice(0, 15);
+      }
+    }
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    // ================= TIMER =================
+    function startTimer() {
+      if (examTimer) clearInterval(examTimer);
+      secondsRemaining = 45 * 60; // 45:00
+      updateTimerUI();
+      
+      examTimer = setInterval(() => {
+        secondsRemaining--;
+        updateTimerUI();
+        
+        if (secondsRemaining <= 0) {
+          clearInterval(examTimer);
+          showAlert(
+            "Tiden er udløbet!",
+            "Tiden løb fra dig. Din besvarelse afleveres automatisk nu.",
+            "Vis Resultat",
+            () => { submitTest(true); }
+          );
+        }
+      }, 1000);
+    }
+
+    function updateTimerUI() {
+      const mins = Math.floor(secondsRemaining / 60);
+      const secs = secondsRemaining % 60;
+      const formatted = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      
+      const timerBox = document.getElementById('simulator-timer-box');
+      const timerText = document.getElementById('simulator-timer');
+      timerText.innerText = formatted;
+
+      // Visual warning at under 5 minutes
+      if (secondsRemaining < 300) {
+        timerBox.classList.add('bg-red-100', 'border-red-300', 'text-red-700', 'dark:bg-red-950/40', 'dark:border-red-800');
+        timerBox.classList.remove('bg-slate-100', 'border-slate-200', 'dark:bg-slate-700', 'dark:border-slate-600');
+      } else {
+        timerBox.classList.remove('bg-red-100', 'border-red-300', 'text-red-700', 'dark:bg-red-950/40', 'dark:border-red-800');
+        timerBox.classList.add('bg-slate-100', 'border-slate-200', 'dark:bg-slate-700', 'dark:border-slate-600');
+      }
+    }
+
+    // ================= QUESTION VIEW RENDERING =================
+    function renderQuestion() {
+      if (currentQuestions.length === 0) return;
+      const q = currentQuestions[currentQuestionIndex];
+      
+      // Update basic counters
+      document.getElementById('simulator-progress-text').innerText = `Spørgsmål ${currentQuestionIndex + 1} af ${currentQuestions.length}`;
+      const percentage = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
+      document.getElementById('simulator-progress-bar').style.width = `${percentage}%`;
+
+      // Header labels
+      document.getElementById('question-category').innerText = q.category;
+      document.getElementById('question-source').innerText = `Kilde: ${q.exam}`;
+      document.getElementById('question-text').innerText = q.question;
+
+      // Handle the Warning Box for Danish Values (questions 41-45 in simulations)
+      const warningBox = document.getElementById('value-question-warning');
+      if (activeMode === 'simulation' && currentQuestionIndex >= 40) {
+        warningBox.classList.remove('hidden');
+      } else {
+        warningBox.classList.add('hidden');
+      }
+
+      // Render Answer Options
+      const optionsContainer = document.getElementById('options-container');
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach(opt => {
+        const optionLetter = opt.charAt(0); // "A", "B", "C"
+        const isSelected = userAnswers[currentQuestionIndex] === optionLetter;
+        
+        let buttonClass = "w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between text-base font-semibold group cursor-pointer ";
+        
+        if (isSelected) {
+          buttonClass += "border-brand-600 bg-brand-50/50 text-slate-900 dark:bg-brand-950/20 dark:text-white";
+        } else {
+          buttonClass += "border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200";
+        }
+
+        const btn = document.createElement('button');
+        btn.className = buttonClass;
+        btn.onclick = () => selectAnswer(optionLetter);
+        
+        // Custom interactive inner structure
+        let optionHtml = `
+          <div class="flex items-center space-x-4">
+            <span class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-extrabold transition-colors ${
+              isSelected ? 'bg-brand-600 text-white' : 'bg-slate-100 dark:bg-slate-700 group-hover:bg-slate-200 text-slate-600 dark:text-slate-300'
+            }">${optionLetter}</span>
+            <span>${opt.substring(3)}</span>
+          </div>
+        `;
+        
+        if (isSelected) {
+          optionHtml += `
+            <span class="w-5 h-5 rounded-full bg-brand-600 text-white flex items-center justify-center text-xs">✓</span>
+          `;
+        }
+
+        btn.innerHTML = optionHtml;
+        optionsContainer.appendChild(btn);
+      });
+
+      // Feedback explanation handles (only shown after answering in learning mode)
+      const feedbackBox = document.getElementById('feedback-explanation');
+      if (activeMode !== 'simulation' && userAnswers[currentQuestionIndex]) {
+        feedbackBox.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = q.explanation || "Dette spørgsmål dækker over viden relateret til det danske pensum.";
+      } else {
+        feedbackBox.classList.add('hidden');
+      }
+
+      // Update Back & Next buttons text
+      document.getElementById('btn-prev').disabled = currentQuestionIndex === 0;
+      document.getElementById('btn-prev').style.opacity = currentQuestionIndex === 0 ? '0.5' : '1';
+      
+      const nextText = document.getElementById('next-text');
+      if (currentQuestionIndex === currentQuestions.length - 1) {
+        nextText.innerText = (activeMode === 'simulation') ? 'Færdig' : 'Afslut';
+      } else {
+        nextText.innerText = 'Næste';
+      }
+
+      // Flag status representation
+      const isFlagged = flaggedQuestions.has(currentQuestionIndex);
+      const flagIcon = document.getElementById('flag-icon');
+      const flagText = document.getElementById('flag-text');
+      if (isFlagged) {
+        flagIcon.setAttribute('fill', 'currentColor');
+        flagIcon.classList.add('text-yellow-500');
+        flagText.innerText = 'Markeret';
+      } else {
+        flagIcon.removeAttribute('fill');
+        flagIcon.classList.remove('text-yellow-500');
+        flagText.innerText = 'Marker til senere';
+      }
+    }
+
+    function selectAnswer(letter) {
+      userAnswers[currentQuestionIndex] = letter;
+      renderQuestion();
+      renderSidebar();
+
+      // In Quick / Category modes, we show explanations immediately!
+      if (activeMode !== 'simulation') {
+        const feedbackBox = document.getElementById('feedback-explanation');
+        feedbackBox.classList.remove('hidden');
+        document.getElementById('explanation-text').innerText = currentQuestions[currentQuestionIndex].explanation || "Dette spørgsmål dækker pensummaterialet.";
+      }
+    }
+
+    function toggleFlag() {
+      if (flaggedQuestions.has(currentQuestionIndex)) {
+        flaggedQuestions.delete(currentQuestionIndex);
+      } else {
+        flaggedQuestions.add(currentQuestionIndex);
+      }
+      renderQuestion();
+      renderSidebar();
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < currentQuestions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+        renderSidebar();
+      } else {
+        // Last question reached
+        if (activeMode === 'simulation') {
+          confirmSubmitTest();
+        } else {
+          // Simply calculate results directly for quick modes
+          submitTest(false);
+        }
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        renderQuestion();
+        renderSidebar();
+      }
+    }
+
+    function jumpToQuestion(index) {
+      currentQuestionIndex = index;
+      renderQuestion();
+      renderSidebar();
+    }
+
+    // ================= SIDEBAR NAVIGATION BUILDER =================
+    function renderSidebar() {
+      if (activeMode !== 'simulation') return;
+      
+      const grid = document.getElementById('sidebar-grid');
+      grid.innerHTML = '';
+
+      for (let i = 0; i < currentQuestions.length; i++) {
+        const cell = document.createElement('button');
+        const isCurrent = i === currentQuestionIndex;
+        const isAnswered = userAnswers[i] !== undefined;
+        const isFlagged = flaggedQuestions.has(i);
+
+        let cellClass = "w-10 h-10 rounded-xl font-bold text-xs flex items-center justify-center transition-all cursor-pointer relative ";
+        
+        if (isCurrent) {
+          cellClass += "ring-2 ring-brand-600 bg-brand-50 text-brand-600 dark:bg-brand-950/40 dark:text-brand-300";
+        } else if (isFlagged) {
+          cellClass += "bg-yellow-100 text-yellow-800 border-2 border-yellow-300 dark:bg-yellow-950/40 dark:text-yellow-400 dark:border-yellow-800";
+        } else if (isAnswered) {
+          cellClass += "bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300";
+        } else {
+          cellClass += "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400";
+        }
+
+        cell.className = cellClass;
+        cell.innerText = i + 1;
+        cell.onclick = () => jumpToQuestion(i);
+
+        // Flag dot marker
+        if (isFlagged && !isCurrent) {
+          const dot = document.createElement('span');
+          dot.className = "absolute -top-1 -right-1 w-2.5 h-2.5 bg-yellow-500 rounded-full";
+          cell.appendChild(dot);
+        }
+
+        grid.appendChild(cell);
+      }
+    }
+
+    // ================= ACTIONS & CONFIRMATIONS =================
+    function confirmSubmitTest() {
+      // Check if there are unanswered questions
+      const totalQ = currentQuestions.length;
+      const answeredQ = Object.keys(userAnswers).length;
+      const unanswered = totalQ - answeredQ;
+
+      let desc = "Vil du aflevere din besvarelse og se dit retteark?";
+      if (unanswered > 0) {
+        desc = `OBS! Du mangler at besvare ${unanswered} ud af ${totalQ} spørgsmål. Vil du stadig aflevere og rette prøven?`;
+      }
+
+      showAlert(
+        "Aflever Prøve?",
+        desc,
+        "Aflever nu",
+        () => { submitTest(true); }
+      );
+    }
+
+    function confirmQuitTest() {
+      showAlert(
+        "Afbryd igangværende prøve?",
+        "Dine fremskridt vil blive tabt, og det vil ikke tælle som et fuldført forsøg.",
+        "Ja, afbryd",
+        () => {
+          if (examTimer) clearInterval(examTimer);
+          changeView('dashboard');
+        }
+      );
+    }
+
+    // ================= SUBMIT & EVALUATE RESULTS =================
+    function submitTest(timerStop = true) {
+      if (timerStop && examTimer) {
+        clearInterval(examTimer);
+      }
+
+      // Calculation of correct/incorrect answers
+      let correctTotal = 0;
+      let valuesCorrect = 0;
+      let totalValuesCount = 0;
+
+      const questionsListContainer = document.getElementById('results-questions-list');
+      questionsListContainer.innerHTML = '';
+
+      currentQuestions.forEach((q, idx) => {
+        const userAns = userAnswers[idx];
+        const isCorrect = userAns === q.answer;
+        const isValueQuestion = q.category === 'Danske Værdier';
+
+        if (isCorrect) {
+          correctTotal++;
+          if (isValueQuestion) valuesCorrect++;
+        }
+        if (isValueQuestion) totalValuesCount++;
+
+        // Build elegant visual list item for review
+        const qCard = document.createElement('div');
+        qCard.className = `p-6 rounded-2xl border-2 bg-white dark:bg-slate-800 transition-all ${
+          isCorrect ? 'border-emerald-200 dark:border-emerald-950/40' : 'border-red-200 dark:border-red-950/40'
+        }`;
+
+        // Header line
+        let headerHtml = `
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${
+              isCorrect ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-400' : 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-400'
+            }">
+              ${isCorrect ? '✓ Rigtigt' : '✗ Forkert'}
+            </span>
+            <span class="text-xs font-semibold text-slate-400">${q.category} • ${q.exam}</span>
+          </div>
+        `;
+
+        // Question details
+        let detailsHtml = `
+          <h5 class="text-base font-bold text-slate-900 dark:text-white mb-4">
+            Spørgsmål ${idx + 1}: ${q.question}
+          </h5>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-4">
+            ${q.options.map(opt => {
+              const optLetter = opt.charAt(0);
+              const isUserSelect = userAns === optLetter;
+              const isCorrectAns = q.answer === optLetter;
+              
+              let optClass = "p-3 rounded-xl border flex items-center space-x-2 ";
+              if (isCorrectAns) {
+                optClass += "bg-emerald-50 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-300 font-bold";
+              } else if (isUserSelect) {
+                optClass += "bg-red-50 dark:bg-red-950/20 border-red-300 dark:border-red-800 text-red-950 dark:text-red-300 font-bold";
+              } else {
+                optClass += "border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-850 text-slate-500 dark:text-slate-400";
+              }
+
+              return `
+                <div class="${optClass}">
+                  <span class="w-5 h-5 rounded flex items-center justify-center font-bold text-xs shrink-0 ${
+                    isCorrectAns ? 'bg-emerald-600 text-white' : (isUserSelect ? 'bg-red-600 text-white' : 'bg-slate-200 dark:bg-slate-700')
+                  }">${optLetter}</span>
+                  <span class="truncate">${opt.substring(3)}</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
+          <div class="p-4 bg-slate-50 dark:bg-slate-850 rounded-xl text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed border border-slate-150 dark:border-slate-750">
+            <strong>Uddybende svar:</strong> ${q.explanation || 'Ingen yderligere kommentar.'}
+          </div>
+        `;
+
+        qCard.innerHTML = headerHtml + detailsHtml;
+        questionsListContainer.appendChild(qCard);
+      });
+
+      // Pass/Fail evaluation logic
+      let hasPassed = false;
+      let failureReason = "";
+
+      if (activeMode === 'simulation') {
+        const correctThreshold = correctTotal >= 36;
+        const valuesThreshold = valuesCorrect >= 4;
+        hasPassed = correctThreshold && valuesThreshold;
+
+        if (!correctThreshold && !valuesThreshold) {
+          failureReason = "Du fejlede både på den samlede score og de danske værdier.";
+        } else if (!correctThreshold) {
+          failureReason = "Du fik under de nødvendige 36 rigtige svar samlet.";
+        } else if (!valuesThreshold) {
+          failureReason = "Selvom du bestod den samlede score, fik du under 4 rigtige i danske værdier.";
+        }
+      } else {
+        // Quick & Category mode evaluation: pass at >= 80% correct
+        hasPassed = (correctTotal / currentQuestions.length) >= 0.8;
+        if (!hasPassed) failureReason = "Du fik under de anbefalede 80% rigtige.";
+      }
+
+      // Display the final results banner
+      const banner = document.getElementById('results-banner');
+      const badgeIcon = document.getElementById('results-badge-icon');
+      const headline = document.getElementById('results-headline');
+      const summaryText = document.getElementById('results-summary-text');
+
+      if (hasPassed) {
+        banner.className = "rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white";
+        badgeIcon.innerText = "🎉";
+        badgeIcon.className = "w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl mb-6 shadow-md bg-white/20 text-white";
+        headline.innerText = "Du har BESTÅET!";
+        summaryText.innerText = `Ekstraordinært flot præstation! Du svarede rigtigt på ${correctTotal} ud af ${currentQuestions.length} spørgsmål. Du opfylder alle krav til statsborgerskabsprøven!`;
+      } else {
+        banner.className = "rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-xl bg-gradient-to-r from-rose-600 to-red-700 text-white";
+        badgeIcon.innerText = "😢";
+        badgeIcon.className = "w-20 h-20 mx-auto rounded-full flex items-center justify-center text-4xl mb-6 shadow-md bg-white/20 text-white";
+        headline.innerText = "Ikke bestået";
+        summaryText.innerText = `Du fik desværre kun ${correctTotal} ud af ${currentQuestions.length} rigtige. ${failureReason} Fortsæt din træning for at forbedre dine chancer!`;
+      }
+
+      // Render the metrics cards
+      document.getElementById('results-score-total').innerText = `${correctTotal} / ${currentQuestions.length}`;
+      document.getElementById('results-bar-total').style.width = `${(correctTotal / currentQuestions.length) * 100}%`;
+      
+      document.getElementById('results-score-values').innerText = `${valuesCorrect} / ${totalValuesCount}`;
+      document.getElementById('results-bar-values').style.width = totalValuesCount > 0 ? `${(valuesCorrect / totalValuesCount) * 100}%` : '100%';
+
+      // Handle time spent metrics
+      const secondsSpent = (45 * 60) - secondsRemaining;
+      const spentMins = Math.floor(secondsSpent / 60);
+      const spentSecs = secondsSpent % 60;
+      document.getElementById('results-time-spent').innerText = activeMode === 'simulation' 
+        ? `${spentMins.toString().padStart(2, '0')}:${spentSecs.toString().padStart(2, '0')}`
+        : '00:00';
+      document.getElementById('results-bar-time').style.width = `${(secondsSpent / (45 * 60)) * 100}%`;
+
+      // Update local storage analytics
+      if (activeMode === 'simulation') {
+        stats.totalTests++;
+        if (hasPassed) stats.passedCount++;
+        stats.scores.push(correctTotal);
+        if (correctTotal > stats.bestScore) {
+          stats.bestScore = correctTotal;
+        }
+        saveStats();
+      }
+
+      changeView('results');
+    }
+
+    // ================= TABLE VIEW RENDERER (DASHBOARD COMPANION) =================
+    function renderTable() {
+      const tableBody = document.getElementById('table-body');
+      tableBody.innerHTML = '';
+
+      const countLabel = document.getElementById('table-results-count');
+      const searchVal = document.getElementById('table-search').value.toLowerCase();
+      const periodFilter = document.getElementById('table-filter-period').value;
+      const catFilter = document.getElementById('table-filter-category').value;
+
+      let filteredList = questionDatabase.filter(q => {
+        // Search matches
+        const matchesSearch = q.question.toLowerCase().includes(searchVal) || 
+                              q.options.some(opt => opt.toLowerCase().includes(searchVal));
+        
+        // Filter matches
+        const matchesPeriod = periodFilter === 'all' || q.exam === periodFilter;
+        const matchesCat = catFilter === 'all' || q.category === catFilter;
+
+        return matchesSearch && matchesPeriod && matchesCat;
+      });
+
+      countLabel.innerText = `Viser ${filteredList.length} ud af ${questionDatabase.length} spørgsmål`;
+
+      filteredList.forEach(q => {
+        const correctOptionText = q.options.find(opt => opt.startsWith(q.answer))?.substring(3) || '';
+        
+        const tr = document.createElement('tr');
+        tr.className = "hover:bg-slate-100/50 dark:hover:bg-slate-850/50 transition duration-150 divide-x divide-slate-200 dark:divide-slate-800";
+
+        // HTML Cell definitions
+        tr.innerHTML = `
+          <td class="p-4 font-bold text-xs text-slate-500 whitespace-nowrap">${q.exam}</td>
+          <td class="p-4 font-semibold text-slate-400 text-center">${q.num || '-'}</td>
+          <td class="p-4 font-bold text-slate-900 dark:text-white max-w-sm">${q.question}</td>
+          <td class="p-4 text-xs text-slate-500 max-w-xs space-y-1">
+            ${q.options.map(opt => `<div>• ${opt}</div>`).join('')}
+          </td>
+          <td class="p-4 text-center">
+            <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand-50 text-brand-700 dark:bg-brand-950/20 dark:text-brand-400 font-extrabold">
+              ${q.answer}
+            </span>
+          </td>
+          <td class="p-4 font-semibold text-emerald-600 dark:text-emerald-400 text-xs table-answer-text" data-revealed="${showAllTableAnswers ? 'true' : 'false'}">
+            <span class="answer-content ${showAllTableAnswers ? '' : 'blur-md select-none'} transition-all cursor-pointer" onclick="toggleSingleAnswerInTable(this)">
+              ${correctOptionText}
+            </span>
+          </td>
+          <td class="p-4 whitespace-nowrap">
+            <span class="inline-flex px-2 py-1 rounded-full text-[10px] font-extrabold tracking-wider uppercase bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300">
+              ${q.category}
+            </span>
+          </td>
+        `;
+
+        tableBody.appendChild(tr);
+      });
+    }
+
+    function toggleSingleAnswerInTable(element) {
+      if (element.classList.contains('blur-md')) {
+        element.classList.remove('blur-md', 'select-none');
+      } else {
+        element.classList.add('blur-md', 'select-none');
+      }
+    }
+
+    function toggleAllAnswersInTable() {
+      showAllTableAnswers = !showAllTableAnswers;
+      const btn = document.getElementById('btn-toggle-answers');
+      
+      if (showAllTableAnswers) {
+        btn.innerText = 'Skjul alle korrekte svar';
+      } else {
+        btn.innerText = 'Vis alle korrekte svar';
+      }
+      
+      renderTable();
+    }
+
+    function filterTable() {
+      renderTable();
+    }
+
+    // ================= DARK MODE / THEME MANAGEMENT =================
+    function toggleTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+        updateThemeUI(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+        updateThemeUI(true);
+      }
+    }
+
+    function updateThemeUI(isDark) {
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
+      
+      if (isDark) {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    }
+
+    // Initialize Page Settings on Load
+    window.onload = function() {
+      // Check current theme preference
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+        updateThemeUI(true);
+      } else {
+        document.documentElement.classList.remove('dark');
+        updateThemeUI(false);
+      }
+
+      initStats();
+      changeView('dashboard');
+    }
+  </script>
+</body>
+</html>
