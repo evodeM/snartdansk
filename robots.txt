@@ -15,6 +15,7 @@ Allow: /grundlovsceremoni
 Allow: /sindelagskontrol
 Allow: /ventetid
 Allow: /udvisningsregler-2026
+Allow: /vaerdiscreening-statsborgerskab
 Allow: /indfoedsretsproeven
 Allow: /privatliv
 
