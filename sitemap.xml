@@ -3,11 +3,11 @@
     <!-- Homepage - Main search functionality -->
     <url>
         <loc>https://snartdansk.dk/</loc>
-        <lastmod>2026-01-28</lastmod>
+        <lastmod>2026-06-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
-    
+
     <!-- FAQ - General information -->
     <url>
         <loc>https://snartdansk.dk/faq</loc>
@@ -15,7 +15,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
-    
+
     <!-- Calculators -->
     <url>
         <loc>https://snartdansk.dk/beskaftigelse</loc>
@@ -23,21 +23,21 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <url>
         <loc>https://snartdansk.dk/karens</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <url>
         <loc>https://snartdansk.dk/udlandsophold</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <!-- Tools -->
     <url>
         <loc>https://snartdansk.dk/tjekliste</loc>
@@ -45,14 +45,21 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
+    <url>
+        <loc>https://snartdansk.dk/ovelse-indfodsretsproeven</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
     <url>
         <loc>https://snartdansk.dk/pdf-vaerktoj</loc>
         <lastmod>2026-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <!-- Guides -->
     <url>
         <loc>https://snartdansk.dk/dispensation</loc>
@@ -72,7 +79,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
-    
+
     <!-- Nyheder / Lovændringer -->
     <url>
         <loc>https://snartdansk.dk/ventetid</loc>
@@ -92,7 +99,7 @@
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-    
+
     <!-- Juridisk information -->
     <url>
         <loc>https://snartdansk.dk/privatliv</loc>

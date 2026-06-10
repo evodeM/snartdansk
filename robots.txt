@@ -8,6 +8,7 @@ Allow: /beskaftigelse
 Allow: /karens
 Allow: /udlandsophold
 Allow: /tjekliste
+Allow: /ovelse-indfodsretsproeven
 Allow: /dispensation
 Allow: /pdf-vaerktoj
 Allow: /grundlovsceremoni
