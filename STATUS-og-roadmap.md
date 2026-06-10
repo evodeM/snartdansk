@@ -16,6 +16,7 @@
 | 10. jun 2026 | **Forside:** L 98-statusbanner (bortfaldet efter valg), title/meta afdateret, regeringsdato rettet til 3. juni |
 | 10. jun 2026 | **Navigation:** øve-prøve i header + footer; robots.txt + sitemap opdateret |
 | 10. jun 2026 | **Structured data:** `WebApplication` + `BreadcrumbList` på beskaftigelse, karens, udlandsophold, tjekliste, pdf-vaerktoj (+ Breadcrumb på privatliv) |
+| 10. jun 2026 | **Ny side** `/ordbog` — 23 begreber med DefinedTermSet-schema, interne links til de dybe sider, OG-billede; wiret i sitemap/robots/footer |
 | 10. jun 2026 | **Ny side** `/vaerdiscreening-statsborgerskab` (Aktuelt): NewsArticle/FAQ/Breadcrumb-schema, inline-kilder + kildeliste, IFU-medlemsliste (pr. juni 2026), OG-billede; wiret i sitemap/robots/footer/header; krydslinket med sindelagskontrol |
 | feb–jun 2026 | **Dokumenter:** gennemgang & SEO-plan, SEO-handlingsplan, SEO-audit, content-strategi |
 
@@ -31,6 +32,8 @@ Vægtning: **Effekt** (hvor meget rykker det trafik/tillid) × **Indsats** (hvor
 | **Nyt indhold** fra content-kalenderen: opholdskrav ("hvor mange år?"), gebyr 2026, dobbelt statsborgerskab, sprogkrav | Høj | Løbende | **1 — gør nu** |
 | **Performance:** erstat Tailwind-CDN med bygget, minificeret CSS | Høj | Middel-høj | **2** |
 | **Opholds-beregner** ("hvornår kan jeg søge?") | Høj | Høj | **2** |
+| **Tjekliste 2.0:** klikbare links + ophold-beregning + localStorage | Høj | Middel | **2** (udskudt) |
+| **Tjekliste SEO:** statisk crawlbar tekst + FAQ + Twitter-tags | Middel-høj | Lav | **2** (udskudt) |
 | "Om SnartDansk"-side (E-E-A-T: hvem står bag, hvordan opdateres reglerne) | Middel | Lav | **2** |
 | `BreadcrumbList` på de øvrige undersider (guides/aktuelt) | Middel | Lav | **3** |
 | Twitter Card-tags på karens, tjekliste, udlandsophold | Lav-middel | Lav | **3** |
@@ -57,3 +60,4 @@ Vægtning: **Effekt** (hvor meget rykker det trafik/tillid) × **Indsats** (hvor
 - Øve-prøven bruger **dagens format (45 spm.)** til simulering; ældre prøver (40 spm.) bruges kun som lyn-/øvespørgsmål.
 - Kilder skrives **både inline + i kildeliste** på nyheds-/guidesider.
 - Aktuelt-indhold krydslinkes (forside-banner ↔ værdiscreening ↔ sindelagskontrol ↔ header/footer).
+- **Ingen separat "Er jeg klar?"-wizard:** tjeklisten dækker den allerede (gruppe-tilpassede krav, blokering, fremdrift). Vi udbygger tjeklisten til "2.0" i stedet for at bygge en parallel wizard, så vi undgår overlap og dobbelt vedligehold.

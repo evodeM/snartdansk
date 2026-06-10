@@ -106,6 +106,13 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+        <loc>https://snartdansk.dk/ordbog</loc>
+        <lastmod>2026-06-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
     <!-- Juridisk information -->
     <url>
         <loc>https://snartdansk.dk/privatliv</loc>

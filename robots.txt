@@ -17,6 +17,7 @@ Allow: /ventetid
 Allow: /udvisningsregler-2026
 Allow: /vaerdiscreening-statsborgerskab
 Allow: /indfoedsretsproeven
+Allow: /ordbog
 Allow: /privatliv
 
 # Block sensitive data files (legal compliance - name list should not be indexed)
