@@ -227,6 +227,25 @@
                                 <p class="text-[10px] text-slate-400 ml-1">Ingen fængselsdomme og overholdelse af
                                     eventuel karenstid</p>
                             </div>
+
+                            <!-- DYNAMISKE INFO BOKSE (FORBEDRET UX) -->
+                            <div id="youngBenefitsInfo" class="hidden fade-slide-in p-4 bg-violet-50 rounded-2xl border border-violet-100">
+                                <div class="flex gap-2 items-start">
+                                    <span class="text-lg">💡</span>
+                                    <p class="text-xs text-violet-800 font-medium leading-relaxed">
+                                        <strong>Særlige lempelige regler:</strong> Da du kom til Danmark før du fyldte 8 år, kan du søge om dispensation fra det normale arbejdskrav. Desuden erstatter dit danske afgangsbevis fra folkeskolen eller gymnasiet kravet om sprogprøve (PD3). Du skal dog stadig bestå indfødsretsprøven og have permanent ophold.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="nordicBenefitsInfo" class="hidden fade-slide-in p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                                <div class="flex gap-2 items-start">
+                                    <span class="text-lg">🇩🇰</span>
+                                    <p class="text-xs text-blue-800 font-medium leading-relaxed">
+                                        <strong>Nordisk fordel:</strong> Som nordisk statsborger kan du normalt opnå statsborgerskab utroligt let (ofte efter 2-7 år) og er fritaget for de svære integrationskrav.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
@@ -288,6 +307,36 @@
                                         aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blocking Banner (Vises hvis der er blokerende kriminalitet eller manglende arbejde) -->
+                    <div id="blockingBanner"
+                        class="hidden bg-gradient-to-r from-red-500 to-rose-600 rounded-[2rem] p-8 text-white shadow-2xl shadow-rose-200">
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-white/20 rounded-2xl shrink-0">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 id="blockingTitle" class="text-2xl font-black mb-2">⚠️ Ansøgning er forhindret</h3>
+                                <p id="blockingText" class="text-rose-100 text-sm leading-relaxed">
+                                    Du har et registreret strafbart forhold, som i øjeblikket blokerer din ansøgning.
+                                </p>
+                                <a href="https://snartdansk.dk/karensberegner" id="blockingLink"
+                                    class="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-white text-rose-700 font-bold rounded-xl hover:bg-rose-50 transition-colors text-sm">
+                                    <span id="blockingLinkText">Prøv Karensberegneren</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 5l7 7-7 7">
                                         </path>
                                     </svg>
                                 </a>

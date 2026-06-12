@@ -18,6 +18,11 @@
     const checklistItems = document.getElementById('checklistItems');
     const progressBadge = document.getElementById('progressBadge');
     const successBanner = document.getElementById('successBanner');
+    const blockingBanner = document.getElementById('blockingBanner');
+    const blockingText = document.getElementById('blockingText');
+
+    const youngBenefitsInfo = document.getElementById('youngBenefitsInfo');
+    const nordicBenefitsInfo = document.getElementById('nordicBenefitsInfo');
 
     // Initialize
     function init() {
@@ -56,126 +61,145 @@
             criminal: hasCriminal.value
         };
 
+        const isHerboendeUng = u.isYoung && u.arrivedEarly;
         let rules = [];
-
-        // Check for dispensation eligibility
-        const needsDispensation = u.isYoung && u.arrivedEarly && !u.hasWork;
 
         // 1. OPHOLDSTID
         let years = 9;
         if (u.origin === 'refugee') years = 8;
         if (u.origin === 'nordic') years = 2;
+        if (isHerboendeUng) years = 8; // Særligt nedsat krav til herboende unge
+
         rules.push({
             id: 'residence',
             title: `Ophold i Danmark (${years} år)`,
-            desc: `Du skal have boet lovligt i Danmark i mindst ${years} år.`,
+            desc: isHerboendeUng 
+                ? `Som herboende ung skal du have boet lovligt i Danmark i mindst 8 år i træk.`
+                : `Du skal have boet uafbrudt og lovligt i Danmark i mindst ${years} år.`,
             icon: '🏠'
         });
 
-        // 2. PERMANENT OPHOLD (ikke for nordiske)
+        // 2. PERMANENT OPHOLDSTILLADELSE (Nordiske er fritaget)
         if (u.origin !== 'nordic') {
             rules.push({
                 id: 'permanent',
                 title: 'Permanent opholdstilladelse',
-                desc: 'Du skal have tidsubegrænset opholdstilladelse.',
+                desc: 'Du skal have en tidsubegrænset (permanent) opholdstilladelse i Danmark.',
                 icon: '📄'
             });
         }
 
-        // 3. ARBEJDE ELLER DISPENSATION
-        if (needsDispensation) {
+        // 3. BESKÆFTIGELSE / SKOLEGANG
+        if (isHerboendeUng) {
             rules.push({
-                id: 'dispensation',
-                title: 'Motiveret ansøgning (Dispensation)',
-                desc: 'Du kan søge dispensation fra arbejdskravet, da du kom til DK før du fyldte 8.',
-                icon: '📝',
-                tag: 'DISPENSATION'
-            });
-            rules.push({
-                id: 'education',
-                title: 'Uddannelsespapirer',
-                desc: 'Dokumentation for al skolegang i Danmark.',
-                icon: '🎓',
-                tag: 'BILAG'
+                id: 'education_doc',
+                title: 'Dispensation for arbejdskrav',
+                desc: 'Da du kom til DK før du fyldte 8 år, kan du søge dispensation fra det normale arbejdskrav ved at indsende bevis for din danske skolegang.',
+                icon: '✨',
+                tag: 'FORDELE'
             });
         } else if (u.origin !== 'nordic') {
+            if (!u.hasWork) {
+                rules.push({
+                    id: 'work',
+                    title: 'Beskæftigelse (Arbejdskrav ikke opfyldt)',
+                    desc: 'Du opfylder ikke kravet om 3,5 års fuldtidsarbejde inden for de seneste 4 år.',
+                    icon: '💼',
+                    tag: 'BLOKERENDE'
+                });
+            } else {
+                rules.push({
+                    id: 'work',
+                    title: 'Beskæftigelse (3,5 år)',
+                    desc: 'Du skal have været i fuldtidsarbejde i mindst 3,5 år inden for de seneste 4 år, og være i arbejde nu.',
+                    icon: '💼'
+                });
+            }
+        }
+
+        // 4. SELVFORSØRGELSE
+        rules.push({
+            id: 'selfSupport',
+            title: 'Selvforsørgelse (ingen hjælp)',
+            desc: 'Du må ikke have modtaget integrationsydelse, kontanthjælp eller lignende hjælp efter aktivloven de seneste 2 år, og max 4 mdr. de seneste 5 år.',
+            icon: '🏦'
+        });
+
+        // 5. GÆLD
+        rules.push({
+            id: 'debt',
+            title: 'Ingen forfalden gæld',
+            desc: 'Du må ikke have ubetalt gæld til det offentlige. SU-lån tæller kun som forfalden, hvis du har misligholdt dine afdrag.',
+            icon: '💳'
+        });
+
+        // 6. SPROGKRAV OG INDFØDSRETSPRØVE
+        if (u.origin !== 'nordic') {
+            if (isHerboendeUng) {
+                rules.push({
+                    id: 'language_exempt',
+                    title: 'Sprogkrav (Erstattes via skole)',
+                    desc: 'Dit afgangsbevis fra folkeskolen (gennemsnit på mindst 02) eller gymnasiet erstatter sprogprøven.',
+                    icon: '🗣️',
+                    tag: 'FORDELE'
+                });
+            } else {
+                rules.push({
+                    id: 'language',
+                    title: 'Bestået sprogprøve (PD3)',
+                    desc: 'Du skal have bestået Prøve i Dansk 3. (PD2 kan i særlige tilfælde accepteres ved langvarig selvforsørgelse).',
+                    icon: '🗣️'
+                });
+            }
+            
+            // ALLE (også unge) skal bestå indfødsretsprøven
             rules.push({
-                id: 'work',
-                title: 'Beskæftigelse (3,5 år)',
-                desc: 'Fuldtidsarbejde i mindst 3,5 år de sidste 4 år. Se Beskæftigelsesberegneren.',
-                icon: '💼'
+                id: 'test',
+                title: 'Bestået Indfødsretsprøve',
+                desc: 'Du skal have bestået den officielle Indfødsretsprøve af 2021 (historie, samfund og kultur).',
+                icon: '📚'
             });
         }
 
-        // 4. VANDELSKRAV (Kriminalitet)
+        // 7. VANDELSKRAV (Kriminalitet)
         if (u.criminal === 'clean') {
             rules.push({
-                id: 'criminal',
+                id: 'criminal_clean',
                 title: 'Vandelskrav opfyldt',
-                desc: 'Ingen strafbare forhold registreret.',
+                desc: 'Ingen strafbare forhold registreret på din straffeattest.',
                 icon: '✅'
             });
         } else if (u.criminal === 'minor') {
             rules.push({
-                id: 'criminal',
-                title: 'Vandelskrav (bøde under 3.000 kr.)',
-                desc: 'Bøder under 3.000 kr. medfører typisk ingen eller kort karensperiode. Se Karensberegneren.',
+                id: 'criminal_minor',
+                title: 'Vandelskrav (Bøde under 3.000 kr.)',
+                desc: 'Bøder under 3.000 kr. giver sjældent karensperioder, men skal altid oplyses under ansøgningen.',
                 icon: '⚠️',
-                tag: 'TJEK KARENS'
+                tag: 'TJEK DET'
             });
         } else if (u.criminal === 'waiting') {
             rules.push({
-                id: 'criminal_waiting',
-                title: 'Afvent karenstid',
-                desc: 'Du skal vente til karensperioden udløber før du kan søge.',
+                id: 'criminal_blocking_wait',
+                title: 'Udløb af karensperiode',
+                desc: 'Du har begået et forhold, som medfører en karensperiode. Du kan først søge igen, når karensperioden udløber.',
                 icon: '⏳',
                 tag: 'BLOKERENDE'
             });
         } else if (u.criminal === 'serious') {
             rules.push({
-                id: 'criminal_serious',
-                title: 'Fængselsdom registreret',
-                desc: 'Fængselsdomme medfører længere karensperioder. Se Karensberegneren.',
+                id: 'criminal_blocking_serious',
+                title: 'Udelukkelse pga. fængselsdom',
+                desc: 'Betingede eller ubetingede fængselsdomme medfører meget lange eller permanente karensperioder (udelukkelse).',
                 icon: '🚫',
                 tag: 'BLOKERENDE'
             });
         }
 
-        // 5. ØKONOMI
-        rules.push({
-            id: 'debt',
-            title: 'Ingen forfalden gæld',
-            desc: 'Gæld med henstand/afdrag kan være hindrende. SU-lån er kun forfalden ved manglende ratebetaling.',
-            icon: '💳'
-        });
-        rules.push({
-            id: 'selfSupport',
-            title: 'Selvforsørgelse',
-            desc: 'Du må ikke have modtaget hjælp fra det offentlige de seneste 2 år, og max 4 måneder sammenlagt de seneste 5 år.',
-            icon: '🏦'
-        });
-
-        // 6. SPROG (ikke for nordiske)
-        if (u.origin !== 'nordic') {
-            rules.push({
-                id: 'language',
-                title: 'Bestået sprogprøve (PD3)',
-                desc: 'Eller PD2 hvis ingen offentlig hjælp i 2 år + max 3 mdr. i 9 år. Alternativt 9. kl./gym med min. 02.',
-                icon: '🗣️'
-            });
-            rules.push({
-                id: 'test',
-                title: 'Indfødsretsprøven 2021',
-                desc: 'Bestået prøve om dansk samfund, historie og kultur.',
-                icon: '📚'
-            });
-        }
-
-        // 7. TROSKABSERKLÆRING
+        // 8. TROSKABSERKLÆRING
         rules.push({
             id: 'loyalty',
             title: 'Troskabs- og loyalitetserklæring',
-            desc: 'Erklæringerne underskrives med MitID som led i den digitale ansøgning.',
+            desc: 'Afgives digitalt med MitID under selve ansøgningsprocessen.',
             icon: '🤝'
         });
 
@@ -211,8 +235,17 @@
                 <div class="flex-1 min-w-0">
                     <div class="flex items-center gap-2 flex-wrap">
                         <h4 class="font-bold text-slate-800 ${isChecked ? 'line-through opacity-60' : ''}">${rule.title}</h4>
-                        ${rule.tag ? `<span class="text-[9px] font-black px-2 py-0.5 rounded ${rule.tag === 'BLOKERENDE' ? 'bg-red-100 text-red-600' : rule.tag === 'DISPENSATION' ? 'bg-violet-100 text-violet-600' : 'bg-slate-100 text-slate-500'
-                    }">${rule.tag}</span>` : ''}
+                        ${rule.tag ? `
+                            <span class="text-[9px] font-black px-2 py-0.5 rounded ${
+                                rule.tag === 'BLOKERENDE' 
+                                    ? 'bg-red-100 text-red-600' 
+                                    : rule.tag === 'FORDELE' 
+                                        ? 'bg-emerald-100 text-emerald-600' 
+                                        : rule.tag === 'UDDANNELSE'
+                                            ? 'bg-violet-100 text-violet-600'
+                                            : 'bg-slate-100 text-slate-500'
+                            }">${rule.tag}</span>
+                        ` : ''}
                     </div>
                     <p class="text-sm text-slate-500 mt-0.5">${rule.desc}</p>
                 </div>
@@ -253,21 +286,79 @@
         }
 
         // Check for blocking items
-        const hasBlockingItem = rules.some(r => r.tag === 'BLOKERENDE');
+        const blockingRule = rules.find(r => r.tag === 'BLOKERENDE');
 
-        // Show success banner
-        if (completedCount === totalCount && totalCount > 0 && !hasBlockingItem) {
-            successBanner.classList.remove('hidden');
-            successBanner.classList.add('celebrate');
-        } else {
+        if (blockingRule) {
             successBanner.classList.add('hidden');
-            successBanner.classList.remove('celebrate');
+            if (blockingBanner) {
+                blockingBanner.classList.remove('hidden');
+                blockingBanner.classList.add('celebrate');
+            }
+
+            const blockingTitle = document.getElementById('blockingTitle');
+            const blockingLink = document.getElementById('blockingLink');
+            const blockingLinkText = document.getElementById('blockingLinkText');
+
+            if (blockingRule.id === 'work') {
+                if (blockingTitle) blockingTitle.textContent = "⚠️ Arbejdskravet er ikke opfyldt";
+                if (blockingText) blockingText.textContent = "Du opfylder ikke det obligatoriske beskæftigelseskrav på 3,5 års fuldtidsarbejde inden for de seneste 4 år. Du kan beregne din præcise beskæftigelsestid med vores beregner.";
+                if (blockingLink && blockingLinkText) {
+                    blockingLink.href = "https://snartdansk.dk/beskaeftigelsesberegner";
+                    blockingLinkText.textContent = "Prøv Beskæftigelsesberegneren";
+                }
+            } else if (blockingRule.id.includes('wait')) {
+                if (blockingTitle) blockingTitle.textContent = "⚠️ Ansøgning er forhindret";
+                if (blockingText) blockingText.textContent = "Du afventer i øjeblikket en karensperiode på grund af strafbare forhold. Du kan først søge om dansk statsborgerskab, når din tidsbegrænsede karensperiode er udløbet.";
+                if (blockingLink && blockingLinkText) {
+                    blockingLink.href = "https://snartdansk.dk/karensberegner";
+                    blockingLinkText.textContent = "Prøv Karensberegneren";
+                }
+            } else {
+                if (blockingTitle) blockingTitle.textContent = "⚠️ Ansøgning er udelukket";
+                if (blockingText) blockingText.textContent = "Betingede eller ubetingede fængselsdomme medfører typisk meget lange karensperioder eller permanent udelukkelse fra dansk indfødsret. Tjek mulighederne grundigt.";
+                if (blockingLink && blockingLinkText) {
+                    blockingLink.href = "https://snartdansk.dk/karensberegner";
+                    blockingLinkText.textContent = "Prøv Karensberegneren";
+                }
+            }
+        } else {
+            if (blockingBanner) {
+                blockingBanner.classList.add('hidden');
+                blockingBanner.classList.remove('celebrate');
+            }
+            
+            // Show success banner
+            if (completedCount === totalCount && totalCount > 0) {
+                successBanner.classList.remove('hidden');
+                successBanner.classList.add('celebrate');
+            } else {
+                successBanner.classList.add('hidden');
+                successBanner.classList.remove('celebrate');
+            }
         }
     }
 
     // Update entire checklist
     function updateChecklist() {
+        const isHerboendeUng = isYoung && arrivalCheck.value === 'early';
+
+        if (youngBenefitsInfo) {
+            youngBenefitsInfo.classList.toggle('hidden', !isHerboendeUng);
+        }
+        if (nordicBenefitsInfo) {
+            nordicBenefitsInfo.classList.toggle('hidden', origin.value !== 'nordic');
+        }
+
         const rules = generateRules();
+        
+        // Remove checked items that are no longer in the rules
+        const currentRuleIds = new Set(rules.map(r => r.id));
+        checkedItems.forEach(id => {
+            if (!currentRuleIds.has(id)) {
+                checkedItems.delete(id);
+            }
+        });
+
         renderChecklist(rules);
     }
 
