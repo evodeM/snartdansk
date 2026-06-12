@@ -18,9 +18,9 @@
 **Kategori:** Samfundsforhold
 **A:** Ja
 **B:** Nej
-**Korrekt:** Ja
+**Korrekt:** A
 ### Q3
-**Spørgsmål:**Hvor stor en andel af Danmarks befolkning er medlem af folkekirken? ?
+**Spørgsmål:**Hvor stor en andel af Danmarks befolkning er medlem af folkekirken?
 **Kategori:** Samfundsforhold
 **A:** Cirka én ud af tre 
 **B:** Cirka én ud af to 
@@ -35,7 +35,7 @@
 **C:** Rusland
 **Korrekt:** B
 ### Q5
-**Spørgsmål:**Hvem har designet ”Your rainbow panorama” (Din regnbueudsigt), der er placeret oven på kunstmuseet ARoS i Aarhus? ?
+**Spørgsmål:**Hvem har designet ”Your rainbow panorama” (Din regnbueudsigt), der er placeret oven på kunstmuseet ARoS i Aarhus?
 **Kategori:** Kultur og Historie
 **A:** Arne Jacobsen 
 **B:** Olafur Eliasson 
