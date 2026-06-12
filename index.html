@@ -335,24 +335,21 @@
                         <p class="text-sm text-slate-500">Sammenflet og komprimer dokumenter sikkert.</p>
                     </a>
 
-                    <!-- Tjekliste - Bred -->
+                    <!-- Tjekliste -->
                     <a href="/tjekliste.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all sm:col-span-2 bg-gradient-to-r from-violet-50 to-white">
-                        <div class="flex items-center gap-4">
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all">
+                        <div class="flex items-start justify-between mb-4">
                             <div
-                                class="p-3 bg-white text-violet-600 rounded-xl shadow-sm group-hover:scale-110 transition-transform">
+                                class="p-3 bg-violet-50 text-violet-600 rounded-xl group-hover:scale-110 transition-transform">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
-                            <div>
-                                <h3 class="font-bold text-slate-900 group-hover:text-violet-600">Er du klar til at søge?
-                                </h3>
-                                <p class="text-sm text-slate-500 mt-1">Gå igennem den komplette tjekliste og se om du
-                                    opfylder alle krav.</p>
-                            </div>
+                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Krav</span>
                         </div>
+                        <h3 class="font-bold text-slate-900 group-hover:text-violet-600 mb-1">Tjekliste</h3>
+                        <p class="text-sm text-slate-500">Gå igennem den komplette tjekliste og se om du opfylder alle krav.</p>
                     </a>
                 </div>
             </div>
@@ -433,6 +430,16 @@
                                 <p class="text-xs text-slate-500 mt-0.5">Søg efter dit navn i søgefeltet ovenfor.</p>
                             </div>
                         </div>
+                        <div class="flex gap-4 items-start p-3 -mx-3 hover:bg-white hover:shadow-sm rounded-xl transition-all">
+                            <div
+                                class="shrink-0 w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center text-amber-600 font-bold text-xs">
+                                Næste
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-sm">Næste lovforslag i 2026?</h3>
+                                <p class="text-xs text-slate-500 mt-0.5">Det næste lovforslag om statsborgerskab forventes fremsat i oktober 2026 under den nye regering.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -488,22 +495,18 @@
         </div>
 
         <!-- Footer -->
-        <footer class="fixed bottom-6 left-0 right-0 text-center pointer-events-none z-10 px-4">
-            <div class="inline-flex flex-col items-center gap-3">
+        <footer class="mt-16 mb-8 text-center px-4 flex flex-col items-center gap-3">
+            <div
+                class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 shadow-sm rounded-full text-[10px] text-slate-500 uppercase tracking-widest font-bold transition-transform hover:scale-105">
+                <span class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></span>
+                Opdateret: 22. Jan 2026 • L 98
+            </div>
 
-                <div
-                    class="inline-flex items-center gap-2 px-5 py-2.5 bg-white/95 backdrop-blur-md border border-slate-200/60 shadow-xl rounded-full text-[10px] text-slate-500 uppercase tracking-widest font-bold pointer-events-auto transition-transform hover:scale-105">
-                    <span class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></span>
-                    Opdateret: 22. Jan 2026 • L 98
-                </div>
-
-                <div
-                    class="pointer-events-auto bg-slate-900/5 backdrop-blur-sm px-3 py-1 rounded-full border border-slate-200/20">
-                    <p class="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-[0.2em] font-semibold">
-                        🔒 100% lokal søgning i din browser • Ingen cookies • Ingen tracking
-                    </p>
-                </div>
-
+            <div
+                class="bg-slate-900/5 px-3 py-1 rounded-full border border-slate-200/20">
+                <p class="text-[8px] sm:text-[9px] text-slate-400 uppercase tracking-[0.2em] font-semibold">
+                    🔒 100% lokal søgning i din browser • Ingen cookies • Ingen tracking
+                </p>
             </div>
         </footer>
     </div>
