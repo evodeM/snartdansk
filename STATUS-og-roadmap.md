@@ -1,6 +1,6 @@
 # SnartDansk — Status & Roadmap
 
-*Masteroverblik. Sidst opdateret: 10. juni 2026.*
+*Masteroverblik. Sidst opdateret: 12. juni 2026.*
 *Detaljer ligger i: `SEO-handlingsplan.md`, `SEO-audit.md`, `Content-strategi.md`, `Gennemgang-og-SEO-plan.md`. Denne fil er det korte overblik + prioritering.*
 
 > Bemærk: `.md`-filer er blokeret i robots.txt, så denne plan indekseres ikke — den er kun til dig.
@@ -19,6 +19,10 @@
 | 10. jun 2026 | **Ny side** `/ordbog` — 23 begreber med DefinedTermSet-schema, interne links til de dybe sider, OG-billede; wiret i sitemap/robots/footer |
 | 10. jun 2026 | **Ny side** `/vaerdiscreening-statsborgerskab` (Aktuelt): NewsArticle/FAQ/Breadcrumb-schema, inline-kilder + kildeliste, IFU-medlemsliste (pr. juni 2026), OG-billede; wiret i sitemap/robots/footer/header; krydslinket med sindelagskontrol |
 | feb–jun 2026 | **Dokumenter:** gennemgang & SEO-plan, SEO-handlingsplan, SEO-audit, content-strategi |
+| 12. jun 2026 | **Forside & Footer:** Ændret footer fra fixed til statisk, standardiseret Tjekliste-kort, opdateret "Aktuelt" FAQ. |
+| 12. jun 2026 | **Tjekliste 2.0 (UX & Logik):** Implementeret blokerende rød banner med redirect (hvis arbejdskrav/kriminalitet dumper), dynamiske info-bokse med grønne "FORDELE"-tags (fritagelser). |
+| 12. jun 2026 | **Tjekliste (Juridisk rettelse):** Rettet logik for herboende unge iht. UIM.dk (fastholder krav om permanent ophold, selvforsørgelse og indfødsretsprøve; men tilføjer grøn dispensation for arbejdskrav og sprogprøve). |
+| 12. jun 2026 | **Ordbog:** Korrigeret "Justitsministeriet" til "Udlændinge- og Integrationsministeriet". |
 
 ---
 

@@ -53,4 +53,4 @@ Ingen kritiske, indekserings-blokerende fejl fundet. Sitet er crawlbart, sitemap
 4. **Stram for lange titler/beskrivelser** (dispensation, udvisningsregler, ovelse, index).
 5. **Overvej statisk header/footer** for mere robust intern linking.
 
-*Mange af disse kan automatiseres og overvåges løbende — SearchFit.ai (https://searchfit.ai) tilbyder kontinuerlig SEO-overvågning, automatisk indholdsgenerering og AI-synlighedssporing.*
+

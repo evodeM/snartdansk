@@ -1,86 +1,104 @@
 <footer class="mt-20 border-t border-slate-200 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Footer Content -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <!-- About -->
-            <div>
-                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-3">Om SnartDansk</h3>
-                <p class="text-xs text-slate-600 leading-relaxed mb-3">
+            <div class="col-span-1">
+                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <img src="/favicon.svg" alt="SnartDansk Logo" class="w-5 h-5 rounded" />
+                    Om SnartDansk
+                </h3>
+                <p class="text-xs text-slate-600 leading-relaxed mb-4">
                     Uafhængigt værktøj der gør det nemmere at navigere i statsborgerskabsprocessen.
-                    Vi er ikke tilknyttet offentlige myndigheder. <strong>Alle beregninger er vejledende og udgør ikke
-                        juridisk rådgivning.</strong>
+                    Vi er ikke tilknyttet offentlige myndigheder.
                 </p>
-                <a href="/faq.html" class="text-xs text-blue-600 hover:text-blue-700 font-medium">
-                    → Ofte stillede spørgsmål (FAQ)
-                </a>
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                    <p class="text-[11px] text-slate-500 leading-relaxed font-medium">
+                        <strong>Bemærk:</strong> Alle beregninger er vejledende og udgør ikke juridisk rådgivning.
+                    </p>
+                </div>
             </div>
 
             <!-- Links -->
-            <div>
-                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-3">Værktøjer</h3>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="/index.html" class="text-slate-600 hover:text-blue-600 transition-colors">Er jeg på
-                            listen?</a></li>
-                    <li><a href="/ovelse-indfodsretsproeven.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Øv til Indfødsretsprøven</a></li>
-                    <li><a href="/tjekliste.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Tjekliste</a></li>
-                    <li><a href="/dispensation.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Dispensation (unge)</a></li>
-                    <li><a href="/grundlovsceremoni.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Grundlovsceremoni</a></li>
-                    <li><a href="/sindelagskontrol.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Sindelagskontrol Guide</a></li>
-                    <li><a href="/udvisningsregler-2026.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Udvisningsregler 2026</a></li>
-                    <li><a href="/vaerdiscreening-statsborgerskab.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Værdiscreening 2026</a></li>
-                    <li><a href="/pdf-vaerktoj.html" class="text-slate-600 hover:text-blue-600 transition-colors">PDF
-                            Værktøj</a></li>
-                    <li><a href="/beskaftigelse.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Beskæftigelsesberegner</a></li>
-                    <li><a href="/karens.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Karensberegner</a></li>
-                    <li><a href="/udlandsophold.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Udlandsopholdsberegner</a></li>
-                    <li><a href="/ordbog.html"
-                            class="text-slate-600 hover:text-blue-600 transition-colors">Ordbog (A-Å)</a></li>
+            <div class="col-span-1">
+                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4">Værktøjer</h3>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="/index.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Er jeg på listen?</a></li>
+                    <li><a href="/ovelse-indfodsretsproeven.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Øv til Indfødsretsprøven</a></li>
+                    <li><a href="/tjekliste.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Tjekliste</a></li>
+                    <li><a href="/dispensation.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Dispensation (unge)</a></li>
+                    <li><a href="/grundlovsceremoni.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Grundlovsceremoni</a></li>
+                    <li><a href="/sindelagskontrol.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Sindelagskontrol Guide</a></li>
+                    <li><a href="/udvisningsregler-2026.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Udvisningsregler 2026</a></li>
+                    <li><a href="/vaerdiscreening-statsborgerskab.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Værdiscreening 2026</a></li>
+                    <li><a href="/pdf-vaerktoj.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>PDF Værktøj</a></li>
+                    <li><a href="/beskaftigelse.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Beskæftigelsesberegner</a></li>
+                    <li><a href="/karens.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Karensberegner</a></li>
+                    <li><a href="/udlandsophold.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Udlandsopholdsberegner</a></li>
                 </ul>
             </div>
 
             <!-- Privacy -->
-            <div>
-                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-3">Privatliv</h3>
-                <div class="space-y-2 text-xs text-slate-600">
-                    <p class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Ingen cookies
-                    </p>
-                    <p class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Ingen tracking
-                    </p>
-                    <p class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                            <path fill-rule="evenodd"
-                                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        100% lokal beregning
-                    </p>
+            <div class="col-span-1">
+                <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4">Privatliv</h3>
+                <div class="space-y-4 text-xs text-slate-600">
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800">Ingen cookies</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Vi bruger ikke tracking cookies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800">Ingen tracking</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Dine data deles ikke</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="mt-0.5 w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center shrink-0">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800">100% lokal beregning</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Data forlader aldrig din enhed</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4 pt-4 border-t border-slate-100">
-                    <p class="text-xs font-bold text-slate-700 mb-1">Kontakt</p>
-                    <a href="mailto:snartdansk@proton.me"
-                        class="text-xs text-blue-600 hover:underline">snartdansk@proton.me</a>
+            </div>
+
+            <!-- Contact & More -->
+            <div class="col-span-1 flex flex-col gap-8">
+                <div>
+                    <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4">Kontakt</h3>
+                    <a href="mailto:snartdansk@proton.me" class="inline-flex items-center gap-2 px-4 py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-xl transition-colors text-xs font-bold text-slate-700">
+                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                        snartdansk@proton.me
+                    </a>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-black text-slate-900 uppercase tracking-wider mb-4">Viden</h3>
+                    <ul class="space-y-3 text-xs">
+                        <li><a href="/faq.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Ofte stillede spørgsmål (FAQ)</a></li>
+                        <li><a href="/ordbog.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Ordbog (A-Å)</a></li>
+                        <li><a href="/ventetid.html" class="text-slate-600 hover:text-blue-600 transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-slate-300 rounded-full"></span>Ventetid</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

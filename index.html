@@ -148,10 +148,11 @@
 
         <!-- Header -->
         <header class="text-center mb-10">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-                Indfødsretslisten <span class="text-blue-600">L 98</span>
+            <span class="bg-indigo-50 text-indigo-900 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-6 inline-block border border-indigo-100 shadow-sm"><span class="text-red-500 mr-1">●</span> STATSBORGERSKAB · STATUS 2026</span>
+            <h1 class="text-4xl sm:text-[3.5rem] font-extrabold text-[#111827] tracking-tight mb-6 leading-tight max-w-3xl mx-auto">
+                Er du på indfødsrets<wbr>listen?
             </h1>
-            <p class="text-slate-500 font-medium text-lg">Søg efter dit navn eller din kommune på L 98-listen</p>
+            <p class="text-slate-600 font-medium text-lg max-w-2xl mx-auto">Søg dit navn eller din kommune på L 98-listen — og brug vores gratis værktøjer til at komme sikkert gennem hele processen mod dansk statsborgerskab.</p>
         </header>
 
         <!-- Status: L 98 bortfaldet -->
@@ -203,23 +204,30 @@
         </div>
 
         <!-- Sticky Search -->
-        <div class="sticky top-20 z-20 mb-8">
+        <div class="sticky top-20 z-20 mb-8 max-w-2xl mx-auto">
             <div class="relative group">
                 <div
                     class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-500 transition-colors">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </div>
                 <input type="text" id="searchInput" placeholder="Søg efter navn eller kommune..."
-                    class="block w-full pl-14 pr-6 py-5 bg-white border-0 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] focus:shadow-[0_8px_30px_rgb(37,99,235,0.15)] focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 text-lg placeholder:text-slate-300 font-medium"
+                    class="block w-full pl-14 pr-6 py-4 bg-white border border-slate-200 rounded-full shadow-lg focus:shadow-xl focus:border-blue-300 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all duration-300 text-lg placeholder:text-slate-400 font-medium text-slate-900"
                     autocomplete="off" autofocus>
             </div>
+            
+            <p class="text-[11px] text-slate-500 font-bold mt-4 flex items-center justify-end gap-1.5 px-4">
+                <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                </svg>
+                Søgningen sker 100% lokalt i din browser
+            </p>
 
             <!-- Live Status -->
             <div id="statusText"
-                class="absolute -bottom-6 left-6 text-[11px] font-bold uppercase tracking-widest text-slate-400 opacity-0 transition-opacity duration-300">
+                class="absolute -bottom-6 left-6 text-[11px] font-bold uppercase tracking-widest text-slate-400 opacity-0 transition-opacity duration-300 hidden">
                 Klar til søgning
             </div>
         </div>
@@ -247,109 +255,109 @@
                     Værktøjer
                 </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Tjekliste -->
+                    <a href="/tjekliste.html"
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">KRAV</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-violet-50 text-violet-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-1">Tjekliste</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Gå igennem den komplette tjekliste og se om du opfylder alle krav.</p>
+                        <span class="text-xs font-bold text-violet-600 mt-4 block group-hover:translate-x-1 transition-transform">Start tjekket ➔</span>
+                    </a>
+
                     <!-- Træn til Prøven -->
                     <a href="/ovelse-indfodsretsproeven.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-sky-50 text-sky-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Træning</span>
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-sky-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">TRÆNING</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-sky-600 mb-1">Træn til Prøven</h3>
-                        <p class="text-sm text-slate-500">Tag tidligere prøver med vores online simulator.</p>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-sky-50 text-sky-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-1">Træn til Prøven</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Tag tidligere prøver med vores online simulator.</p>
+                        <span class="text-xs font-bold text-sky-600 mt-4 block group-hover:translate-x-1 transition-transform">Øv dig nu ➔</span>
                     </a>
 
                     <!-- Beskæftigelse -->
                     <a href="/beskaftigelse.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-blue-50 text-blue-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
-                                    </path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Historik</span>
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">HISTORIK</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-blue-600 mb-1">Beskæftigelse</h3>
-                        <p class="text-sm text-slate-500">Tjek om du opfylder 42-måneders kravet til arbejde.</p>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-blue-50 text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-1">Beskæftigelse</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Tjek om du opfylder 42-måneders kravet til arbejde.</p>
+                        <span class="text-xs font-bold text-blue-600 mt-4 block group-hover:translate-x-1 transition-transform">Tjek timer ➔</span>
                     </a>
 
                     <!-- Karens -->
                     <a href="/karens.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-amber-50 text-amber-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
-                                    </path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Straf</span>
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-amber-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">STRAF</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-amber-600 mb-1">Karensberegner</h3>
-                        <p class="text-sm text-slate-500">Beregn hvor længe du skal vente efter en straf.</p>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-amber-50 text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-1">Karensberegner</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Beregn hvor længe du skal vente efter en straf.</p>
+                        <span class="text-xs font-bold text-amber-600 mt-4 block group-hover:translate-x-1 transition-transform">Beregn karens ➔</span>
                     </a>
 
                     <!-- Udlandsophold -->
                     <a href="/udlandsophold.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-emerald-50 text-emerald-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Rejser</span>
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">REJSER</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-emerald-600 mb-1">Udlandsophold</h3>
-                        <p class="text-sm text-slate-500">Hold styr på dine rejsedage og ferier.</p>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-emerald-50 text-emerald-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-900 mb-1">Udlandsophold</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Hold styr på dine rejsedage og ferier.</p>
+                        <span class="text-xs font-bold text-emerald-600 mt-4 block group-hover:translate-x-1 transition-transform">Læg sammen ➔</span>
                     </a>
 
                     <!-- PDF Værktøj -->
                     <a href="/pdf-vaerktoj.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-orange-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-orange-50 text-orange-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Dokumenter</span>
+                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-orange-300 hover:shadow-md transition-all flex flex-col h-full relative">
+                        <div class="absolute top-5 right-5">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">DOKUMENTER</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-orange-600 mb-1">PDF Værktøj</h3>
-                        <p class="text-sm text-slate-500">Sammenflet og komprimer dokumenter sikkert.</p>
-                    </a>
-
-                    <!-- Tjekliste -->
-                    <a href="/tjekliste.html"
-                        class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all">
-                        <div class="flex items-start justify-between mb-4">
-                            <div
-                                class="p-3 bg-violet-50 text-violet-600 rounded-xl group-hover:scale-110 transition-transform">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Krav</span>
+                        <div class="w-10 h-10 rounded-full flex items-center justify-center bg-orange-50 text-orange-600 mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                </path>
+                            </svg>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-violet-600 mb-1">Tjekliste</h3>
-                        <p class="text-sm text-slate-500">Gå igennem den komplette tjekliste og se om du opfylder alle krav.</p>
+                        <h3 class="font-bold text-slate-900 mb-1">PDF Værktøj</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Sammenflet og komprimer dokumenter sikkert.</p>
+                        <span class="text-xs font-bold text-orange-600 mt-4 block group-hover:translate-x-1 transition-transform">Saml PDF ➔</span>
                     </a>
                 </div>
             </div>
@@ -367,34 +375,28 @@
                     Guides & Viden
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <a href="/sindelagskontrol.html" class="group block">
-                        <div
-                            class="aspect-video bg-indigo-100 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
-                            <span class="text-4xl">⚖️</span>
+                    <a href="/ventetid.html" class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all flex flex-col h-full">
+                        <div class="mb-3">
+                            <span class="inline-block bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">PROCES</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-indigo-600">Sindelagskontrol</h3>
-                        <p class="text-sm text-slate-500 mt-1">Forstå hvad grundlovens §44 betyder for dig og dine
-                            holdninger.</p>
+                        <h3 class="font-bold text-slate-900 group-hover:text-indigo-600 mb-2">Ventetid & sagsbehandling</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Se de aktuelle sagsbehandlingstider og forstå de forskellige faser i processen.</p>
                     </a>
 
-                    <a href="/grundlovsceremoni.html" class="group block">
-                        <div
-                            class="aspect-video bg-red-50 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
-                            <span class="text-4xl">🇩🇰</span>
+                    <a href="/sindelagskontrol.html" class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-red-300 hover:shadow-md transition-all flex flex-col h-full">
+                        <div class="mb-3">
+                            <span class="inline-block bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">GRUNDLOVEN</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-red-600">Grundlovsceremoni</h3>
-                        <p class="text-sm text-slate-500 mt-1">Alt om deltagelse, håndtrykket og hvad du skal huske på
-                            dagen.</p>
+                        <h3 class="font-bold text-slate-900 group-hover:text-red-600 mb-2">Sindelagskontrol</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Forstå hvad grundlovens §44 betyder for dig og dine holdninger.</p>
                     </a>
 
-                    <a href="/dispensation.html" class="group block">
-                        <div
-                            class="aspect-video bg-blue-50 rounded-xl mb-3 flex items-center justify-center group-hover:shadow-lg transition-all">
-                            <span class="text-4xl">🎓</span>
+                    <a href="/dispensation.html" class="group bg-white p-5 rounded-2xl shadow-sm border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all flex flex-col h-full">
+                        <div class="mb-3">
+                            <span class="inline-block bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">UNGE UNDER 22</span>
                         </div>
-                        <h3 class="font-bold text-slate-900 group-hover:text-blue-600">Unge under 22 år</h3>
-                        <p class="text-sm text-slate-500 mt-1">Særlige regler om dispensation for ansøgere født eller
-                            opvokset i DK.</p>
+                        <h3 class="font-bold text-slate-900 group-hover:text-blue-600 mb-2">Dispensation for unge</h3>
+                        <p class="text-sm text-slate-500 flex-grow">Særlige regler om dispensation for ansøgere indrejst før det 8. år.</p>
                     </a>
                 </div>
             </div>
