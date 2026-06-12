@@ -71,7 +71,7 @@
             { "@type": "DefinedTerm", "name": "Selvforsørgelse", "description": "Kravet om ikke at have modtaget for meget offentlig hjælp i en bestemt periode." },
             { "@type": "DefinedTerm", "name": "Forfalden gæld", "description": "Ubetalt, forfalden gæld til det offentlige, som kan hindre statsborgerskab." },
             { "@type": "DefinedTerm", "name": "Prøve i Dansk 3 (PD3)", "description": "Sprogprøve på et niveau, der typisk kræves for dansk statsborgerskab." },
-            { "@type": "DefinedTerm", "name": "Troskabs- og loyalitetserklæring", "description": "En erklæring om troskab og loyalitet mod Danmark, som underskrives i ansøgningen." },
+            { "@type": "DefinedTerm", "name": "Troskabs- og loyalitetserklæring", "description": "En erklæring om troskab og loyalitet mod Danmark, som underskrives i forbindelse med ansøgningen." },
             { "@type": "DefinedTerm", "name": "Dispensation", "description": "Fritagelse fra et krav, fx beskæftigelseskravet, i særlige tilfælde." },
             { "@type": "DefinedTerm", "name": "Erklæringsordning", "description": "En ordning, hvor visse unge født og opvokset i Danmark kan få statsborgerskab ved erklæring frem for lovforslag." },
             { "@type": "DefinedTerm", "name": "Grundlovsceremoni", "description": "Den afsluttende ceremoni med håndtryk, hvor man formelt bliver dansk statsborger." },
@@ -92,7 +92,10 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-        html { scroll-behavior: smooth; }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -220,7 +223,8 @@
 
                 <div id="troskabserklaering" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <h2 class="text-lg font-bold text-slate-900">Troskabs- og loyalitetserklæring</h2>
-                    <p class="text-slate-600 mt-1">En erklæring om troskab og loyalitet mod Danmark, som underskrives med
+                    <p class="text-slate-600 mt-1">En erklæring om troskab og loyalitet mod Danmark, som underskrives
+                        med
                         MitID som led i ansøgningen.</p>
                 </div>
 
@@ -239,13 +243,14 @@
 
                 <div id="lovforslag-indfodsret" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <h2 class="text-lg font-bold text-slate-900">Lovforslag om indfødsret</h2>
-                    <p class="text-slate-600 mt-1">Det lovforslag, justitsministeren fremsætter ca. to gange om året,
-                        som tildeler statsborgerskab til en navngiven liste af ansøgere (indfødsretslisten).</p>
+                    <p class="text-slate-600 mt-1">Det lovforslag, udlændinge- og integrationsministeren fremsætter ca.
+                        to gange om året, som tildeler statsborgerskab til en navngiven liste af ansøgere (indfødsretslisten).</p>
                 </div>
 
                 <div id="indfodsretsudvalget" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <h2 class="text-lg font-bold text-slate-900">Indfødsretsudvalget</h2>
-                    <p class="text-slate-600 mt-1">Folketingets stående udvalg, der behandler lovforslagene om indfødsret
+                    <p class="text-slate-600 mt-1">Folketingets stående udvalg, der behandler lovforslagene om
+                        indfødsret
                         og i praksis er med til at afgøre, hvem der kommer med. <a
                             href="/vaerdiscreening-statsborgerskab.html"
                             class="text-blue-600 font-semibold hover:underline">Se udvalgets sammensætning →</a></p>
@@ -297,11 +302,9 @@
     <div id="footer-container"></div>
 
     <!-- Load Shared Components -->
-    <script src="/js/calculators.js" defer></script>
+    <script src="/js/calculators.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            CalculatorUtils.loadSharedComponents();
-        });
+        CalculatorUtils.loadSharedComponents();
     </script>
 
 </body>
