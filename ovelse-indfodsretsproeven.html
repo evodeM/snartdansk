@@ -596,30 +596,71 @@
 
       const optionsContainer = document.getElementById('options-container');
       optionsContainer.innerHTML = '';
+      const hasAnswered = !!userAnswers[currentQuestionIndex];
+
       q.options.forEach(opt => {
         const optionLetter = opt.charAt(0);
         const isSelected = userAnswers[currentQuestionIndex] === optionLetter;
-        let buttonClass = "w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between text-base font-semibold group cursor-pointer ";
-        buttonClass += isSelected
-          ? "border-blue-600 bg-blue-50/50 text-slate-900"
-          : "border-slate-200 hover:border-slate-300 bg-white text-slate-800";
+        const isCorrectAns = q.answer === optionLetter;
+
+        let buttonClass = "w-full text-left p-5 rounded-2xl border-2 transition-all flex items-center justify-between text-base font-semibold group ";
+
+        if (activeMode !== 'simulation' && hasAnswered) {
+          if (isCorrectAns) {
+            buttonClass += "border-emerald-600 bg-emerald-50/50 text-emerald-900";
+          } else if (isSelected) {
+            buttonClass += "border-red-600 bg-red-50/50 text-red-900";
+          } else {
+            buttonClass += "border-slate-200 bg-slate-50 text-slate-400 cursor-not-allowed";
+          }
+        } else {
+          buttonClass += "cursor-pointer ";
+          buttonClass += isSelected
+            ? "border-blue-600 bg-blue-50/50 text-slate-900"
+            : "border-slate-200 hover:border-slate-300 bg-white text-slate-800";
+        }
+
         const btn = document.createElement('button');
         btn.className = buttonClass;
-        btn.onclick = () => selectAnswer(optionLetter);
+        if (activeMode === 'simulation' || !hasAnswered) {
+          btn.onclick = () => selectAnswer(optionLetter);
+        } else {
+          btn.disabled = true;
+        }
+
+        let optionSpanClass = "w-8 h-8 rounded-lg flex items-center justify-center text-sm font-extrabold ";
+        if (activeMode !== 'simulation' && hasAnswered) {
+          if (isCorrectAns) optionSpanClass += "bg-emerald-600 text-white";
+          else if (isSelected) optionSpanClass += "bg-red-600 text-white";
+          else optionSpanClass += "bg-slate-100 text-slate-400";
+        } else {
+          optionSpanClass += isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 group-hover:bg-slate-200 text-slate-600';
+        }
+
         let optionHtml = `
           <div class="flex items-center space-x-4">
-            <span class="w-8 h-8 rounded-lg flex items-center justify-center text-sm font-extrabold ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 group-hover:bg-slate-200 text-slate-600'}">${optionLetter}</span>
+            <span class="${optionSpanClass}">${optionLetter}</span>
             <span>${opt.substring(3)}</span>
           </div>`;
-        if (isSelected) optionHtml += `<span class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs">✓</span>`;
+
+        if (activeMode !== 'simulation' && hasAnswered) {
+          if (isCorrectAns) {
+            optionHtml += `<span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">✓</span>`;
+          } else if (isSelected) {
+            optionHtml += `<span class="w-5 h-5 rounded-full bg-red-600 text-white flex items-center justify-center text-xs">✗</span>`;
+          }
+        } else {
+          if (isSelected) optionHtml += `<span class="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs">✓</span>`;
+        }
+
         btn.innerHTML = optionHtml;
         optionsContainer.appendChild(btn);
       });
 
       const feedbackBox = document.getElementById('feedback-explanation');
-      if (activeMode !== 'simulation' && userAnswers[currentQuestionIndex]) {
+      if (activeMode !== 'simulation' && hasAnswered && q.explanation && q.explanation.trim() !== "") {
         feedbackBox.classList.remove('hidden');
-        document.getElementById('explanation-text').innerText = q.explanation || "Dette spørgsmål dækker det danske pensum.";
+        document.getElementById('explanation-text').innerText = q.explanation;
       } else {
         feedbackBox.classList.add('hidden');
       }
@@ -638,14 +679,10 @@
     }
 
     function selectAnswer(letter) {
+      if (activeMode !== 'simulation' && userAnswers[currentQuestionIndex]) return;
       userAnswers[currentQuestionIndex] = letter;
       renderQuestion();
       renderSidebar();
-      if (activeMode !== 'simulation') {
-        const feedbackBox = document.getElementById('feedback-explanation');
-        feedbackBox.classList.remove('hidden');
-        document.getElementById('explanation-text').innerText = currentQuestions[currentQuestionIndex].explanation || "Dette spørgsmål dækker pensummaterialet.";
-      }
     }
 
     function toggleFlag() {
@@ -754,9 +791,10 @@
               return `<div class="${optClass}"><span class="w-5 h-5 rounded flex items-center justify-center font-bold text-xs shrink-0 ${isCorrectAns ? 'bg-emerald-600 text-white' : (isUserSelect ? 'bg-red-600 text-white' : 'bg-slate-200')}">${optLetter}</span><span class="truncate">${opt.substring(3)}</span></div>`;
             }).join('')}
           </div>
-          <div class="p-4 bg-slate-50 rounded-xl text-xs sm:text-sm text-slate-600 leading-relaxed border border-slate-200">
-            <strong>Uddybende svar:</strong> ${q.explanation || 'Ingen yderligere kommentar.'}
-          </div>`;
+          ${q.explanation && q.explanation.trim() !== "" ? `
+          <div class="p-4 bg-slate-50 rounded-xl text-xs sm:text-sm text-slate-600 leading-relaxed border border-slate-200 mt-3">
+            <strong>Uddybende svar:</strong> ${q.explanation}
+          </div>` : ''}`;
         qCard.innerHTML = headerHtml + detailsHtml;
         listContainer.appendChild(qCard);
       });
